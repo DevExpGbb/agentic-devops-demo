@@ -295,6 +295,15 @@ export const translations = {
     cookieConsentAccept: "Accept",
     cookieConsentDecline: "Decline",
 
+    // Analytics consent management
+    analyticsConsentStatus: "Analytics Status",
+    analyticsCurrentlyEnabled: "Analytics are currently enabled",
+    analyticsCurrentlyDisabled: "Analytics are currently disabled",
+    enableAnalytics: "Enable Analytics",
+    disableAnalytics: "Disable Analytics",
+    analyticsEnabled: "Analytics enabled",
+    analyticsDisabled: "Analytics disabled",
+
     // Game not found translations
     gameNotFoundTitle: "Game Not Found",
     gameNotFoundDesc: "The game you're looking for doesn't exist or has been deleted.",
@@ -752,6 +761,15 @@ export const translations = {
     cookieConsentDescription: "Utilizamos Google Analytics para comprender cómo usas nuestra aplicación y mejorar tu experiencia. Tus datos permanecen anónimos. Puedes cambiar tu preferencia en cualquier momento en la Política de Privacidad.",
     cookieConsentAccept: "Aceptar",
     cookieConsentDecline: "Rechazar",
+
+    // Analytics consent management
+    analyticsConsentStatus: "Estado de Análisis",
+    analyticsCurrentlyEnabled: "Los análisis están actualmente habilitados",
+    analyticsCurrentlyDisabled: "Los análisis están actualmente deshabilitados",
+    enableAnalytics: "Habilitar Análisis",
+    disableAnalytics: "Deshabilitar Análisis",
+    analyticsEnabled: "Análisis habilitados",
+    analyticsDisabled: "Análisis deshabilitados",
 
     // Game not found translations
     gameNotFoundTitle: "Juego No Encontrado",
@@ -1211,6 +1229,15 @@ export const translations = {
     cookieConsentAccept: "Aceitar",
     cookieConsentDecline: "Recusar",
 
+    // Analytics consent management
+    analyticsConsentStatus: "Status de Análises",
+    analyticsCurrentlyEnabled: "As análises estão atualmente habilitadas",
+    analyticsCurrentlyDisabled: "As análises estão atualmente desabilitadas",
+    enableAnalytics: "Habilitar Análises",
+    disableAnalytics: "Desabilitar Análises",
+    analyticsEnabled: "Análises habilitadas",
+    analyticsDisabled: "Análises desabilitadas",
+
     // Game not found translations
     gameNotFoundTitle: "Jogo Não Encontrado",
     gameNotFoundDesc: "O jogo que você procura não existe ou foi excluído.",
@@ -1564,6 +1591,15 @@ export const translations = {
     cookieConsentDescription: "Nous utilisons Google Analytics pour comprendre comment vous utilisez notre application et améliorer votre expérience. Vos données restent anonymes. Vous pouvez modifier votre préférence à tout moment dans la Politique de Confidentialité.",
     cookieConsentAccept: "Accepter",
     cookieConsentDecline: "Refuser",
+
+    // Analytics consent management
+    analyticsConsentStatus: "Statut des Analyses",
+    analyticsCurrentlyEnabled: "Les analyses sont actuellement activées",
+    analyticsCurrentlyDisabled: "Les analyses sont actuellement désactivées",
+    enableAnalytics: "Activer les Analyses",
+    disableAnalytics: "Désactiver les Analyses",
+    analyticsEnabled: "Analyses activées",
+    analyticsDisabled: "Analyses désactivées",
 
     // Game not found translations
     gameNotFoundTitle: "Jeu Non Trouvé",
@@ -2107,6 +2143,15 @@ export const translations = {
     cookieConsentAccept: "Accetta",
     cookieConsentDecline: "Rifiuta",
 
+    // Analytics consent management
+    analyticsConsentStatus: "Stato delle Analisi",
+    analyticsCurrentlyEnabled: "Le analisi sono attualmente abilitate",
+    analyticsCurrentlyDisabled: "Le analisi sono attualmente disabilitate",
+    enableAnalytics: "Abilita Analisi",
+    disableAnalytics: "Disabilita Analisi",
+    analyticsEnabled: "Analisi abilitate",
+    analyticsDisabled: "Analisi disabilitate",
+
     // Game not found translations
     gameNotFoundTitle: "Gioco Non Trovato",
     gameNotFoundDesc: "Il gioco che stai cercando non esiste o è stato eliminato.",
@@ -2649,6 +2694,15 @@ export const translations = {
     cookieConsentAccept: "同意する",
     cookieConsentDecline: "拒否する",
 
+    // Analytics consent management
+    analyticsConsentStatus: "分析ステータス",
+    analyticsCurrentlyEnabled: "分析は現在有効です",
+    analyticsCurrentlyDisabled: "分析は現在無効です",
+    enableAnalytics: "分析を有効にする",
+    disableAnalytics: "分析を無効にする",
+    analyticsEnabled: "分析が有効になりました",
+    analyticsDisabled: "分析が無効になりました",
+
     // Game not found translations
     gameNotFoundTitle: "ゲームが見つかりません",
     gameNotFoundDesc: "探しているゲームは存在しないか削除されています。",
@@ -3190,6 +3244,15 @@ export const translations = {
     cookieConsentDescription: "我们使用Google Analytics了解您如何使用我们的应用并改善您的体验。您的数据保持匿名。您可以随时在隐私政策中更改您的偏好。",
     cookieConsentAccept: "接受",
     cookieConsentDecline: "拒绝",
+
+    // Analytics consent management
+    analyticsConsentStatus: "分析状态",
+    analyticsCurrentlyEnabled: "分析目前已启用",
+    analyticsCurrentlyDisabled: "分析目前已禁用",
+    enableAnalytics: "启用分析",
+    disableAnalytics: "禁用分析",
+    analyticsEnabled: "分析已启用",
+    analyticsDisabled: "分析已禁用",
 
     // Game not found translations
     gameNotFoundTitle: "未找到游戏",
@@ -3831,6 +3894,15 @@ export const translations = {
     cookieConsentAccept: "Akzeptieren",
     cookieConsentDecline: "Ablehnen",
 
+    // Analytics consent management
+    analyticsConsentStatus: "Analyse-Status",
+    analyticsCurrentlyEnabled: "Analysen sind derzeit aktiviert",
+    analyticsCurrentlyDisabled: "Analysen sind derzeit deaktiviert",
+    enableAnalytics: "Analysen aktivieren",
+    disableAnalytics: "Analysen deaktivieren",
+    analyticsEnabled: "Analysen aktiviert",
+    analyticsDisabled: "Analysen deaktiviert",
+
     gameNotFoundTitle: "Spiel nicht gefunden",
     gameNotFoundDesc: "Das gesuchte Spiel existiert nicht oder wurde gelöscht.",
     gameNotFoundReason1: "Das Spiel wurde möglicherweise vom Organisator gelöscht",
@@ -4268,6 +4340,15 @@ export const translations = {
     cookieConsentDescription: "We gebruiken Google Analytics om te begrijpen hoe u onze toepassing gebruikt en uw ervaring te verbeteren. Uw gegevens blijven anoniem. U kunt uw voorkeur op elk moment wijzigen in het Privacybeleid.",
     cookieConsentAccept: "Accepteren",
     cookieConsentDecline: "Weigeren",
+
+    // Analytics consent management
+    analyticsConsentStatus: "Analysestatus",
+    analyticsCurrentlyEnabled: "Analyses zijn momenteel ingeschakeld",
+    analyticsCurrentlyDisabled: "Analyses zijn momenteel uitgeschakeld",
+    enableAnalytics: "Analyses inschakelen",
+    disableAnalytics: "Analyses uitschakelen",
+    analyticsEnabled: "Analyses ingeschakeld",
+    analyticsDisabled: "Analyses uitgeschakeld",
 
     gameNotFoundTitle: "Spel niet gevonden",
     gameNotFoundDesc: "Het spel dat u zoekt bestaat niet of is verwijderd.",
