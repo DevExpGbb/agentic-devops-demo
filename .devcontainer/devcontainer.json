@@ -5,7 +5,7 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "version": "latest",
       "moby": true,
-      "dockerDashComposeVersion": "v2"
+      "dockerComposeVersion": "v2"
     },
     "ghcr.io/devcontainers/features/azure-cli:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {},
@@ -60,7 +60,7 @@
       "onAutoForward": "silent"
     }
   },
-  "postCreateCommand": "npm install && cd api && npm install && (cp local.settings.json.example local.settings.json || node ../scripts/setup-local-settings.js)",
+  "postCreateCommand": "npm install && cd api && npm install && node ../scripts/setup-local-settings.js",
   "postStartCommand": "echo '🎁 Secret Santa development environment ready! Press F5 to start.'",
   "remoteUser": "root",
   "containerEnv": {
