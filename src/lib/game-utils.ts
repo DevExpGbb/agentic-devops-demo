@@ -155,9 +155,25 @@ export function reassignParticipant(
   })
 }
 
+/**
+ * Format a date string in YYYY-MM-DD format for display
+ * 
+ * IMPORTANT: This function duplicates date validation logic from the backend
+ * (api/src/shared/game-utils.ts validateDateString) to ensure consistent
+ * behavior across frontend and backend. When updating validation rules,
+ * both implementations must be kept synchronized.
+ * 
+ * The validation includes:
+ * - Format check: Enforces YYYY-MM-DD with exact digit counts
+ * - Calendar validation: Rejects invalid dates like Feb 31, April 31
+ * 
+ * @param dateString - Date string in YYYY-MM-DD format
+ * @param locale - Locale for formatting (default: 'es')
+ * @returns Formatted date string or fallback representation
+ */
 export function formatDate(dateString: string, locale: string = 'es'): string {
   // Parse YYYY-MM-DD format correctly to avoid timezone issues
-  // Validate format first
+  // Validate format first (matches backend validation in api/src/shared/game-utils.ts)
   if (!/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
     // Fallback for unexpected format
     const date = new Date(dateString)

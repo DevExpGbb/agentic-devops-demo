@@ -16,11 +16,16 @@ jest.mock('../shared/game-utils', () => ({
       giverId: p.id,
       receiverId: participants[(i + 1) % participants.length].id
     }))
-  )
+  ),
+  validateDateString: jest.fn().mockImplementation((dateString: string) => {
+    // Use the actual validation logic
+    const actualModule = jest.requireActual('../shared/game-utils')
+    return actualModule.validateDateString(dateString)
+  })
 }))
 
 import { createGame, getDatabaseStatus } from '../shared/cosmosdb'
-import { generateGameCode, generateId, generateAssignments } from '../shared/game-utils'
+import { generateGameCode, generateId, generateAssignments, validateDateString } from '../shared/game-utils'
 
 const mockCreateGame = createGame as jest.Mock
 const mockGetDatabaseStatus = getDatabaseStatus as jest.Mock
@@ -552,6 +557,26 @@ describe('createGame function', () => {
       const requestBody = {
         name: 'Non-Leap Year Date',
         date: '2025-02-29',  // 2025 is not a leap year
+        participants: [
+          { name: 'Alice' },
+          { name: 'Bob' },
+          { name: 'Charlie' }
+        ]
+      }
+
+      const mockRequest = createMockRequest(requestBody)
+      const response = await createGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(400)
+      expect(response.jsonBody).toEqual({
+        error: 'Invalid calendar date. The date does not exist (e.g., February 31, April 31).'
+      })
+    })
+
+    it('should reject April 31st (30-day month)', async () => {
+      const requestBody = {
+        name: 'Invalid 30-day Month',
+        date: '2026-04-31',  // April only has 30 days
         participants: [
           { name: 'Alice' },
           { name: 'Bob' },
