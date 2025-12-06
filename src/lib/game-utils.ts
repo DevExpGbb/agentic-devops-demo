@@ -158,10 +158,13 @@ export function reassignParticipant(
 /**
  * Format a date string in YYYY-MM-DD format for display
  * 
- * IMPORTANT: This function duplicates date validation logic from the backend
- * (api/src/shared/game-utils.ts validateDateString) to ensure consistent
- * behavior across frontend and backend. When updating validation rules,
- * both implementations must be kept synchronized.
+ * NOTE: This function includes basic validation for display purposes only.
+ * The backend performs authoritative validation in api/src/shared/game-utils.ts.
+ * The frontend validation ensures consistent display behavior but does not
+ * replace server-side validation for security and data integrity.
+ * 
+ * When updating validation rules, keep frontend and backend implementations
+ * synchronized for consistent user experience.
  * 
  * The validation includes:
  * - Format check: Enforces YYYY-MM-DD with exact digit counts
@@ -175,13 +178,8 @@ export function formatDate(dateString: string, locale: string = 'es'): string {
   // Parse YYYY-MM-DD format correctly to avoid timezone issues
   // Validate format first (matches backend validation in api/src/shared/game-utils.ts)
   if (!/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
-    // Fallback for unexpected format
-    const date = new Date(dateString)
-    return date.toLocaleDateString(locale, {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+    // Return as-is for unexpected format to preserve original value
+    return dateString
   }
   
   // Split the date string and create date in local timezone

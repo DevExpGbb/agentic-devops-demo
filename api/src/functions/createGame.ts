@@ -51,7 +51,7 @@ export async function createGameHandler(request: HttpRequest, context: Invocatio
       if (!dateValidation.valid) {
         const error = createErrorResponse(
           ApiErrorCode.VALIDATION_ERROR,
-          dateValidation.error!,
+          dateValidation.error,
           undefined,
           requestId
         )
@@ -62,7 +62,8 @@ export async function createGameHandler(request: HttpRequest, context: Invocatio
       }
       
       // Create date in local timezone for comparison
-      const eventDate = new Date(dateValidation.year!, dateValidation.month! - 1, dateValidation.day!)
+      const { year, month, day } = dateValidation
+      const eventDate = new Date(year, month - 1, day)
       
       if (eventDate < today) {
         const error = createErrorResponse(

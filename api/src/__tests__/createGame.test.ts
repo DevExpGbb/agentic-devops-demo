@@ -25,7 +25,7 @@ jest.mock('../shared/game-utils', () => ({
 }))
 
 import { createGame, getDatabaseStatus } from '../shared/cosmosdb'
-import { generateGameCode, generateId, generateAssignments, validateDateString } from '../shared/game-utils'
+import { generateGameCode, generateId, generateAssignments } from '../shared/game-utils'
 
 const mockCreateGame = createGame as jest.Mock
 const mockGetDatabaseStatus = getDatabaseStatus as jest.Mock
@@ -413,9 +413,9 @@ describe('createGame function', () => {
       })
     })
 
-    it('should correctly parse dates regardless of server timezone', async () => {
-      // Test that a date string is correctly interpreted in local timezone,
-      // not as UTC midnight (which could shift to previous day in negative UTC offsets)
+    it('should store dates without timezone conversion', async () => {
+      // Test that dates are stored correctly in YYYY-MM-DD format without
+      // timezone conversion issues (bug: dates shifted by one day in PST/negative UTC)
       const futureDate = new Date()
       futureDate.setDate(futureDate.getDate() + 30)
       const dateStr = futureDate.toISOString().split('T')[0]
@@ -435,34 +435,11 @@ describe('createGame function', () => {
 
       expect(response.status).toBe(201)
       const game = response.jsonBody as Game
-      // The date should be stored as-is without timezone conversion
+      
+      // The date should be stored exactly as input, without timezone conversion
       expect(game.date).toBe(dateStr)
-    })
-
-    it('should handle date validation with YYYY-MM-DD format correctly', async () => {
-      // Specific test for the bug: selecting a date should create game for that exact date, not shifted by timezone
-      const futureDate = new Date()
-      futureDate.setDate(futureDate.getDate() + 30)
-      const testDate = futureDate.toISOString().split('T')[0]
       
-      const requestBody = {
-        name: 'Test Date Bug',
-        date: testDate,
-        participants: [
-          { name: 'Alice' },
-          { name: 'Bob' },
-          { name: 'Charlie' }
-        ]
-      }
-
-      const mockRequest = createMockRequest(requestBody)
-      const response = await createGameHandler(mockRequest, mockContext)
-
-      expect(response.status).toBe(201)
-      const game = response.jsonBody as Game
-      expect(game.date).toBe(testDate)
-      
-      // Verify the date wasn't shifted by timezone conversion
+      // Verify the date wasn't shifted by +/- 1 day due to timezone issues
       const dayBefore = new Date(futureDate)
       dayBefore.setDate(dayBefore.getDate() - 1)
       const dayAfter = new Date(futureDate)

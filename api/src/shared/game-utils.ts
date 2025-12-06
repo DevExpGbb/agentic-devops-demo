@@ -109,15 +109,13 @@ export function reassignParticipant(
 }
 
 /**
- * Validation result for date validation
+ * Validation result for date validation.
+ * When valid is true, year/month/day are always present.
+ * When valid is false, error message is always present.
  */
-export interface DateValidationResult {
-  valid: boolean
-  error?: string
-  year?: number
-  month?: number
-  day?: number
-}
+export type DateValidationResult =
+  | { valid: true; year: number; month: number; day: number }
+  | { valid: false; error: string }
 
 /**
  * Validates a date string in YYYY-MM-DD format
@@ -139,7 +137,7 @@ export function validateDateString(dateString: string): DateValidationResult {
     }
   }
   
-  // Split the date string after format validation passes
+  // Parse date components
   const dateParts = dateString.split('-')
   const year = parseInt(dateParts[0], 10)
   const month = parseInt(dateParts[1], 10)
