@@ -157,14 +157,10 @@ export function reassignParticipant(
 
 export function formatDate(dateString: string, locale: string = 'es'): string {
   // Parse YYYY-MM-DD format correctly to avoid timezone issues
-  // Split the date string and create date in local timezone
-  const parts = dateString.split('-')
-  if (parts.length === 3) {
-    const year = parseInt(parts[0], 10)
-    const month = parseInt(parts[1], 10) - 1  // month is 0-indexed
-    const day = parseInt(parts[2], 10)
-    const date = new Date(year, month, day)
-    
+  // Validate format first
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    // Fallback for unexpected format
+    const date = new Date(dateString)
     return date.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
@@ -172,8 +168,25 @@ export function formatDate(dateString: string, locale: string = 'es'): string {
     })
   }
   
-  // Fallback for unexpected format
-  const date = new Date(dateString)
+  // Split the date string and create date in local timezone
+  const parts = dateString.split('-')
+  const year = parseInt(parts[0], 10)
+  const month = parseInt(parts[1], 10) - 1  // month is 0-indexed
+  const day = parseInt(parts[2], 10)
+  
+  // Create the date
+  const date = new Date(year, month, day)
+  
+  // Validate the date wasn't normalized (e.g., Feb 31 -> Mar 3)
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month ||
+    date.getDate() !== day
+  ) {
+    // Invalid date - return a fallback string
+    return dateString
+  }
+  
   return date.toLocaleDateString(locale, {
     year: 'numeric',
     month: 'long',
