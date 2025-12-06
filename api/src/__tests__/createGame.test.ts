@@ -521,5 +521,85 @@ describe('createGame function', () => {
       // The stored date is still the original input string
       expect(game.date).toBe('2026-02-31')
     })
+
+    it('should reject date with whitespace in components', async () => {
+      const requestBody = {
+        name: 'Whitespace Date',
+        date: '2025- 12-21',  // Space in month
+        participants: [
+          { name: 'Alice' },
+          { name: 'Bob' },
+          { name: 'Charlie' }
+        ]
+      }
+
+      const mockRequest = createMockRequest(requestBody)
+      const response = await createGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(400)
+      expect(response.jsonBody).toEqual({
+        error: 'Invalid date format. Expected YYYY-MM-DD'
+      })
+    })
+
+    it('should reject date with invalid month', async () => {
+      const requestBody = {
+        name: 'Invalid Month',
+        date: '2025-13-21',  // Month 13 doesn't exist
+        participants: [
+          { name: 'Alice' },
+          { name: 'Bob' },
+          { name: 'Charlie' }
+        ]
+      }
+
+      const mockRequest = createMockRequest(requestBody)
+      const response = await createGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(400)
+      expect(response.jsonBody).toEqual({
+        error: 'Invalid date values. Year must be 1900-2100, month 1-12, day 1-31'
+      })
+    })
+
+    it('should reject date with invalid day', async () => {
+      const requestBody = {
+        name: 'Invalid Day',
+        date: '2025-12-32',  // Day 32 doesn't exist
+        participants: [
+          { name: 'Alice' },
+          { name: 'Bob' },
+          { name: 'Charlie' }
+        ]
+      }
+
+      const mockRequest = createMockRequest(requestBody)
+      const response = await createGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(400)
+      expect(response.jsonBody).toEqual({
+        error: 'Invalid date values. Year must be 1900-2100, month 1-12, day 1-31'
+      })
+    })
+
+    it('should reject date with year out of range', async () => {
+      const requestBody = {
+        name: 'Year Out of Range',
+        date: '2150-12-21',  // Year > 2100
+        participants: [
+          { name: 'Alice' },
+          { name: 'Bob' },
+          { name: 'Charlie' }
+        ]
+      }
+
+      const mockRequest = createMockRequest(requestBody)
+      const response = await createGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(400)
+      expect(response.jsonBody).toEqual({
+        error: 'Invalid date values. Year must be 1900-2100, month 1-12, day 1-31'
+      })
+    })
   })
 })

@@ -49,7 +49,9 @@ export async function createGameHandler(request: HttpRequest, context: Invocatio
       // Parse YYYY-MM-DD format correctly to avoid timezone issues
       // Validate format and split the date string
       const dateParts = body.date.split('-')
-      if (dateParts.length !== 3 || dateParts.some(part => isNaN(parseInt(part, 10)))) {
+      
+      // Validate we have exactly 3 parts and each part is a valid integer without whitespace
+      if (dateParts.length !== 3 || !dateParts.every(part => /^\d+$/.test(part))) {
         const error = createErrorResponse(
           ApiErrorCode.VALIDATION_ERROR,
           'Invalid date format. Expected YYYY-MM-DD',
@@ -62,12 +64,26 @@ export async function createGameHandler(request: HttpRequest, context: Invocatio
         }
       }
       
-      // Create date in local timezone (JavaScript will normalize invalid calendar dates)
-      const eventDate = new Date(
-        parseInt(dateParts[0], 10),  // year
-        parseInt(dateParts[1], 10) - 1,  // month (0-indexed)
-        parseInt(dateParts[2], 10)  // day
-      )
+      const year = parseInt(dateParts[0], 10)
+      const month = parseInt(dateParts[1], 10)
+      const day = parseInt(dateParts[2], 10)
+      
+      // Validate reasonable ranges for date components
+      if (year < 1900 || year > 2100 || month < 1 || month > 12 || day < 1 || day > 31) {
+        const error = createErrorResponse(
+          ApiErrorCode.VALIDATION_ERROR,
+          'Invalid date values. Year must be 1900-2100, month 1-12, day 1-31',
+          undefined,
+          requestId
+        )
+        return {
+          status: getHttpStatusForError(ApiErrorCode.VALIDATION_ERROR),
+          jsonBody: { error: error.message }
+        }
+      }
+      
+      // Create date in local timezone (JavaScript will normalize invalid calendar dates like Feb 31)
+      const eventDate = new Date(year, month - 1, day)
       
       if (eventDate < today) {
         const error = createErrorResponse(
