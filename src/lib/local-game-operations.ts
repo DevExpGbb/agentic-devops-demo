@@ -390,3 +390,89 @@ function performSwap(assignments: Assignment[], participant1Id: string, particip
     return a
   })
 }
+
+/**
+ * Join game via invitation (local)
+ */
+export function joinInvitationLocal(
+  game: Game,
+  invitationToken: string,
+  participantName: string,
+  participantEmail?: string,
+  desiredGift?: string,
+  wish?: string
+): { game: Game; participantId: string } {
+  // Validate invitation token
+  if (!game.invitationToken || game.invitationToken !== invitationToken) {
+    throw new Error('Invalid invitation token')
+  }
+
+  const trimmedName = participantName.trim()
+  const trimmedEmail = participantEmail?.trim()
+
+  // Check for duplicate names (case-insensitive)
+  if (game.participants.some(p => p.name.toLowerCase() === trimmedName.toLowerCase())) {
+    throw new Error('Participant name already exists')
+  }
+
+  // Check for duplicate emails if email is provided (case-insensitive)
+  if (trimmedEmail && game.participants.some(p => 
+    p.email && p.email.toLowerCase() === trimmedEmail.toLowerCase()
+  )) {
+    throw new Error('Email address already in use')
+  }
+
+  // Create new participant
+  const newParticipant: Participant = {
+    id: generateId(),
+    name: trimmedName,
+    email: trimmedEmail || undefined,
+    desiredGift: desiredGift?.trim() || '',
+    wish: wish?.trim() || '',
+    hasConfirmedAssignment: false,
+    hasPendingReassignmentRequest: false,
+    token: game.isProtected ? generateToken() : undefined
+  }
+
+  // Add participant to game
+  const updatedParticipants = [...game.participants, newParticipant]
+
+  // Regenerate assignments to include new participant
+  const newAssignments = generateAssignments(updatedParticipants)
+
+  // Clear any pending reassignment requests since we're regenerating all assignments
+  const updatedGame = {
+    ...game,
+    participants: updatedParticipants.map(p => ({
+      ...p,
+      hasPendingReassignmentRequest: false,
+      hasConfirmedAssignment: false // Clear confirmations when regenerating
+    })),
+    assignments: newAssignments,
+    reassignmentRequests: []
+  }
+
+  return { game: updatedGame, participantId: newParticipant.id }
+}
+
+// Helper: Generate assignments (imported from game-utils)
+function generateAssignments(participants: Participant[]): Assignment[] {
+  if (participants.length < 3) {
+    throw new Error('Need at least 3 participants')
+  }
+
+  const shuffled = [...participants].sort(() => Math.random() - 0.5)
+  const assignments: Assignment[] = []
+
+  for (let i = 0; i < shuffled.length; i++) {
+    const giver = shuffled[i]
+    const receiver = shuffled[(i + 1) % shuffled.length]
+    
+    assignments.push({
+      giverId: giver.id,
+      receiverId: receiver.id
+    })
+  }
+
+  return assignments
+}
