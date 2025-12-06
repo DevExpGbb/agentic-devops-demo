@@ -30,6 +30,7 @@ import {
   Envelope,
   ArrowsClockwise,
   CheckCircle,
+  Warning,
 } from '@phosphor-icons/react'
 import { Game, Participant, CURRENCIES } from '@/lib/types'
 import { useLanguage } from './useLanguage'
