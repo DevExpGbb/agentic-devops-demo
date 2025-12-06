@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { X } from '@phosphor-icons/react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/components/useLanguage'
-import { hasAnalyticsConsent, setAnalyticsConsent } from '@/lib/analytics'
+import { hasAnalyticsConsent, hasDeclinedAnalytics, setAnalyticsConsent, setAnalyticsDeclined } from '@/lib/analytics'
 
 /**
  * Cookie consent banner for GDPR compliance
@@ -12,11 +12,7 @@ export function CookieConsentBanner() {
   const { t } = useLanguage()
   const [isVisible, setIsVisible] = useState(() => {
     // Check if user has already made a choice
-    const hasConsent = hasAnalyticsConsent()
-    const hasDeclined = localStorage.getItem('secretsanta:analytics-declined') === 'true'
-    
-    // Show banner if no choice has been made yet
-    return !hasConsent && !hasDeclined
+    return !hasAnalyticsConsent() && !hasDeclinedAnalytics()
   })
 
   const handleAccept = () => {
@@ -25,7 +21,7 @@ export function CookieConsentBanner() {
   }
 
   const handleDecline = () => {
-    localStorage.setItem('secretsanta:analytics-declined', 'true')
+    setAnalyticsDeclined()
     setIsVisible(false)
   }
 

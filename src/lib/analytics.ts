@@ -11,6 +11,9 @@ const isProduction = import.meta.env.PROD
 // LocalStorage key for consent
 const CONSENT_KEY = 'secretsanta:analytics-consent'
 
+// LocalStorage key for declined consent
+const DECLINED_KEY = 'secretsanta:analytics-declined'
+
 /**
  * Check if user has given consent for analytics
  */
@@ -31,11 +34,38 @@ export function setAnalyticsConsent(consent: boolean): void {
   if (typeof window === 'undefined') return
   try {
     window.localStorage.setItem(CONSENT_KEY, consent.toString())
+    // Clear declined flag if accepting
     if (consent) {
+      window.localStorage.removeItem(DECLINED_KEY)
       initializeAnalytics()
     }
   } catch (error) {
     console.warn('Error saving analytics consent:', error)
+  }
+}
+
+/**
+ * Check if user has declined analytics
+ */
+export function hasDeclinedAnalytics(): boolean {
+  if (typeof window === 'undefined') return false
+  try {
+    return window.localStorage.getItem(DECLINED_KEY) === 'true'
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Set that user has declined analytics
+ */
+export function setAnalyticsDeclined(): void {
+  if (typeof window === 'undefined') return
+  try {
+    window.localStorage.setItem(DECLINED_KEY, 'true')
+    window.localStorage.removeItem(CONSENT_KEY)
+  } catch (error) {
+    console.warn('Error saving analytics declined:', error)
   }
 }
 
