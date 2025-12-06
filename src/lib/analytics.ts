@@ -4,7 +4,10 @@
 
 // Google Analytics tracking ID from environment variable
 // Falls back to production tracking ID if not set
-const GA_TRACKING_ID = import.meta.env.VITE_GA_TRACKING_ID || 'G-B2K4GQ481R'
+// Set to empty string to disable analytics completely
+const GA_TRACKING_ID = import.meta.env.VITE_GA_TRACKING_ID !== undefined 
+  ? import.meta.env.VITE_GA_TRACKING_ID 
+  : 'G-B2K4GQ481R'
 
 // Check if we're in production environment
 const isProduction = import.meta.env.PROD
@@ -81,7 +84,7 @@ export function initializeAnalytics(): void {
   }
 
   // Check if tracking ID is configured
-  if (!GA_TRACKING_ID) {
+  if (!GA_TRACKING_ID || GA_TRACKING_ID.trim() === '') {
     console.log('[Analytics] No tracking ID configured')
     return
   }
