@@ -498,13 +498,11 @@ describe('createGame function', () => {
       })
     })
 
-    it('should handle date normalization for invalid calendar dates', async () => {
-      // JavaScript Date constructor automatically normalizes invalid dates
-      // e.g., Feb 31 becomes March 3, which is acceptable behavior
-      // Use a future year to ensure the normalized date is still in the future
+    it('should reject invalid calendar dates', async () => {
+      // February 31st doesn't exist - should be rejected
       const requestBody = {
-        name: 'Normalized Date',
-        date: '2026-02-31',  // February 31st doesn't exist, will normalize to March 3, 2026
+        name: 'Invalid Calendar Date',
+        date: '2026-02-31',  // February 31st doesn't exist
         participants: [
           { name: 'Alice' },
           { name: 'Bob' },
@@ -515,11 +513,11 @@ describe('createGame function', () => {
       const mockRequest = createMockRequest(requestBody)
       const response = await createGameHandler(mockRequest, mockContext)
 
-      // JavaScript normalizes the date, so this should succeed
-      expect(response.status).toBe(201)
-      const game = response.jsonBody as Game
-      // The stored date is still the original input string
-      expect(game.date).toBe('2026-02-31')
+      // Should reject the invalid calendar date
+      expect(response.status).toBe(400)
+      expect(response.jsonBody).toEqual({
+        error: 'Invalid calendar date'
+      })
     })
 
     it('should reject date with whitespace in components', async () => {

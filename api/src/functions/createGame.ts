@@ -82,8 +82,26 @@ export async function createGameHandler(request: HttpRequest, context: Invocatio
         }
       }
       
-      // Create date in local timezone (JavaScript will normalize invalid calendar dates like Feb 31)
+      // Create date in local timezone
       const eventDate = new Date(year, month - 1, day)
+      
+      // Reject if date was normalized (e.g., Feb 31 -> Mar 3)
+      if (
+        eventDate.getFullYear() !== year ||
+        eventDate.getMonth() !== month - 1 ||
+        eventDate.getDate() !== day
+      ) {
+        const error = createErrorResponse(
+          ApiErrorCode.VALIDATION_ERROR,
+          'Invalid calendar date',
+          undefined,
+          requestId
+        )
+        return {
+          status: getHttpStatusForError(ApiErrorCode.VALIDATION_ERROR),
+          jsonBody: { error: error.message }
+        }
+      }
       
       if (eventDate < today) {
         const error = createErrorResponse(
