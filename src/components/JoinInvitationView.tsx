@@ -34,7 +34,7 @@ export function JoinInvitationView({ gameCode, invitationToken, onJoinSuccess, o
     const trimmedEmail = email.trim()
     
     if (!trimmedName) {
-      toast.error(t('participantNameExists'))
+      toast.error(t('participantName') + ' ' + t('required'))
       return
     }
     
