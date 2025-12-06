@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { Toaster } from '@/components/ui/sonner'
 import { LanguageProvider } from '@/components/LanguageProvider'
 import { useLanguage } from '@/components/useLanguage'
@@ -67,6 +67,7 @@ function App() {
   const [emailResults, setEmailResults] = useState<CreateGameResponse['emailResults'] | undefined>(undefined)
   const [errorType, setErrorType] = useState<ErrorType | null>(null)
   const [isLoadingGame, setIsLoadingGame] = useState(false)
+  const initialUrlHandled = useRef(false)
 
   // Check API status on mount
   useEffect(() => {
@@ -248,6 +249,12 @@ function App() {
 
   // Handle URL parameters for game code, organizer access, and direct views
   useEffect(() => {
+    // Only handle URL once on mount
+    if (initialUrlHandled.current) {
+      return
+    }
+    initialUrlHandled.current = true
+    
     const params = new URLSearchParams(window.location.search)
     const pathname = window.location.pathname
     const code = params.get('code')
@@ -292,7 +299,7 @@ function App() {
     } else if (code) {
       setTimeout(() => handleJoinGame(code), 0)
     }
-  }, [handleJoinGame, handleOrganizerAccess])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Handle browser back/forward navigation
   useEffect(() => {
@@ -362,7 +369,7 @@ function App() {
         setTimeout(() => handleJoinGame(code, token), 0)
       }
     }
-  }, [games, handleJoinGame])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleParticipantSelected = (participant: Participant) => {
     setCurrentParticipant(participant)
