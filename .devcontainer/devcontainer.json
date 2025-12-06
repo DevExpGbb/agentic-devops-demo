@@ -9,7 +9,7 @@
     },
     "ghcr.io/devcontainers/features/azure-cli:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/azure/azure-dev/azd:0.11.1": {}
+    "ghcr.io/azure/azure-dev/azd:latest": {}
   },
   "customizations": {
     "vscode": {
