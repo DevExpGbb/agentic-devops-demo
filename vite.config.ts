@@ -40,6 +40,19 @@ const copyStaticWebAppConfig = {
   closeBundle() {
     const source = path.resolve(__dirname, 'staticwebapp.config.json')
     const dest = path.resolve(__dirname, 'dist', 'staticwebapp.config.json')
+    
+    // Ensure the source file exists
+    if (!fs.existsSync(source)) {
+      console.warn('⚠ Warning: staticwebapp.config.json not found, skipping copy')
+      return
+    }
+    
+    // Ensure the dist directory exists
+    const distDir = path.dirname(dest)
+    if (!fs.existsSync(distDir)) {
+      fs.mkdirSync(distDir, { recursive: true })
+    }
+    
     fs.copyFileSync(source, dest)
     console.log('✓ Copied staticwebapp.config.json to dist/')
   }
