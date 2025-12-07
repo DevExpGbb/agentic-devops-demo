@@ -9,7 +9,7 @@ import { CURRENCIES } from './types'
  */
 export function formatAmount(amount: string, currency: string, fallbackText: string): string {
   const trimmedAmount = amount?.trim() || ''
-  if (!amount || trimmedAmount === '') {
+  if (!trimmedAmount) {
     return fallbackText
   }
   const curr = CURRENCIES.find(c => c.code === currency)
