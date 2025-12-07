@@ -27,7 +27,6 @@ export function JoinInvitationView({ gameCode, invitationToken, game, onJoinSucc
   
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [desiredGift, setDesiredGift] = useState('')
   const [wish, setWish] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -64,7 +63,7 @@ export function JoinInvitationView({ gameCode, invitationToken, game, onJoinSucc
           invitationToken,
           trimmedName,
           trimmedEmail || undefined,
-          desiredGift.trim() || undefined,
+          undefined, // desiredGift not collected in invitation form
           wish.trim() || undefined
         )
         
@@ -85,7 +84,7 @@ export function JoinInvitationView({ gameCode, invitationToken, game, onJoinSucc
           invitationToken,
           participantName: trimmedName,
           participantEmail: trimmedEmail || undefined,
-          desiredGift: desiredGift.trim() || undefined,
+          desiredGift: undefined, // Not collected in invitation form
           wish: wish.trim() || undefined,
           language
         })
@@ -191,24 +190,12 @@ export function JoinInvitationView({ gameCode, invitationToken, game, onJoinSucc
             </div>
 
             <div>
-              <Label htmlFor="desiredGift" className="text-base">
-                {t('yourDesiredGift')}
-              </Label>
-              <Input
-                id="desiredGift"
-                type="text"
-                value={desiredGift}
-                onChange={(e) => setDesiredGift(e.target.value)}
-                placeholder={t('yourDesiredGiftPlaceholder')}
-                className="mt-2"
-                disabled={isJoining}
-              />
-            </div>
-
-            <div>
               <Label htmlFor="wish" className="text-base">
                 {t('yourGiftWish')}
               </Label>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                {t('desiredGiftOptional')}
+              </p>
               <Textarea
                 id="wish"
                 value={wish}
