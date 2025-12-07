@@ -208,6 +208,48 @@ export function formatDate(dateString: string, locale: string = 'es'): string {
   })
 }
 
+/**
+ * Validates a date string in YYYY-MM-DD format (frontend validation)
+ * 
+ * NOTE: This function provides client-side validation for better UX.
+ * The backend performs authoritative validation in api/src/shared/game-utils.ts.
+ * Keep these implementations synchronized.
+ * 
+ * @param dateString - Date string in YYYY-MM-DD format
+ * @returns true if valid, false otherwise
+ */
+export function isValidDate(dateString: string): boolean {
+  // Validate strict YYYY-MM-DD format (4-digit year, 2-digit month, 2-digit day)
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    return false
+  }
+  
+  // Parse date components
+  const parts = dateString.split('-')
+  const year = parseInt(parts[0], 10)
+  const month = parseInt(parts[1], 10)
+  const day = parseInt(parts[2], 10)
+  
+  // Validate reasonable ranges for date components
+  if (year < 1900 || year > 2100 || month < 1 || month > 12 || day < 1 || day > 31) {
+    return false
+  }
+  
+  // Create date in local timezone
+  const date = new Date(year, month - 1, day)
+  
+  // Reject if date was normalized (e.g., Feb 31 -> Mar 3, April 31 -> May 1)
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    return false
+  }
+  
+  return true
+}
+
 export function copyToClipboard(text: string): Promise<void> {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     return navigator.clipboard.writeText(text)
