@@ -132,9 +132,23 @@ export function trackPageView(page: string): void {
   if (typeof window === 'undefined') return
 
   if (window.gtag && isProduction && hasAnalyticsConsent()) {
-    window.gtag('event', 'page_view', {
-      page_path: page,
-    })
+    // Sanitize page path to remove sensitive parameters
+    try {
+      const url = new URL(page, window.location.origin)
+      const sanitizedParams = new URLSearchParams()
+      for (const [key, value] of url.searchParams.entries()) {
+        // Only allow non-sensitive parameters (e.g., 'lang')
+        if (key === 'lang') {
+          sanitizedParams.set(key, value)
+        }
+      }
+      const sanitizedPath = `${url.pathname}${sanitizedParams.toString() ? '?' + sanitizedParams.toString() : ''}`
+      window.gtag('event', 'page_view', {
+        page_path: sanitizedPath,
+      })
+    } catch {
+      // Silently fail if URL parsing fails
+    }
   }
 }
 
