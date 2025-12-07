@@ -5,12 +5,13 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Separator } from '@/components/ui/separator'
-import { Game, Participant } from '@/lib/types'
+import { Game, Participant, CURRENCIES } from '@/lib/types'
 import { useLanguage } from './useLanguage'
-import { ArrowLeft, Gift, CircleNotch, Envelope } from '@phosphor-icons/react'
+import { ArrowLeft, Gift, CircleNotch, Envelope, CalendarBlank, MapPin, CurrencyDollar, Note } from '@phosphor-icons/react'
 import { LanguageToggle } from './LanguageToggle'
 import { updateWishAPI, updateParticipantEmailAPI, checkApiStatus } from '@/lib/api'
 import { toast } from 'sonner'
+import { formatDate } from '@/lib/game-utils'
 
 interface ParticipantSelectionViewProps {
   game: Game
@@ -37,6 +38,15 @@ export function ParticipantSelectionView({
   // Defensive check: ensure participants array exists
   const participants = game.participants || []
   const selectedParticipant = participants.find(p => p.id === selectedId)
+
+  // Format amount with currency
+  const formatAmount = () => {
+    const curr = CURRENCIES.find(c => c.code === game.currency)
+    if (curr) {
+      return `${curr.flag} ${curr.symbol}${game.amount} ${curr.code}`
+    }
+    return game.amount
+  }
 
   const handleSelectParticipant = (id: string) => {
     setSelectedId(id)
@@ -222,6 +232,62 @@ export function ParticipantSelectionView({
             {t('selectParticipantDesc')}
           </p>
         </div>
+
+        {/* Event Details Card */}
+        <Card className="p-6 mb-6">
+          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <Note size={20} className="text-primary" />
+            {t('eventDetails')}
+          </h2>
+
+          <div className="grid gap-3">
+            <div className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
+              <CurrencyDollar size={24} className="text-accent shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-medium text-muted-foreground">
+                  {t('amount')}
+                </p>
+                <p className="text-base font-semibold">{formatAmount()}</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
+              <CalendarBlank size={24} className="text-accent shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-medium text-muted-foreground">
+                  {t('date')}
+                </p>
+                <p className="text-base font-semibold">
+                  {formatDate(game.date, language)}{game.time && ` - ${game.time}`}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
+              <MapPin size={24} className="text-accent shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-medium text-muted-foreground">
+                  {t('location')}
+                </p>
+                <p className="text-base font-semibold">{game.location}</p>
+              </div>
+            </div>
+
+            {game.generalNotes && (
+              <div className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
+                <Note size={24} className="text-accent shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    {t('instructions')}
+                  </p>
+                  <p className="text-sm mt-1 whitespace-pre-wrap">
+                    {game.generalNotes}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        </Card>
 
         <Card className="p-6 space-y-4">
           <h2 className="text-lg font-semibold">{t('selectParticipant')}</h2>
