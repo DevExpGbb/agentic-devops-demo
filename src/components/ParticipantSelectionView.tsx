@@ -5,13 +5,14 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Separator } from '@/components/ui/separator'
-import { Game, Participant, CURRENCIES } from '@/lib/types'
+import { Game, Participant } from '@/lib/types'
 import { useLanguage } from './useLanguage'
 import { ArrowLeft, Gift, CircleNotch, Envelope, CalendarBlank, MapPin, CurrencyDollar, Note } from '@phosphor-icons/react'
 import { LanguageToggle } from './LanguageToggle'
 import { updateWishAPI, updateParticipantEmailAPI, checkApiStatus } from '@/lib/api'
 import { toast } from 'sonner'
 import { formatDate } from '@/lib/game-utils'
+import { formatAmount } from '@/lib/currency-utils'
 
 interface ParticipantSelectionViewProps {
   game: Game
@@ -38,18 +39,6 @@ export function ParticipantSelectionView({
   // Defensive check: ensure participants array exists
   const participants = game.participants || []
   const selectedParticipant = participants.find(p => p.id === selectedId)
-
-  // Format amount with currency
-  const formatAmount = () => {
-    if (!game.amount || game.amount.trim() === '') {
-      return t('noInstructions') // Fallback for empty amount
-    }
-    const curr = CURRENCIES.find(c => c.code === game.currency)
-    if (curr) {
-      return `${curr.flag} ${curr.symbol}${game.amount} ${curr.code}`
-    }
-    return game.amount
-  }
 
   const handleSelectParticipant = (id: string) => {
     setSelectedId(id)
@@ -250,7 +239,7 @@ export function ParticipantSelectionView({
                 <p className="text-sm font-medium text-muted-foreground">
                   {t('amount')}
                 </p>
-                <p className="text-base font-semibold">{formatAmount()}</p>
+                <p className="text-base font-semibold">{formatAmount(game.amount, game.currency, t('noInstructions'))}</p>
               </div>
             </div>
 

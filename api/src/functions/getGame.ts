@@ -57,6 +57,7 @@ export async function getGameHandler(request: HttpRequest, context: InvocationCo
           const participantAssignment = game.assignments.find(a => a.giverId === participant.id)
           // Find who is giving to this participant (to check if giver has confirmed)
           const giverAssignment = game.assignments.find(a => a.receiverId === participant.id)
+          const giver = giverAssignment ? game.participants.find(p => p.id === giverAssignment.giverId) : undefined
           
           // Return game with only this participant's info and their receiver's info
           // Hide all other assignments to prevent spoiling the game
@@ -67,8 +68,8 @@ export async function getGameHandler(request: HttpRequest, context: InvocationCo
               token: p.id === participant.id ? p.token : undefined, // Only show own token
               email: p.id === participant.id ? p.email : undefined, // Only show own email
             })),
-            // Only include this participant's assignment and who gives to them (for confirmation status)
-            assignments: [participantAssignment, giverAssignment].filter(Boolean) as typeof game.assignments,
+            // Only include this participant's assignment (not giver's assignment to preserve surprise)
+            assignments: participantAssignment ? [participantAssignment] : [],
             organizerToken: '', // Hide organizer token
             organizerEmail: undefined, // Hide organizer email
           }
@@ -76,7 +77,8 @@ export async function getGameHandler(request: HttpRequest, context: InvocationCo
             status: 200,
             jsonBody: {
               ...sanitizedGame,
-              authenticatedParticipantId: participant.id // Tell frontend which participant is authenticated
+              authenticatedParticipantId: participant.id, // Tell frontend which participant is authenticated
+              giverHasConfirmed: giver?.hasConfirmedAssignment || false // Flag for giver confirmation status without revealing identity
             }
           }
         }

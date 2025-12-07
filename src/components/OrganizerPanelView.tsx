@@ -234,13 +234,7 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Format amount with currency
-  const formatAmount = () => {
-    const curr = CURRENCIES.find(c => c.code === game.currency)
-    if (curr) {
-      return `${curr.flag} ${curr.symbol}${game.amount} ${curr.code}`
-    }
-    return game.amount
-  }
+
 
   // Get receiver name for a participant
   const getReceiverName = (participantId: string): string => {
@@ -1006,7 +1000,7 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
                   <CurrencyDollar size={24} className="text-accent shrink-0 mt-0.5" />
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">{t('amount')}</p>
-                    <p className="text-base font-semibold">{formatAmount()}</p>
+                    <p className="text-base font-semibold">{formatAmount(game.amount, game.currency, t('noInstructions'))}</p>
                   </div>
                 </div>
 

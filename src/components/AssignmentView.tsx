@@ -32,9 +32,10 @@ import {
   CheckCircle,
   Warning,
 } from '@phosphor-icons/react'
-import { Game, Participant, CURRENCIES } from '@/lib/types'
+import { Game, Participant } from '@/lib/types'
 import { useLanguage } from './useLanguage'
 import { formatDate } from '@/lib/game-utils'
+import { formatAmount } from '@/lib/currency-utils'
 import { toast } from 'sonner'
 import { motion } from 'framer-motion'
 import { LanguageToggle } from './LanguageToggle'
@@ -88,17 +89,7 @@ export function AssignmentView({
     }
   }, [game.code, onUpdateGame])
 
-  // Format amount with currency
-  const formatAmount = () => {
-    if (!game.amount || game.amount.trim() === '') {
-      return t('noInstructions') // Fallback for empty amount
-    }
-    const curr = CURRENCIES.find(c => c.code === game.currency)
-    if (curr) {
-      return `${curr.flag} ${curr.symbol}${game.amount} ${curr.code}`
-    }
-    return game.amount
-  }
+
 
   useEffect(() => {
     // Defensive check: ensure participants array exists
@@ -120,11 +111,18 @@ export function AssignmentView({
     const receiver = game.participants.find(p => p.id === currentAssignment?.receiverId)
     setCurrentReceiver(receiver || null)
     
-    // Find who gives to current participant (the giver) and check if they've confirmed
-    const giverAssignment = game.assignments.find(a => a.receiverId === participant.id)
-    const giver = game.participants.find(p => p.id === giverAssignment?.giverId)
-    setGiverHasConfirmed(giver?.hasConfirmedAssignment || false)
-  }, [game.assignments, game.participants, participant.id])
+    // Check if giver has confirmed from the game response flag (for protected games)
+    // For non-protected games or when flag is not available, fall back to checking assignments
+    const gameWithFlag = game as Game & { giverHasConfirmed?: boolean }
+    if (gameWithFlag.giverHasConfirmed !== undefined) {
+      setGiverHasConfirmed(gameWithFlag.giverHasConfirmed)
+    } else {
+      // Fallback: Find who gives to current participant (the giver) and check if they've confirmed
+      const giverAssignment = game.assignments.find(a => a.receiverId === participant.id)
+      const giver = game.participants.find(p => p.id === giverAssignment?.giverId)
+      setGiverHasConfirmed(giver?.hasConfirmedAssignment || false)
+    }
+  }, [game, participant.id])
 
   useEffect(() => {
     const timer = setTimeout(() => setIsRevealed(true), 300)
@@ -359,7 +357,7 @@ export function AssignmentView({
     ctx.fillText(t('amount') + ':', 100, detailsY + 50)
     ctx.fillStyle = '#3D1B1A'
     ctx.font = '18px Inter'
-    ctx.fillText(formatAmount(), 250, detailsY + 50)
+    ctx.fillText(formatAmount(game.amount, game.currency, t('noInstructions')), 250, detailsY + 50)
 
     ctx.fillStyle = '#665947'
     ctx.font = 'bold 18px Inter'
@@ -608,7 +606,7 @@ export function AssignmentView({
                     <p className="text-sm font-medium text-muted-foreground">
                       {t('amount')}
                     </p>
-                    <p className="text-base font-semibold">{formatAmount()}</p>
+                    <p className="text-base font-semibold">{formatAmount(game.amount, game.currency, t('noInstructions'))}</p>
                   </div>
                 </div>
 
