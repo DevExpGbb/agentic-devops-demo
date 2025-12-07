@@ -62,7 +62,6 @@ export function AssignmentView({
   const [showWishChangeWarning, setShowWishChangeWarning] = useState(false)
   const [isRevealed, setIsRevealed] = useState(false)
   const [currentReceiver, setCurrentReceiver] = useState<Participant | null>(null)
-  const [currentGiver, setCurrentGiver] = useState<Participant | null>(null)
   const [currentParticipant, setCurrentParticipant] = useState<Participant>(participant)
   const [editingWish, setEditingWish] = useState('')
   const [editingEmail, setEditingEmail] = useState('')
@@ -116,11 +115,6 @@ export function AssignmentView({
     const currentAssignment = game.assignments.find(a => a.giverId === participant.id)
     const receiver = game.participants.find(p => p.id === currentAssignment?.receiverId)
     setCurrentReceiver(receiver || null)
-    
-    // Find who gives to current participant (the giver)
-    const giverAssignment = game.assignments.find(a => a.receiverId === participant.id)
-    const giver = game.participants.find(p => p.id === giverAssignment?.giverId)
-    setCurrentGiver(giver || null)
   }, [game.assignments, game.participants, participant.id])
 
   useEffect(() => {
@@ -177,8 +171,8 @@ export function AssignmentView({
     // Load wish if participant has added one, otherwise use desiredGift from organizer
     setEditingWish(currentParticipant.wish || currentParticipant.desiredGift || '')
     
-    // Check if giver has confirmed their assignment and there's an existing wish
-    if (currentGiver?.hasConfirmedAssignment && (currentParticipant.wish || currentParticipant.desiredGift)) {
+    // Show warning if there's an existing wish and email notifications are configured
+    if (emailConfigured && (currentParticipant.wish || currentParticipant.desiredGift)) {
       setShowWishChangeWarning(true)
     } else {
       setShowEditWishDialog(true)
