@@ -50,10 +50,11 @@ import {
   PaperPlaneTilt,
   Key,
 } from '@phosphor-icons/react'
-import { Game, Participant, CURRENCIES } from '@/lib/types'
+import { Game, Participant } from '@/lib/types'
 import { useLanguage } from './useLanguage'
 import { LanguageToggle } from './LanguageToggle'
 import { formatDate, copyToClipboard, buildShareableUrl, isValidDate } from '@/lib/game-utils'
+import { formatAmount } from '@/lib/currency-utils'
 import { isValidEmail } from '@/lib/utils'
 import { toast } from 'sonner'
 import { motion } from 'framer-motion'
