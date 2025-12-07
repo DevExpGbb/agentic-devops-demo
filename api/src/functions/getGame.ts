@@ -124,9 +124,11 @@ export async function getGameHandler(request: HttpRequest, context: InvocationCo
         const filteredGame = {
           ...game,
           organizerToken: '', // Hide organizer token
+          organizerEmail: undefined, // Hide organizer email
           participants: game.participants.map(p => ({
             ...p,
-            token: undefined // Don't expose tokens
+            token: undefined, // Don't expose tokens
+            email: p.id === participantId ? p.email : undefined // Only show own email
           })),
           assignments: participantAssignment ? [participantAssignment] : []
         }

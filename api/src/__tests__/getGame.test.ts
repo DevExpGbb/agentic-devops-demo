@@ -224,7 +224,17 @@ describe('getGame function', () => {
   // Non-protected game with participantId filtering
   describe('non-protected games with participantId', () => {
     it('should return filtered game for participant with participantId', async () => {
-      mockGetGameByCode.mockResolvedValueOnce(testGame)
+      // Add email fields to test game for privacy verification
+      const gameWithEmails = {
+        ...testGame,
+        organizerEmail: 'organizer@example.com',
+        participants: [
+          { id: 'p1', name: 'Alice', email: 'alice@example.com', desiredGift: '', wish: '', hasPendingReassignmentRequest: false, hasConfirmedAssignment: false },
+          { id: 'p2', name: 'Bob', email: 'bob@example.com', desiredGift: '', wish: '', hasPendingReassignmentRequest: false, hasConfirmedAssignment: false },
+          { id: 'p3', name: 'Charlie', email: 'charlie@example.com', desiredGift: '', wish: '', hasPendingReassignmentRequest: false, hasConfirmedAssignment: false }
+        ]
+      }
+      mockGetGameByCode.mockResolvedValueOnce(gameWithEmails)
 
       const mockRequest = createMockRequest('123456', { participantId: 'p1' })
       const response = await getGameHandler(mockRequest, mockContext)
@@ -233,12 +243,18 @@ describe('getGame function', () => {
       const body = response.jsonBody as any
       expect(body.authenticatedParticipantId).toBe('p1')
       expect(body.organizerToken).toBe('') // Hidden
+      expect(body.organizerEmail).toBeUndefined() // Hidden for privacy
       // Only p1's assignment (p1 -> p2) should be included
       expect(body.assignments).toHaveLength(1)
       expect(body.assignments).toContainEqual({ giverId: 'p1', receiverId: 'p2' })
       // giverHasConfirmed flag should be included (p3 gives to p1, check their confirmation status)
       expect(body.giverHasConfirmed).toBeDefined()
       expect(body.giverHasConfirmed).toBe(false)
+      // Privacy: only p1's email should be visible
+      const p1 = body.participants.find((p: any) => p.id === 'p1')
+      const p2 = body.participants.find((p: any) => p.id === 'p2')
+      expect(p1.email).toBe('alice@example.com') // Own email visible
+      expect(p2.email).toBeUndefined() // Other emails hidden
     })
 
     it('should return 404 for invalid participantId', async () => {
