@@ -184,6 +184,7 @@ export const translations = {
     location: "Location",
     instructions: "Instructions",
     noInstructions: "No additional instructions",
+    notSpecified: "Not specified",
     
     requestReassignment: "Request New Assignment",
     requestReassignmentTitle: "Request New Assignment?",
@@ -678,6 +679,7 @@ export const translations = {
     location: "Lugar",
     instructions: "Instrucciones",
     noInstructions: "No hay instrucciones adicionales",
+    notSpecified: "No especificado",
     
     requestReassignment: "Solicitar Nueva Asignación",
     requestReassignmentTitle: "¿Solicitar Nueva Asignación?",
@@ -1171,6 +1173,7 @@ export const translations = {
     location: "Local",
     instructions: "Instruções",
     noInstructions: "Sem instruções adicionais",
+    notSpecified: "Não especificado",
     
     requestReassignment: "Solicitar Nova Atribuição",
     requestReassignmentTitle: "Solicitar Nova Atribuição?",
@@ -1864,6 +1867,7 @@ export const translations = {
     location: "Lieu",
     noEmail: "Sans email",
     noInstructions: "Pas d'instructions supplémentaires",
+    notSpecified: "Non spécifié",
     noParticipantsWithEmail: "Aucun participant n'a d'email configuré",
     noParticipantsYet: "Pas de participants pour l'instant",
     noPendingRequests: "Aucune demande en attente",
@@ -2441,6 +2445,7 @@ export const translations = {
     location: "Posizione",
     noEmail: "Senza email",
     noInstructions: "Nessuna istruzione aggiuntiva",
+    notSpecified: "Non specificato",
     noParticipantsWithEmail: "Nessun partecipante ha l'email configurata",
     noParticipantsYet: "Nessun partecipante ancora",
     noPendingRequests: "Nessuna richiesta in sospeso",
@@ -3018,6 +3023,7 @@ export const translations = {
     location: "場所",
     noEmail: "メールなし",
     noInstructions: "追加の指示なし",
+    notSpecified: "指定なし",
     noParticipantsWithEmail: "メールが設定されている参加者がいません",
     noParticipantsYet: "まだ参加者がいません",
     noPendingRequests: "保留中のリクエストなし",
@@ -3595,6 +3601,7 @@ export const translations = {
     location: "位置",
     noEmail: "无电子邮件",
     noInstructions: "无额外说明",
+    notSpecified: "未指定",
     noParticipantsWithEmail: "没有参与者配置了电子邮件",
     noParticipantsYet: "暂无参与者",
     noPendingRequests: "没有待处理的请求",
@@ -3971,6 +3978,7 @@ export const translations = {
     location: "Ort",
     instructions: "Anweisungen",
     noInstructions: "Keine zusätzlichen Anweisungen",
+    notSpecified: "Nicht angegeben",
     
     requestReassignment: "Neue Zuweisung anfordern",
     requestReassignmentTitle: "Neue Zuweisung anfordern?",
@@ -4444,6 +4452,7 @@ export const translations = {
     location: "Locatie",
     instructions: "Instructies",
     noInstructions: "Geen aanvullende instructies",
+    notSpecified: "Niet gespecificeerd",
     
     requestReassignment: "Nieuwe toewijzing aanvragen",
     requestReassignmentTitle: "Nieuwe toewijzing aanvragen?",
