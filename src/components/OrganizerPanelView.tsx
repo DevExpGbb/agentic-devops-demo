@@ -234,9 +234,6 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
     refreshOnMount()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Format amount with currency
-
-
   // Get receiver name for a participant
   const getReceiverName = (participantId: string): string => {
     const assignment = game.assignments.find(a => a.giverId === participantId)
