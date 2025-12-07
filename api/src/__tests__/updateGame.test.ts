@@ -1306,4 +1306,219 @@ describe('updateGame function', () => {
       expect(mockContext.error).toHaveBeenCalled()
     })
   })
+
+  describe('joinInvitation action', () => {
+    it('should successfully add a new participant via invitation', async () => {
+      const game = createTestGame()
+      game.invitationToken = 'invitation-token-123'
+      mockGetGameByCode.mockResolvedValue(game)
+      
+      const newAssignments = [
+        { giverId: 'p1', receiverId: 'p2' },
+        { giverId: 'p2', receiverId: 'p3' },
+        { giverId: 'p3', receiverId: 'new-participant-id' },
+        { giverId: 'new-participant-id', receiverId: 'p1' }
+      ]
+      mockGenerateAssignments.mockReturnValue(newAssignments)
+
+      const mockRequest = createMockRequest(game.code, {
+        action: 'joinInvitation',
+        invitationToken: 'invitation-token-123',
+        participantName: 'David',
+        participantEmail: 'david@email.com',
+        desiredGift: 'Book',
+        wish: 'Science fiction book',
+        language: 'en'
+      })
+
+      const response = await updateGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(200)
+      expect(mockUpdateGame).toHaveBeenCalled()
+      
+      // Check response structure includes both game and participantId
+      expect(response.jsonBody).toHaveProperty('game')
+      expect(response.jsonBody).toHaveProperty('participantId')
+      expect(response.jsonBody.participantId).toBe('new-participant-id')
+      
+      const updatedGame = mockUpdateGame.mock.calls[0][0]
+      expect(updatedGame.participants).toHaveLength(4)
+      expect(updatedGame.participants[3].name).toBe('David')
+      expect(updatedGame.participants[3].email).toBe('david@email.com')
+      expect(updatedGame.participants[3].desiredGift).toBe('Book')
+      expect(updatedGame.participants[3].wish).toBe('Science fiction book')
+      expect(updatedGame.assignments).toEqual(newAssignments)
+      expect(updatedGame.reassignmentRequests).toEqual([])
+    })
+
+    it('should reject invalid invitation token', async () => {
+      const game = createTestGame()
+      game.invitationToken = 'valid-token-123'
+      mockGetGameByCode.mockResolvedValue(game)
+
+      const mockRequest = createMockRequest(game.code, {
+        action: 'joinInvitation',
+        invitationToken: 'invalid-token',
+        participantName: 'David'
+      })
+
+      const response = await updateGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(403)
+      expect(response.jsonBody).toHaveProperty('error')
+      expect(response.jsonBody).toHaveProperty('code', 'INVALID_INVITATION_TOKEN')
+    })
+
+    it('should reject empty participant name', async () => {
+      const game = createTestGame()
+      game.invitationToken = 'invitation-token-123'
+      mockGetGameByCode.mockResolvedValue(game)
+
+      const mockRequest = createMockRequest(game.code, {
+        action: 'joinInvitation',
+        invitationToken: 'invitation-token-123',
+        participantName: '   '
+      })
+
+      const response = await updateGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(400)
+      expect(response.jsonBody).toHaveProperty('error')
+      expect(response.jsonBody).toHaveProperty('code', 'PARTICIPANT_NAME_REQUIRED')
+    })
+
+    it('should reject duplicate participant name', async () => {
+      const game = createTestGame()
+      game.invitationToken = 'invitation-token-123'
+      mockGetGameByCode.mockResolvedValue(game)
+
+      const mockRequest = createMockRequest(game.code, {
+        action: 'joinInvitation',
+        invitationToken: 'invitation-token-123',
+        participantName: 'Alice' // Already exists
+      })
+
+      const response = await updateGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(400)
+      expect(response.jsonBody).toHaveProperty('error')
+      expect(response.jsonBody).toHaveProperty('code', 'DUPLICATE_NAME')
+    })
+
+    it('should reject duplicate email address', async () => {
+      const game = createTestGame()
+      game.invitationToken = 'invitation-token-123'
+      game.participants[0].email = 'alice@email.com'
+      mockGetGameByCode.mockResolvedValue(game)
+
+      const mockRequest = createMockRequest(game.code, {
+        action: 'joinInvitation',
+        invitationToken: 'invitation-token-123',
+        participantName: 'David',
+        participantEmail: 'alice@email.com' // Already exists
+      })
+
+      const response = await updateGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(400)
+      expect(response.jsonBody).toHaveProperty('error')
+      expect(response.jsonBody).toHaveProperty('code', 'DUPLICATE_EMAIL')
+    })
+
+    it('should clear confirmation states when regenerating assignments', async () => {
+      const game = createTestGame()
+      game.invitationToken = 'invitation-token-123'
+      game.participants[0].hasConfirmedAssignment = true
+      game.participants[1].hasPendingReassignmentRequest = true
+      game.reassignmentRequests = [
+        { participantId: 'p2', participantName: 'Bob', requestedAt: Date.now() }
+      ]
+      mockGetGameByCode.mockResolvedValue(game)
+      
+      const newAssignments = [
+        { giverId: 'p1', receiverId: 'p2' },
+        { giverId: 'p2', receiverId: 'p3' },
+        { giverId: 'p3', receiverId: 'new-participant-id' },
+        { giverId: 'new-participant-id', receiverId: 'p1' }
+      ]
+      mockGenerateAssignments.mockReturnValue(newAssignments)
+
+      const mockRequest = createMockRequest(game.code, {
+        action: 'joinInvitation',
+        invitationToken: 'invitation-token-123',
+        participantName: 'David'
+      })
+
+      const response = await updateGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(200)
+      
+      const updatedGame = mockUpdateGame.mock.calls[0][0]
+      // All participants should have cleared states
+      updatedGame.participants.forEach((p: { hasConfirmedAssignment: boolean; hasPendingReassignmentRequest: boolean }) => {
+        expect(p.hasConfirmedAssignment).toBe(false)
+        expect(p.hasPendingReassignmentRequest).toBe(false)
+      })
+      expect(updatedGame.reassignmentRequests).toEqual([])
+    })
+
+    it('should create participant with token for protected games', async () => {
+      const game = createTestGame()
+      game.invitationToken = 'invitation-token-123'
+      game.isProtected = true
+      mockGetGameByCode.mockResolvedValue(game)
+      mockGenerateId.mockReturnValueOnce('new-participant-id').mockReturnValueOnce('new-token-456')
+      
+      const newAssignments = [
+        { giverId: 'p1', receiverId: 'p2' },
+        { giverId: 'p2', receiverId: 'p3' },
+        { giverId: 'p3', receiverId: 'new-participant-id' },
+        { giverId: 'new-participant-id', receiverId: 'p1' }
+      ]
+      mockGenerateAssignments.mockReturnValue(newAssignments)
+
+      const mockRequest = createMockRequest(game.code, {
+        action: 'joinInvitation',
+        invitationToken: 'invitation-token-123',
+        participantName: 'David'
+      })
+
+      const response = await updateGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(200)
+      
+      const updatedGame = mockUpdateGame.mock.calls[0][0]
+      expect(updatedGame.participants[3].token).toBe('new-token-456')
+    })
+
+    it('should handle optional fields correctly', async () => {
+      const game = createTestGame()
+      game.invitationToken = 'invitation-token-123'
+      mockGetGameByCode.mockResolvedValue(game)
+      
+      const newAssignments = [
+        { giverId: 'p1', receiverId: 'p2' },
+        { giverId: 'p2', receiverId: 'p3' },
+        { giverId: 'p3', receiverId: 'new-participant-id' },
+        { giverId: 'new-participant-id', receiverId: 'p1' }
+      ]
+      mockGenerateAssignments.mockReturnValue(newAssignments)
+
+      const mockRequest = createMockRequest(game.code, {
+        action: 'joinInvitation',
+        invitationToken: 'invitation-token-123',
+        participantName: 'David'
+        // No email, desiredGift, or wish
+      })
+
+      const response = await updateGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(200)
+      
+      const updatedGame = mockUpdateGame.mock.calls[0][0]
+      expect(updatedGame.participants[3].email).toBeUndefined()
+      expect(updatedGame.participants[3].desiredGift).toBe('')
+      expect(updatedGame.participants[3].wish).toBe('')
+    })
+  })
 })

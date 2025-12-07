@@ -1,6 +1,7 @@
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions'
 import { getGameByCode, updateGame, getDatabaseStatus, Participant, Game, GameUpdatePayload, ReassignmentRequest } from '../shared/cosmosdb'
 import { reassignParticipant, generateAssignments, generateId } from '../shared/game-utils'
+import { JoinInvitationPayload } from '../shared/types'
 import { 
   getEmailServiceStatus,
   sendParticipantConfirmedEmail,
@@ -699,6 +700,119 @@ export async function updateGameHandler(request: HttpRequest, context: Invocatio
       }
       
       context.log(`Email updated for participant '${participant.name}' in game: ${code}`)
+    }
+
+    // Handle joinInvitation action (new participants joining via invitation link)
+    if (body.action === 'joinInvitation') {
+      const payload = body as JoinInvitationPayload
+      const invitationToken = payload.invitationToken
+      const participantName = payload.participantName?.trim()
+      const participantEmail = payload.participantEmail?.trim()
+      const desiredGift = payload.desiredGift?.trim() || ''
+      const wish = payload.wish?.trim() || ''
+      const language = payload.language
+      
+      // Validate invitation token
+      if (!invitationToken || invitationToken !== game.invitationToken) {
+        return {
+          status: 403,
+          jsonBody: { 
+            error: 'Invalid invitation token',
+            code: 'INVALID_INVITATION_TOKEN'
+          }
+        }
+      }
+      
+      // Validate participant name
+      if (!participantName) {
+        return {
+          status: 400,
+          jsonBody: { 
+            error: 'Participant name is required',
+            code: 'PARTICIPANT_NAME_REQUIRED'
+          }
+        }
+      }
+      
+      // Check for duplicate participant names (case-insensitive)
+      if (game.participants.some(p => p.name.toLowerCase() === participantName.toLowerCase())) {
+        return {
+          status: 400,
+          jsonBody: { 
+            error: 'Participant name already exists',
+            code: 'DUPLICATE_NAME'
+          }
+        }
+      }
+      
+      // Check for duplicate emails if email is provided (case-insensitive)
+      if (participantEmail && game.participants.some(p => 
+        p.email && p.email.toLowerCase() === participantEmail.toLowerCase()
+      )) {
+        return {
+          status: 400,
+          jsonBody: { 
+            error: 'Email address already in use',
+            code: 'DUPLICATE_EMAIL'
+          }
+        }
+      }
+      
+      // Check if email service is configured to determine if we should store language preferences
+      const emailStatus = getEmailServiceStatus()
+      const storeLanguagePreference = emailStatus.configured
+      
+      // Create new participant
+      const newParticipant: Participant = {
+        id: generateId(),
+        name: participantName,
+        email: participantEmail || undefined,
+        desiredGift,
+        wish,
+        hasConfirmedAssignment: false,
+        hasPendingReassignmentRequest: false,
+        token: game.isProtected ? generateId() : undefined,
+        preferredLanguage: storeLanguagePreference && language ? language : undefined
+      }
+      
+      // Add participant to game
+      game.participants.push(newParticipant)
+      
+      // Regenerate assignments to include new participant
+      game.assignments = generateAssignments(game.participants)
+      
+      // Clear any pending reassignment requests since we're regenerating all assignments
+      game.reassignmentRequests = []
+      game.participants.forEach(p => {
+        p.hasPendingReassignmentRequest = false
+        p.hasConfirmedAssignment = false // Clear confirmations when regenerating
+      })
+      
+      context.log(`New participant '${participantName}' joined game via invitation: ${code}`)
+      
+      // Send welcome email to new participant if email is configured
+      if (newParticipant.email && emailStatus.configured) {
+        const emailLanguage = language || 'es'
+        sendParticipantInvitationEmail(game, newParticipant, emailLanguage).then(result => {
+          if (result.success) {
+            context.log(`📧 Welcome email sent to new participant ${participantName}`)
+          } else {
+            context.warn(`⚠️ Failed to send welcome email to ${participantName}: ${result.error}`)
+          }
+        }).catch(err => {
+          context.warn(`⚠️ Failed to send welcome email: ${err.message}`)
+        })
+      }
+      
+      // Return updated game with the new participant's ID
+      const updatedGame = await updateGame(game)
+      return {
+        status: 200,
+        jsonBody: {
+          game: updatedGame,
+          participantId: newParticipant.id
+        }
+      }
     }
     
     const updatedGame = await updateGame(game)
