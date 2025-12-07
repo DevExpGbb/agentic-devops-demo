@@ -998,7 +998,7 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
                   <CurrencyDollar size={24} className="text-accent shrink-0 mt-0.5" />
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">{t('amount')}</p>
-                    <p className="text-base font-semibold">{formatAmount(game.amount, game.currency, t('noInstructions'))}</p>
+                    <p className="text-base font-semibold">{formatAmount(game.amount, game.currency, t('notSpecified'))}</p>
                   </div>
                 </div>
 

@@ -363,7 +363,7 @@ export function AssignmentView({
     ctx.fillText(t('amount') + ':', 100, detailsY + 50)
     ctx.fillStyle = '#3D1B1A'
     ctx.font = '18px Inter'
-    ctx.fillText(formatAmount(game.amount, game.currency, t('noInstructions')), 250, detailsY + 50)
+    ctx.fillText(formatAmount(game.amount, game.currency, t('notSpecified')), 250, detailsY + 50)
 
     ctx.fillStyle = '#665947'
     ctx.font = 'bold 18px Inter'
@@ -612,7 +612,7 @@ export function AssignmentView({
                     <p className="text-sm font-medium text-muted-foreground">
                       {t('amount')}
                     </p>
-                    <p className="text-base font-semibold">{formatAmount(game.amount, game.currency, t('noInstructions'))}</p>
+                    <p className="text-base font-semibold">{formatAmount(game.amount, game.currency, t('notSpecified'))}</p>
                   </div>
                 </div>
 
@@ -623,7 +623,7 @@ export function AssignmentView({
                       {t('date')}
                     </p>
                     <p className="text-base font-semibold">
-                      {game.date ? `${formatDate(game.date, language)}${game.time ? ` - ${game.time}` : ''}` : t('noInstructions')}
+                      {game.date ? `${formatDate(game.date, language)}${game.time ? ` - ${game.time}` : ''}` : t('notSpecified')}
                     </p>
                   </div>
                 </div>
@@ -634,7 +634,7 @@ export function AssignmentView({
                     <p className="text-sm font-medium text-muted-foreground">
                       {t('location')}
                     </p>
-                    <p className="text-base font-semibold">{game.location || t('noInstructions')}</p>
+                    <p className="text-base font-semibold">{game.location || t('notSpecified')}</p>
                   </div>
                 </div>
 

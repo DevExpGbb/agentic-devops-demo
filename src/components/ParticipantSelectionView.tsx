@@ -239,7 +239,7 @@ export function ParticipantSelectionView({
                 <p className="text-sm font-medium text-muted-foreground">
                   {t('amount')}
                 </p>
-                <p className="text-base font-semibold">{formatAmount(game.amount, game.currency, t('noInstructions'))}</p>
+                <p className="text-base font-semibold">{formatAmount(game.amount, game.currency, t('notSpecified'))}</p>
               </div>
             </div>
 
@@ -250,7 +250,7 @@ export function ParticipantSelectionView({
                   {t('date')}
                 </p>
                 <p className="text-base font-semibold">
-                  {game.date ? `${formatDate(game.date, language)}${game.time ? ` - ${game.time}` : ''}` : t('noInstructions')}
+                  {game.date ? `${formatDate(game.date, language)}${game.time ? ` - ${game.time}` : ''}` : t('notSpecified')}
                 </p>
               </div>
             </div>
@@ -261,7 +261,7 @@ export function ParticipantSelectionView({
                 <p className="text-sm font-medium text-muted-foreground">
                   {t('location')}
                 </p>
-                <p className="text-base font-semibold">{game.location || t('noInstructions')}</p>
+                <p className="text-base font-semibold">{game.location || t('notSpecified')}</p>
               </div>
             </div>
 
