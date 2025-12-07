@@ -2,6 +2,9 @@ import { Game } from './types'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || '/api'
 
+// API health check configuration
+const MAX_RETRY_DELAY_MS = 10000 // Maximum delay between retries
+
 export interface ApiStatus {
   available: boolean
   databaseConnected: boolean
@@ -44,7 +47,8 @@ export async function checkApiStatus(retries = 0, retryDelay = 1000): Promise<Ap
       // If we have more retries left, wait before trying again
       if (attempt < retries) {
         // Exponential backoff: wait longer after each failed attempt
-        const delay = retryDelay * Math.pow(2, attempt)
+        // Cap delay to prevent excessive wait times
+        const delay = Math.min(retryDelay * Math.pow(2, attempt), MAX_RETRY_DELAY_MS)
         await new Promise(resolve => setTimeout(resolve, delay))
       }
     }

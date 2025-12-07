@@ -20,6 +20,10 @@ import { useLocalStorage } from '@/hooks/use-local-storage'
 import { checkApiStatus, getGameAPI, CreateGameResponse } from '@/lib/api'
 import { initializeAnalytics } from '@/lib/analytics'
 
+// API health check configuration for initial load
+const INITIAL_CHECK_RETRIES = 2
+const INITIAL_CHECK_RETRY_DELAY = 1000 // ms
+
 type View =
   | 'home'
   | 'create-game'
@@ -83,9 +87,8 @@ function App() {
       
       try {
         // On initial load, use retries to handle cold starts (especially after deployments)
-        // Retry 2 times with exponential backoff (1s, 2s) = up to ~11 seconds total wait
         const status = isInitialCheck 
-          ? await checkApiStatus(2, 1000) 
+          ? await checkApiStatus(INITIAL_CHECK_RETRIES, INITIAL_CHECK_RETRY_DELAY) 
           : await checkApiStatus()
         
         if (!status.available) {
