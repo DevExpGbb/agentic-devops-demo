@@ -31,9 +31,10 @@ export function CookieConsentBanner() {
   return (
     <div
       role="dialog"
-      aria-modal="true"
+      aria-modal="false"
       aria-labelledby="cookie-consent-title"
       className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t-2 border-gray-200 dark:border-gray-700 shadow-lg"
+      data-testid="cookie-consent-banner"
     >
       <div className="max-w-7xl mx-auto p-4 sm:p-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -52,6 +53,7 @@ export function CookieConsentBanner() {
               size="sm"
               onClick={handleDecline}
               className="flex-1 sm:flex-none"
+              data-testid="cookie-decline-button"
             >
               {t('cookieConsentDecline')}
             </Button>
@@ -60,6 +62,7 @@ export function CookieConsentBanner() {
               size="sm"
               onClick={handleAccept}
               className="flex-1 sm:flex-none"
+              data-testid="cookie-accept-button"
             >
               {t('cookieConsentAccept')}
             </Button>
@@ -71,6 +74,7 @@ export function CookieConsentBanner() {
         onClick={handleDecline}
         className="absolute top-2 right-2 p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
         aria-label="Close"
+        data-testid="cookie-close-button"
       >
         <X size={20} />
       </button>

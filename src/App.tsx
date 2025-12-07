@@ -304,7 +304,7 @@ function App() {
     } else if (code) {
       setTimeout(() => handleJoinGame(code), 0)
     }
-  }, [handleJoinGame, handleOrganizerAccess]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [handleJoinGame, handleOrganizerAccess])
 
   // Handle browser back/forward navigation
   useEffect(() => {
