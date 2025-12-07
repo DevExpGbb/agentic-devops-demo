@@ -65,9 +65,15 @@ export async function getGameHandler(request: HttpRequest, context: InvocationCo
           const sanitizedGame: Game = {
             ...game,
             participants: game.participants.map(p => ({
-              ...p,
+              id: p.id,
+              name: p.name,
+              desiredGift: p.desiredGift,
+              wish: p.wish,
               token: p.id === participant.id ? p.token : undefined, // Only show own token
               email: p.id === participant.id ? p.email : undefined, // Only show own email
+              preferredLanguage: p.preferredLanguage,
+              hasConfirmedAssignment: p.id === participant.id ? p.hasConfirmedAssignment : false, // Only show own status
+              hasPendingReassignmentRequest: p.id === participant.id ? p.hasPendingReassignmentRequest : false, // Only show own status
             })),
             // Only include this participant's assignment (not giver's assignment to preserve surprise)
             assignments: participantAssignment ? [participantAssignment] : [],
@@ -126,9 +132,15 @@ export async function getGameHandler(request: HttpRequest, context: InvocationCo
           organizerToken: '', // Hide organizer token
           organizerEmail: undefined, // Hide organizer email
           participants: game.participants.map(p => ({
-            ...p,
+            id: p.id,
+            name: p.name,
+            desiredGift: p.desiredGift,
+            wish: p.wish,
             token: undefined, // Don't expose tokens
-            email: p.id === participantId ? p.email : undefined // Only show own email
+            email: p.id === participantId ? p.email : undefined, // Only show own email
+            preferredLanguage: p.preferredLanguage,
+            hasConfirmedAssignment: p.id === participantId ? p.hasConfirmedAssignment : false, // Only show own status
+            hasPendingReassignmentRequest: p.id === participantId ? p.hasPendingReassignmentRequest : false, // Only show own status
           })),
           assignments: participantAssignment ? [participantAssignment] : []
         }
@@ -156,9 +168,15 @@ export async function getGameHandler(request: HttpRequest, context: InvocationCo
       organizerToken: '', // Hide organizer token from public access
       organizerEmail: undefined, // Hide organizer email
       participants: game.participants.map(p => ({
-        ...p,
+        id: p.id,
+        name: p.name,
+        desiredGift: p.desiredGift,
+        wish: p.wish,
         token: undefined, // Don't expose tokens even in non-protected games
-        email: undefined // Hide all emails from anonymous users
+        email: undefined, // Hide all emails from anonymous users
+        preferredLanguage: p.preferredLanguage,
+        hasConfirmedAssignment: false, // Don't expose confirmation status
+        hasPendingReassignmentRequest: false, // Don't expose reassignment status
       })),
       assignments: [] // Do not leak assignments to anonymous users
     }

@@ -77,10 +77,12 @@ describe('getGame function', () => {
     expect(responseBody.code).toBe('123456')
     // Privacy: Organizer email should be hidden
     expect(responseBody.organizerEmail).toBeUndefined()
-    // Privacy: All participant tokens and emails should be hidden
+    // Privacy: All participant tokens, emails, and confirmation statuses should be hidden
     responseBody.participants.forEach((p: any) => {
       expect(p.token).toBeUndefined()
       expect(p.email).toBeUndefined()
+      expect(p.hasConfirmedAssignment).toBe(false) // Should be hidden (false for anonymous)
+      expect(p.hasPendingReassignmentRequest).toBe(false) // Should be hidden (false for anonymous)
     })
     // Security: Assignments should NOT be exposed to anonymous users
     expect(responseBody.assignments).toEqual([])
@@ -280,6 +282,10 @@ describe('getGame function', () => {
       const p2 = body.participants.find((p: any) => p.id === 'p2')
       expect(p1.email).toBe('alice@example.com') // Own email visible
       expect(p2.email).toBeUndefined() // Other emails hidden
+      // Privacy: only p1's confirmation status should be visible
+      expect(p1.hasConfirmedAssignment).toBe(false) // Own status visible
+      expect(p2.hasConfirmedAssignment).toBe(false) // Other statuses hidden (returned as false)
+      expect(p2.hasPendingReassignmentRequest).toBe(false) // Other statuses hidden (returned as false)
     })
 
     it('should return 404 for invalid participantId', async () => {
