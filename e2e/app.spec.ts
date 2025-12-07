@@ -10,7 +10,7 @@ test.beforeEach(async ({ context }) => {
   // Set analytics declined in localStorage BEFORE any page loads
   // This prevents the cookie banner from appearing and blocking interactions
   await context.addInitScript(() => {
-    window.localStorage.setItem('analytics-declined', 'true')
+    window.localStorage.setItem('secretsanta:analytics-declined', 'true')
   })
 })
 
