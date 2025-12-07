@@ -8,13 +8,14 @@ import { CURRENCIES } from './types'
  * @returns Formatted string with currency symbol, or fallback text if amount is empty
  */
 export function formatAmount(amount: string, currency: string, fallbackText: string): string {
-  if (!amount || amount.trim() === '') {
+  const trimmedAmount = amount?.trim() || ''
+  if (!amount || trimmedAmount === '') {
     return fallbackText
   }
   const curr = CURRENCIES.find(c => c.code === currency)
   if (curr) {
-    return `${curr.flag} ${curr.symbol}${amount} ${curr.code}`
+    return `${curr.flag} ${curr.symbol}${trimmedAmount} ${curr.code}`
   }
   // Fallback: show amount with unknown currency code
-  return currency ? `${amount} ${currency}` : amount
+  return currency ? `${trimmedAmount} ${currency}` : trimmedAmount
 }

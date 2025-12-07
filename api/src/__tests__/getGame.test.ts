@@ -214,6 +214,27 @@ describe('getGame function', () => {
       expect(body.giverHasConfirmed).toBe(false)
     })
 
+    it('should return giverHasConfirmed true when giver has confirmed', async () => {
+      // Create game where p3 (Alice's giver) has confirmed their assignment
+      const gameWithConfirmedGiver = {
+        ...protectedGame,
+        participants: [
+          { id: 'p1', name: 'Alice', desiredGift: '', wish: '', token: 'alice-token', hasConfirmedAssignment: false, hasPendingReassignmentRequest: false },
+          { id: 'p2', name: 'Bob', desiredGift: '', wish: '', token: 'bob-token', hasConfirmedAssignment: false, hasPendingReassignmentRequest: false },
+          { id: 'p3', name: 'Charlie', desiredGift: '', wish: '', token: 'charlie-token', hasConfirmedAssignment: true, hasPendingReassignmentRequest: false } // Confirmed
+        ]
+      }
+      mockGetGameByCode.mockResolvedValueOnce(gameWithConfirmedGiver)
+
+      const mockRequest = createMockRequest('123456', { participantToken: 'alice-token' })
+      const response = await getGameHandler(mockRequest, mockContext)
+
+      expect(response.status).toBe(200)
+      const body = response.jsonBody as any
+      // p3 gives to p1, and p3 has confirmed, so giverHasConfirmed should be true
+      expect(body.giverHasConfirmed).toBe(true)
+    })
+
     it('should return 403 for invalid participant token', async () => {
       mockGetGameByCode.mockResolvedValueOnce(protectedGame)
 

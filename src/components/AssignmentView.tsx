@@ -142,7 +142,7 @@ export function AssignmentView({
   // Refresh data on mount
   useEffect(() => {
     refreshGameData()
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [refreshGameData])
 
   const handleReassignment = async () => {
     if (!game.allowReassignment) {
