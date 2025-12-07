@@ -122,7 +122,7 @@ export type DateValidationResult =
  * Checks format, range, and calendar validity (e.g., rejects Feb 31, April 31)
  * This validation is shared to ensure consistency across the API
  * 
- * Note: Frontend has similar validation in src/lib/game-utils.ts formatDate()
+ * Note: Frontend has similar validation in src/lib/game-utils.ts isValidDate() and formatDate()
  * Keep these implementations synchronized when making changes
  * 
  * @param dateString - Date string in YYYY-MM-DD format
