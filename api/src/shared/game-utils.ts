@@ -83,29 +83,46 @@ export function generateAssignmentsWithLocks(
   const shuffledUnlocked = [...unlockedParticipants].sort(() => Math.random() - 0.5)
   const shuffledReceivers = [...availableReceivers].sort(() => Math.random() - 0.5)
 
-  // Create new assignments for unlocked participants
+  // Create new assignments for unlocked participants, avoiding self-assignment
   const newAssignments: Assignment[] = [...lockedAssignments]
   
-  for (let i = 0; i < shuffledUnlocked.length; i++) {
-    const giver = shuffledUnlocked[i]
-    const receiver = shuffledReceivers[i]
+  // Try to assign receivers to givers, avoiding self-assignment
+  let assignmentAttempts = 0
+  const maxAttempts = 100
+  
+  while (assignmentAttempts < maxAttempts) {
+    const tempAssignments: Assignment[] = []
+    let hasError = false
     
-    // Ensure giver doesn't give to themselves
-    if (giver.id === receiver) {
-      // Swap with next receiver if possible
-      const nextIdx = (i + 1) % shuffledReceivers.length
-      if (shuffledUnlocked[nextIdx]?.id !== shuffledReceivers[nextIdx]) {
-        // Swap receivers
-        const temp = shuffledReceivers[i]
-        shuffledReceivers[i] = shuffledReceivers[nextIdx]
-        shuffledReceivers[nextIdx] = temp
+    for (let i = 0; i < shuffledUnlocked.length; i++) {
+      const giver = shuffledUnlocked[i]
+      const receiver = shuffledReceivers[i]
+      
+      // Check for self-assignment
+      if (giver.id === receiver) {
+        hasError = true
+        break
       }
+      
+      tempAssignments.push({
+        giverId: giver.id,
+        receiverId: receiver
+      })
     }
     
-    newAssignments.push({
-      giverId: giver.id,
-      receiverId: shuffledReceivers[i]
-    })
+    if (!hasError) {
+      newAssignments.push(...tempAssignments)
+      break
+    }
+    
+    // Shuffle receivers again and retry
+    shuffledReceivers.sort(() => Math.random() - 0.5)
+    assignmentAttempts++
+  }
+  
+  // If we couldn't avoid self-assignment after many attempts, fall back to full regeneration
+  if (assignmentAttempts >= maxAttempts) {
+    return generateAssignments(participants)
   }
 
   return newAssignments

@@ -338,27 +338,55 @@ export function reassignAllLocal(game: Game): Game {
   const shuffledUnconfirmed = [...unconfirmedParticipants].sort(() => Math.random() - 0.5)
   const shuffledReceivers = [...availableReceivers].sort(() => Math.random() - 0.5)
 
-  // Create new assignments
+  // Create new assignments, avoiding self-assignment
   const newAssignments: Assignment[] = [...lockedAssignments]
 
-  for (let i = 0; i < shuffledUnconfirmed.length; i++) {
-    const giver = shuffledUnconfirmed[i]
-    const receiver = shuffledReceivers[i]
+  // Try to assign receivers to givers, avoiding self-assignment
+  let assignmentAttempts = 0
+  const maxAttempts = 100
+  
+  while (assignmentAttempts < maxAttempts) {
+    const tempAssignments: Assignment[] = []
+    let hasError = false
     
-    // Avoid self-assignment
-    if (giver.id === receiver) {
-      const nextIdx = (i + 1) % shuffledReceivers.length
-      if (shuffledUnconfirmed[nextIdx]?.id !== shuffledReceivers[nextIdx]) {
-        const temp = shuffledReceivers[i]
-        shuffledReceivers[i] = shuffledReceivers[nextIdx]
-        shuffledReceivers[nextIdx] = temp
+    for (let i = 0; i < shuffledUnconfirmed.length; i++) {
+      const giver = shuffledUnconfirmed[i]
+      const receiver = shuffledReceivers[i]
+      
+      // Check for self-assignment
+      if (giver.id === receiver) {
+        hasError = true
+        break
       }
+      
+      tempAssignments.push({
+        giverId: giver.id,
+        receiverId: receiver
+      })
     }
     
-    newAssignments.push({
-      giverId: giver.id,
-      receiverId: shuffledReceivers[i]
-    })
+    if (!hasError) {
+      newAssignments.push(...tempAssignments)
+      break
+    }
+    
+    // Shuffle receivers again and retry
+    shuffledReceivers.sort(() => Math.random() - 0.5)
+    assignmentAttempts++
+  }
+  
+  // If we couldn't avoid self-assignment after many attempts, fall back to full regeneration
+  if (assignmentAttempts >= maxAttempts) {
+    return {
+      ...game,
+      participants: game.participants.map(p => ({
+        ...p,
+        hasPendingReassignmentRequest: false,
+        hasConfirmedAssignment: false
+      })),
+      assignments: generateAssignments(game.participants),
+      reassignmentRequests: []
+    }
   }
 
   // Update participants: clear pending requests, keep confirmation status
