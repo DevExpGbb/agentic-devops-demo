@@ -70,7 +70,6 @@ export const zh = {
     // Participant selection
     selectParticipant: "选择参与者",
     selectParticipantDescription: "您是谁?",
-    yourName: "您的名称",
     yourPassword: "您的密码",
     selectYourName: "选择您的名称",
     enterYourPassword: "输入游戏密码",

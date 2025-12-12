@@ -70,7 +70,6 @@ export const ja = {
     // Participant selection
     selectParticipant: "参加者を選択",
     selectParticipantDescription: "あなたは誰ですか?",
-    yourName: "お名前",
     yourPassword: "パスワード",
     selectYourName: "お名前を選択",
     enterYourPassword: "ゲームのパスワードを入力",

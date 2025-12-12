@@ -70,7 +70,6 @@ export const fr = {
     // Participant selection
     selectParticipant: "Sélectionner un Participant",
     selectParticipantDescription: "Qui êtes-vous?",
-    yourName: "Votre nom",
     yourPassword: "Votre mot de passe",
     selectYourName: "Sélectionnez votre nom",
     enterYourPassword: "Entrez le mot de passe du jeu",
