@@ -140,6 +140,11 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
   const [editParticipantConfirmed, setEditParticipantConfirmed] = useState(false)
   const [isSavingParticipant, setIsSavingParticipant] = useState(false)
   
+  // Force reassign state
+  const [showForceReassignDialog, setShowForceReassignDialog] = useState(false)
+  const [participantToForceReassign, setParticipantToForceReassign] = useState<Participant | null>(null)
+  const [isForcingReassignment, setIsForcingReassignment] = useState(false)
+  
   // Refresh state
   const [isRefreshing, setIsRefreshing] = useState(false)
   
@@ -553,6 +558,52 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
         // API not available - use local operation
         const updatedGame = approveAllReassignmentsLocal(game)
         onUpdateGame(updatedGame)
+      }
+      toast.success(t('allPendingApproved'))
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Failed to approve all reassignments'
+      toast.error(message)
+    } finally {
+      setIsApprovingAllReassignments(false)
+      setShowApproveAllDialog(false)
+    }
+  }
+
+  // Handle force reassign participant
+  const handleForceReassignParticipant = async () => {
+    if (!participantToForceReassign) return
+    
+    setIsForcingReassignment(true)
+    try {
+      const apiStatus = await checkApiStatus()
+      if (apiStatus.available && apiStatus.databaseConnected) {
+        try {
+          const updatedGame = await forceReassignParticipantAPI(game.code, game.organizerToken, participantToForceReassign.id)
+          onUpdateGame(updatedGame)
+        } catch {
+          // API call failed - fall back to local operation
+          const updatedGame = forceReassignParticipantLocal(game, participantToForceReassign.id)
+          onUpdateGame(updatedGame)
+        }
+      } else {
+        // API not available - use local operation
+        const updatedGame = forceReassignParticipantLocal(game, participantToForceReassign.id)
+        onUpdateGame(updatedGame)
+      }
+      toast.success(t('forceReassignSuccess'))
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Failed to force reassign participant'
+      if (message.includes('no valid swap') || message.includes('No valid swap')) {
+        toast.error(t('reassignmentFailed'))
+      } else {
+        toast.error(message)
+      }
+    } finally {
+      setIsForcingReassignment(false)
+      setShowForceReassignDialog(false)
+      setParticipantToForceReassign(null)
+    }
+  }
       }
       toast.success(t('allPendingApproved'))
     } catch (error: unknown) {
@@ -1357,6 +1408,22 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
                         <PencilSimple size={16} />
                       </Button>
 
+                      {/* Force Reassign button - only show for confirmed participants */}
+                      {participant.hasConfirmedAssignment && (
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => {
+                            setParticipantToForceReassign(participant)
+                            setShowForceReassignDialog(true)
+                          }}
+                          className="text-orange-600 hover:text-orange-700 hover:bg-orange-50"
+                          title={t('forceReassignParticipant')}
+                        >
+                          <Shuffle size={16} />
+                        </Button>
+                      )}
+
                       {/* Remove button */}
                       <Button
                         variant="ghost"
@@ -1661,18 +1728,19 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
         <DialogContent>
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <Warning size={24} className="text-amber-500" />
+              <Shuffle size={24} className="text-primary" />
               {t('reassignAll')}
             </DialogTitle>
             <DialogDescription>
               {t('reassignAllDesc')}
               {confirmedCount > 0 && (
-                <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded text-sm">
-                  <p className="text-amber-800 font-medium">
-                    ⚠️ {confirmedCount} {t('confirmedParticipantsWarning')}
+                <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded text-sm">
+                  <p className="text-blue-800 font-medium flex items-center gap-2">
+                    <ShieldCheck size={18} className="text-blue-600" />
+                    {confirmedCount} {t('confirmedParticipantsLocked')}
                   </p>
-                  <p className="text-amber-700 text-xs mt-1">
-                    {t('confirmedParticipantsWarningDesc')}
+                  <p className="text-blue-700 text-xs mt-1">
+                    {game.participants.length - confirmedCount} participants will receive new assignments.
                   </p>
                 </div>
               )}
@@ -1725,6 +1793,55 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
             >
               {isApprovingAllReassignments && <CircleNotch size={16} className="animate-spin" />}
               {t('confirm')}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Force Reassign Participant Dialog */}
+      <Dialog open={showForceReassignDialog} onOpenChange={setShowForceReassignDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Warning size={24} className="text-orange-500" />
+              {t('forceReassignConfirm')}
+            </DialogTitle>
+            <DialogDescription>
+              <div className="space-y-3">
+                <p className="text-amber-800 font-medium">
+                  {t('forceReassignWarning')}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {t('forceReassignWarningDesc')}
+                </p>
+                {participantToForceReassign && (
+                  <div className="mt-3 p-3 bg-orange-50 border border-orange-200 rounded">
+                    <p className="text-sm font-medium text-orange-900">
+                      {participantToForceReassign.name}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button 
+              variant="outline" 
+              onClick={() => {
+                setShowForceReassignDialog(false)
+                setParticipantToForceReassign(null)
+              }}
+              disabled={isForcingReassignment}
+            >
+              {t('cancel')}
+            </Button>
+            <Button 
+              onClick={handleForceReassignParticipant} 
+              disabled={isForcingReassignment}
+              className="gap-2 bg-orange-600 hover:bg-orange-700"
+            >
+              {isForcingReassignment && <CircleNotch size={16} className="animate-spin" />}
+              {t('forceReassignParticipant')}
             </Button>
           </DialogFooter>
         </DialogContent>
