@@ -159,6 +159,22 @@ export const fr = {
     reminderToAllDesc: "Envoyer un rappel à tous les participants avec e-mail",
     noEmailConfigured: "Aucun e-mail configuré",
 
+    // Export participants translations
+    exportParticipants: "Exporter les Participants",
+    exportParticipantsDesc: "Télécharger la liste des participants avec les détails sélectionnés",
+    exportDialogTitle: "Exporter la Liste des Participants",
+    exportDialogDesc: "Choisissez les détails à inclure dans l'exportation",
+    exportIncludeAssignments: "Inclure les Affectations",
+    exportIncludeGameDetails: "Inclure les Détails du Jeu",
+    exportIncludeWishes: "Inclure les Souhaits",
+    exportIncludeInstructions: "Inclure les Instructions",
+    exportIncludeConfirmationStatus: "Inclure le Statut de Confirmation",
+    exportIncludeEmails: "Inclure les E-mails",
+    exportButton: "Exporter en CSV",
+    exportingData: "Exportation...",
+    exportSuccess: "Participants exportés!",
+    exportError: "Échec de l'exportation des participants",
+
     // Privacy page translations
     privacyTitle: "Politique de Confidentialité",
     privacySubtitle: "Comment nous traitons vos données",

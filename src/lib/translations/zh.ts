@@ -159,6 +159,22 @@ export const zh = {
     reminderToAllDesc: "向所有参与者发送包含邮箱的提醒",
     noEmailConfigured: "未配置邮箱",
 
+    // Export participants translations
+    exportParticipants: "导出参与者",
+    exportParticipantsDesc: "下载包含所选详细信息的参与者列表",
+    exportDialogTitle: "导出参与者列表",
+    exportDialogDesc: "选择要包含在导出中的详细信息",
+    exportIncludeAssignments: "包含分配",
+    exportIncludeGameDetails: "包含游戏详情",
+    exportIncludeWishes: "包含愿望",
+    exportIncludeInstructions: "包含说明",
+    exportIncludeConfirmationStatus: "包含确认状态",
+    exportIncludeEmails: "包含电子邮件",
+    exportButton: "导出为 CSV",
+    exportingData: "正在导出...",
+    exportSuccess: "参与者已导出！",
+    exportError: "导出参与者失败",
+
     // Privacy page translations
     privacyTitle: "隐私政策",
     privacySubtitle: "我们如何处理您的数据",

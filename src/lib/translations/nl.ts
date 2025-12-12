@@ -13,6 +13,8 @@ export const nl = {
     finish: "Gereed",
     cancel: "Annuleren",
     confirm: "Bevestigen",
+    yes: "Ja",
+    no: "Nee",
     
     step1: "Evenementdetails",
     step2: "Deelnemers",
@@ -283,6 +285,22 @@ export const nl = {
     reminderEmailDesc: "Herinnering met evenementdetails verzenden",
     reminderToAllDesc: "Herinnering naar alle deelnemers met e-mail verzenden",
     noEmailConfigured: "Geen e-mail geconfigureerd",
+
+    // Export participants translations
+    exportParticipants: "Deelnemers exporteren",
+    exportParticipantsDesc: "Deelnemerslijst met geselecteerde details downloaden",
+    exportDialogTitle: "Deelnemerslijst exporteren",
+    exportDialogDesc: "Kies welke details u wilt opnemen in de export",
+    exportIncludeAssignments: "Toewijzingen opnemen",
+    exportIncludeGameDetails: "Speldetails opnemen",
+    exportIncludeWishes: "Wensen opnemen",
+    exportIncludeInstructions: "Instructies opnemen",
+    exportIncludeConfirmationStatus: "Bevestigingsstatus opnemen",
+    exportIncludeEmails: "E-mails opnemen",
+    exportButton: "Exporteren als CSV",
+    exportingData: "Exporteren...",
+    exportSuccess: "Deelnemers geëxporteerd!",
+    exportError: "Exporteren van deelnemers mislukt",
 
     privacyTitle: "Privacybeleid",
     privacySubtitle: "Hoe wij uw gegevens behandelen",

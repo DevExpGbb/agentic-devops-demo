@@ -13,6 +13,8 @@ export const pt = {
     finish: "Finalizar",
     cancel: "Cancelar",
     confirm: "Confirmar",
+    yes: "Sim",
+    no: "Não",
     
     step1: "Detalhes do Evento",
     step2: "Participantes",
@@ -289,6 +291,22 @@ export const pt = {
     reminderEmailDesc: "Envie um lembrete com os detalhes do evento",
     reminderToAllDesc: "Envie um lembrete para todos os participantes com email",
     noEmailConfigured: "Sem email configurado",
+
+    // Export participants translations
+    exportParticipants: "Exportar Participantes",
+    exportParticipantsDesc: "Baixar lista de participantes com detalhes selecionados",
+    exportDialogTitle: "Exportar Lista de Participantes",
+    exportDialogDesc: "Escolha quais detalhes incluir na exportação",
+    exportIncludeAssignments: "Incluir Atribuições",
+    exportIncludeGameDetails: "Incluir Detalhes do Jogo",
+    exportIncludeWishes: "Incluir Desejos",
+    exportIncludeInstructions: "Incluir Instruções",
+    exportIncludeConfirmationStatus: "Incluir Status de Confirmação",
+    exportIncludeEmails: "Incluir Emails",
+    exportButton: "Exportar como CSV",
+    exportingData: "Exportando...",
+    exportSuccess: "Participantes exportados!",
+    exportError: "Falha ao exportar participantes",
 
     // Privacy page translations
     privacyTitle: "Política de Privacidade",

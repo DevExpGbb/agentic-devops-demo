@@ -159,6 +159,22 @@ export const ja = {
     reminderToAllDesc: "メール付きのリマインダーをすべての参加者に送信",
     noEmailConfigured: "メール設定なし",
 
+    // Export participants translations
+    exportParticipants: "参加者をエクスポート",
+    exportParticipantsDesc: "選択した詳細を含む参加者リストをダウンロード",
+    exportDialogTitle: "参加者リストをエクスポート",
+    exportDialogDesc: "エクスポートに含める詳細を選択してください",
+    exportIncludeAssignments: "割り当てを含む",
+    exportIncludeGameDetails: "ゲーム詳細を含む",
+    exportIncludeWishes: "希望を含む",
+    exportIncludeInstructions: "指示を含む",
+    exportIncludeConfirmationStatus: "確認ステータスを含む",
+    exportIncludeEmails: "メールを含む",
+    exportButton: "CSVとしてエクスポート",
+    exportingData: "エクスポート中...",
+    exportSuccess: "参加者がエクスポートされました！",
+    exportError: "参加者のエクスポートに失敗しました",
+
     // Privacy page translations
     privacyTitle: "プライバシーポリシー",
     privacySubtitle: "あなたのデータの取り扱い",
