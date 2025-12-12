@@ -897,14 +897,20 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
       const link = document.createElement('a')
       const url = URL.createObjectURL(blob)
-      link.setAttribute('href', url)
-      // Sanitize filename: remove unsafe characters while preserving Unicode letters and numbers
-      const sanitizedName = game.name.replace(/[<>:"/\\|?*\x00-\x1F]/g, '_').trim() || 'participants'
-      link.setAttribute('download', `${sanitizedName}_participants.csv`)
-      link.style.visibility = 'hidden'
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
+      
+      try {
+        link.setAttribute('href', url)
+        // Sanitize filename: remove unsafe characters while preserving Unicode letters and numbers
+        const sanitizedName = game.name.replace(/[<>:"/\\|?*\x00-\x1F]/g, '_').trim() || 'participants'
+        link.setAttribute('download', `${sanitizedName}_participants.csv`)
+        link.style.visibility = 'hidden'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      } finally {
+        // Clean up the object URL to prevent memory leaks
+        URL.revokeObjectURL(url)
+      }
 
       toast.success(t('exportSuccess'))
       setShowExportDialog(false)
