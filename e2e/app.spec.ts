@@ -382,7 +382,7 @@ test.describe('Core User Flows', () => {
     const download = await downloadPromise
     
     // Verify filename pattern matches expected format
-    expect(download.suggestedFilename()).toMatch(/Export_Test_Game_participants\.csv/)
+    expect(download.suggestedFilename()).toMatch(/Export Test Game_participants\.csv/)
     
     // Verify dialog closes after export
     await expect(page.getByText(/exportar lista de participantes|export participant list/i)).not.toBeVisible()
