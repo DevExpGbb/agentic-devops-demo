@@ -438,13 +438,13 @@ test.describe('Error Handling and Token Entry', () => {
     // Verify export dialog appears
     await expect(page.getByText(/exportar lista de participantes|export participant list/i)).toBeVisible()
     
-    // Verify all checkboxes are present and checked by default
-    const assignmentsCheckbox = page.getByRole('checkbox', { name: /incluir asignaciones|include assignments/i })
-    const gameDetailsCheckbox = page.getByRole('checkbox', { name: /incluir detalles del juego|include game details/i })
-    const wishesCheckbox = page.getByRole('checkbox', { name: /incluir deseos|include wishes/i })
-    const instructionsCheckbox = page.getByRole('checkbox', { name: /incluir instrucciones|include instructions/i })
-    const confirmationCheckbox = page.getByRole('checkbox', { name: /incluir.*confirmación|include confirmation/i })
-    const emailsCheckbox = page.getByRole('checkbox', { name: /incluir emails|include emails/i })
+    // Verify all checkboxes are present and checked by default using their IDs
+    const assignmentsCheckbox = page.locator('#export-assignments')
+    const gameDetailsCheckbox = page.locator('#export-game-details')
+    const wishesCheckbox = page.locator('#export-wishes')
+    const instructionsCheckbox = page.locator('#export-instructions')
+    const confirmationCheckbox = page.locator('#export-confirmation')
+    const emailsCheckbox = page.locator('#export-emails')
     
     await expect(assignmentsCheckbox).toBeChecked()
     await expect(gameDetailsCheckbox).toBeChecked()
