@@ -949,6 +949,7 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
       try {
         link.setAttribute('href', url)
         // Sanitize filename: remove unsafe characters while preserving Unicode letters and numbers
+        // eslint-disable-next-line no-control-regex
         const sanitizedName = game.name.replace(/[<>:"/\\|?*\x00-\x1F]/g, '_').trim() || 'participants'
         link.setAttribute('download', `${sanitizedName}_participants.csv`)
         link.style.visibility = 'hidden'
