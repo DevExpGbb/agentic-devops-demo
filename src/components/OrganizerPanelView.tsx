@@ -879,6 +879,12 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
 
   // Export participants handler
   const handleExportParticipants = () => {
+    // Validate that there are participants to export
+    if (!game.participants || game.participants.length === 0) {
+      toast.error(t('exportError'))
+      return
+    }
+
     setIsExporting(true)
     try {
       // Prepare CSV headers
@@ -935,14 +941,14 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
         return row
       })
 
-      // Convert to CSV format
+      // Convert to CSV format with proper escaping for quotes and newlines
       const csvContent = [
-        headers.map(h => `"${h}"`).join(','),
-        ...rows.map(row => row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(','))
+        headers.map(h => `"${h.replace(/"/g, '""')}"`).join(','),
+        ...rows.map(row => row.map(cell => `"${cell.replace(/"/g, '""').replace(/\r?\n/g, ' ')}"`).join(','))
       ].join('\n')
 
-      // Create blob and download
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+      // Create blob with UTF-8 BOM for Excel compatibility and download
+      const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' })
       const link = document.createElement('a')
       const url = URL.createObjectURL(blob)
       
@@ -2240,7 +2246,7 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
               />
               <label
                 htmlFor="export-assignments"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
               >
                 {t('exportIncludeAssignments')}
               </label>
@@ -2253,7 +2259,7 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
               />
               <label
                 htmlFor="export-game-details"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
               >
                 {t('exportIncludeGameDetails')}
               </label>
@@ -2266,7 +2272,7 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
               />
               <label
                 htmlFor="export-wishes"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
               >
                 {t('exportIncludeWishes')}
               </label>
@@ -2279,7 +2285,7 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
               />
               <label
                 htmlFor="export-instructions"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
               >
                 {t('exportIncludeInstructions')}
               </label>
@@ -2292,7 +2298,7 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
               />
               <label
                 htmlFor="export-confirmation"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
               >
                 {t('exportIncludeConfirmationStatus')}
               </label>
@@ -2305,7 +2311,7 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
               />
               <label
                 htmlFor="export-emails"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
               >
                 {t('exportIncludeEmails')}
               </label>
