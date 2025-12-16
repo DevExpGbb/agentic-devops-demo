@@ -941,10 +941,25 @@ export function OrganizerPanelView({ game, onUpdateGame, onBack, onGameDeleted }
         return row
       })
 
+      // Helper to sanitize CSV cells to prevent CSV injection
+      function sanitizeCsvCell(cell: string): string {
+        // If cell starts with =, +, -, @, or tab, prefix with a single quote
+        if (/^[=+\-@\t]/.test(cell)) {
+          return "'" + cell
+        }
+        return cell
+      }
+
       // Convert to CSV format with proper escaping for quotes and newlines
       const csvContent = [
         headers.map(h => `"${h.replace(/"/g, '""')}"`).join(','),
-        ...rows.map(row => row.map(cell => `"${cell.replace(/"/g, '""').replace(/\r?\n/g, ' ')}"`).join(','))
+        ...rows.map(row =>
+          row
+            .map(cell =>
+              `"${sanitizeCsvCell(cell).replace(/"/g, '""').replace(/\r?\n/g, ' ')}"`
+            )
+            .join(',')
+        )
       ].join('\n')
 
       // Create blob with UTF-8 BOM for Excel compatibility and download
