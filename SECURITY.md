@@ -1,6 +1,6 @@
 # Security Policy
 
-Thank you for helping keep Secret Santa secure!
+Thank you for helping keep Zava Exchange Gift secure!
 
 ## Reporting Security Issues
 
@@ -8,7 +8,7 @@ If you believe you have found a security vulnerability, please report it private
 
 **Please do not report security vulnerabilities through public GitHub issues, discussions, or pull requests.**
 
-Instead, please send an email to **github@dsanchezcr.com**.
+Instead, please send an email.
 
 Include as much of the information listed below as you can to help us better understand and resolve the issue:
 
@@ -82,8 +82,3 @@ We follow responsible disclosure practices:
 4. Vulnerability publicly disclosed after update is available
 
 If you prefer a different disclosure timeline, please let us know in your initial report.
-
-## Questions?
-
-For security questions that aren't vulnerabilities, feel free to open a discussion or email github@dsanchezcr.com.
-

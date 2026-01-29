@@ -64,7 +64,7 @@ async function checkDatabaseHealth(): Promise<DependencyCheck> {
       status: 'ok',
       latencyMs: Date.now() - start,
       details: {
-        database: process.env.COSMOS_DATABASE_NAME || 'secretsanta',
+        database: process.env.COSMOS_DATABASE_NAME || 'zavaexchangegift',
         container: process.env.COSMOS_CONTAINER_NAME || 'games'
       }
     }

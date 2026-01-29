@@ -4,7 +4,7 @@ This document explains how the local development environment is automatically co
 
 ## Overview
 
-When you set up Secret Santa locally, the system automatically creates and configures everything needed for development:
+When you set up Zava Exchange Gift locally, the system automatically creates and configures everything needed for development:
 
 - ✅ Database connection (`local.settings.json`)
 - ✅ Environment variables
@@ -24,8 +24,8 @@ When you clone and run the app locally:
 
 ```bash
 # Clone the repo
-git clone https://github.com/dsanchezcr/secretsanta.git
-cd secretsanta
+git clone https://github.com/dsanchezcr/zavaexchangegift.git
+cd zavaexchangegift
 
 # Option A: Use root setup script (recommended)
 npm run setup
@@ -121,7 +121,7 @@ When the setup script runs, it creates this configuration:
     
     "COSMOS_ENDPOINT": "https://localhost:8081",
     "COSMOS_KEY": "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-    "COSMOS_DATABASE_NAME": "secretsanta",
+    "COSMOS_DATABASE_NAME": "zavaexchangegift",
     "COSMOS_CONTAINER_NAME": "games",
     
     "APPLICATIONINSIGHTS_CONNECTION_STRING": "",
@@ -143,7 +143,7 @@ When the setup script runs, it creates this configuration:
 |----------|-------|---------|
 | `COSMOS_ENDPOINT` | `https://localhost:8081` | Local emulator URL |
 | `COSMOS_KEY` | Default key | Emulator uses public, non-secret key |
-| `COSMOS_DATABASE_NAME` | `secretsanta` | Database name |
+| `COSMOS_DATABASE_NAME` | `zavaexchangegift` | Database name |
 | `COSMOS_CONTAINER_NAME` | `games` | Container name |
 | `APP_BASE_URL` | `http://localhost:5173` | Frontend URL |
 | `ENVIRONMENT` | `local` | Development mode |
@@ -206,8 +206,8 @@ npm run setup
 ### Step 1: Clone
 
 ```bash
-git clone https://github.com/dsanchezcr/secretsanta.git
-cd secretsanta
+git clone https://github.com/dsanchezcr/zavaexchangegift.git
+cd zavaexchangegift
 ```
 
 **Result:**

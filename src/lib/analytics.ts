@@ -14,10 +14,10 @@ const GA_ID_PATTERN = /^G-[A-Z0-9]+$/
 const isProduction = import.meta.env.PROD
 
 // LocalStorage key for consent
-const CONSENT_KEY = 'secretsanta:analytics-consent'
+const CONSENT_KEY = 'zavaexchangegift:analytics-consent'
 
 // LocalStorage key for declined consent
-const DECLINED_KEY = 'secretsanta:analytics-declined'
+const DECLINED_KEY = 'zavaexchangegift:analytics-declined'
 
 /**
  * Check if user has given consent for analytics

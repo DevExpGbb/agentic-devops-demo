@@ -1,6 +1,6 @@
 # 🚀 Local Development Guide
 
-Get up and running with Secret Santa locally in minutes. This guide covers everything you need to develop, test, and debug the application on your machine.
+Get up and running with Zava Exchange Gift locally in minutes. This guide covers everything you need to develop, test, and debug the application on your machine.
 
 ## Table of Contents
 
@@ -49,8 +49,8 @@ Before you start, ensure you have the following installed on your machine (**Win
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/dsanchezcr/secretsanta.git
-cd secretsanta
+git clone https://github.com/dsanchezcr/zavaexchangegift.git
+cd zavaexchangegift
 ```
 
 ### 2. Start Docker Containers
@@ -128,7 +128,7 @@ This copies the example template and shows you what was configured.
 The `local.settings.json` file automatically includes:
 - **COSMOS_ENDPOINT**: `https://localhost:8081` (emulator)
 - **COSMOS_KEY**: Default emulator key (safe, public key)
-- **COSMOS_DATABASE_NAME**: `secretsanta`
+- **COSMOS_DATABASE_NAME**: `zavaexchangegift`
 - **COSMOS_CONTAINER_NAME**: `games`
 - **APP_BASE_URL**: `http://localhost:5173`
 - **ENVIRONMENT**: `local`
@@ -275,7 +275,7 @@ The local Cosmos DB Emulator is automatically set up and data persists in Docker
 
 ```bash
 # Query games collection
-curl -X GET "https://localhost:8081/dbs/secretsanta/colls/games/docs" \
+curl -X GET "https://localhost:8081/dbs/zavaexchangegift/colls/games/docs" \
   -H "Authorization: type%3Dmaster%26ver%3D1.0%26sig%3D..." \
   -H "x-ms-version: 2018-12-31" \
   -k  # Ignore SSL for emulator
@@ -583,8 +583,8 @@ Enable local telemetry:
 
 ## Getting Help
 
-- **Issue?** Check [GitHub Issues](https://github.com/dsanchezcr/secretsanta/issues)
-- **Question?** Create a [Discussion](https://github.com/dsanchezcr/secretsanta/discussions)
+- **Issue?** Check [GitHub Issues](https://github.com/dsanchezcr/zavaexchangegift/issues)
+- **Question?** Create a [Discussion](https://github.com/dsanchezcr/zavaexchangegift/discussions)
 - **Want to contribute?** See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---

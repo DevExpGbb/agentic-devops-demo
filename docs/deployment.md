@@ -6,9 +6,9 @@ This project uses an ephemeral infrastructure approach:
 
 | Environment | Resource Group | Lifecycle | Purpose |
 |-------------|----------------|-----------|---------|
-| **PR** | `secretsanta-pr-{number}` | Created on PR open, deleted on close | Isolated testing per PR |
-| **QA** | `secretsanta-qa` | Persistent | Pre-production validation (isolated) |
-| **Production** | `secretsanta` | Persistent | Live environment |
+| **PR** | `zavaexchangegift-pr-{number}` | Created on PR open, deleted on close | Isolated testing per PR |
+| **QA** | `zavaexchangegift-qa` | Persistent | Pre-production validation (isolated) |
+| **Production** | `zavaexchangegift` | Persistent | Live environment |
 
 ### How It Works
 
@@ -48,7 +48,7 @@ All environments automatically receive these settings from infrastructure:
 az login
 
 # Create service principal for GitHub Actions (OIDC)
-az ad sp create-for-rbac --name "secretsanta-github" \
+az ad sp create-for-rbac --name "zavaexchangegift-github" \
   --role contributor \
   --scopes /subscriptions/{subscription-id} --json-auth
 ```
@@ -78,10 +78,10 @@ Go to **Settings → Environments** and create:
 
 ```bash
 # Create production resource group
-az group create --name secretsanta --location centralus
+az group create --name zavaexchangegift --location centralus
 
 # Create QA resource group (isolated from production)
-az group create --name secretsanta-qa --location centralus
+az group create --name zavaexchangegift-qa --location centralus
 ```
 
 ### 5. Create Infrastructure (Optional)
@@ -98,20 +98,20 @@ For initial setup or manual deployment:
 ```bash
 # Deploy PR environment
 az deployment group create \
-  --resource-group secretsanta-pr-123 \
+  --resource-group zavaexchangegift-pr-123 \
   --template-file infra/main.bicep \
   --parameters environment=pr prNumber=123
 
 # Deploy QA (isolated resource group)
-az group create --name secretsanta-qa --location centralus
+az group create --name zavaexchangegift-qa --location centralus
 az deployment group create \
-  --resource-group secretsanta-qa \
+  --resource-group zavaexchangegift-qa \
   --template-file infra/main.bicep \
   --parameters infra/parameters.qa.json
 
 # Deploy Production
 az deployment group create \
-  --resource-group secretsanta \
+  --resource-group zavaexchangegift \
   --template-file infra/main.bicep \
   --parameters infra/parameters.prod.json
 ```
@@ -122,7 +122,7 @@ Email is enabled by default in QA and production. For PR environments:
 
 ```bash
 az deployment group create \
-  --resource-group secretsanta-pr-123 \
+  --resource-group zavaexchangegift-pr-123 \
   --template-file infra/main.bicep \
   --parameters environment=pr prNumber=123 enableEmailService=true
 ```
@@ -143,7 +143,7 @@ az deployment group create \
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
-| `projectName` | secretsanta | Base name for resources |
+| `projectName` | zavaexchangegift | Base name for resources |
 | `environment` | pr | Environment (pr/qa/prod) |
 | `prNumber` | - | PR number (required for pr env) |
 | `staticWebAppSku` | Free | SWA tier (Free/Standard) |
@@ -157,20 +157,20 @@ az deployment group create \
 ### Delete PR Environment (automatic on PR close)
 
 ```bash
-az group delete --name secretsanta-pr-123 --yes --no-wait
+az group delete --name zavaexchangegift-pr-123 --yes --no-wait
 ```
 
 ### Delete All Environments
 
 ```bash
 # Delete production
-az group delete --name secretsanta --yes
+az group delete --name zavaexchangegift --yes
 
 # Delete QA
-az group delete --name secretsanta-qa --yes
+az group delete --name zavaexchangegift-qa --yes
 
 # Delete any orphaned PR environments
-az group list --query "[?starts_with(name, 'secretsanta-pr-')].name" -o tsv | \
+az group list --query "[?starts_with(name, 'zavaexchangegift-pr-')].name" -o tsv | \
   xargs -I {} az group delete --name {} --yes --no-wait
 ```
 

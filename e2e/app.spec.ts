@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 /**
- * Optimized E2E tests for Secret Santa
+ * Optimized E2E tests for Zava Exchange Gift
  * Focus on critical user flows only - not individual UI elements
  */
 
@@ -10,7 +10,7 @@ test.beforeEach(async ({ context }) => {
   // Set analytics declined in localStorage BEFORE any page loads
   // This prevents the cookie banner from appearing and blocking interactions
   await context.addInitScript(() => {
-    window.localStorage.setItem('secretsanta:analytics-declined', 'true')
+    window.localStorage.setItem('zavaexchangegift:analytics-declined', 'true')
   })
 })
 
@@ -19,8 +19,8 @@ test.describe('Core User Flows', () => {
   test('should display home page with main actions', async ({ page }) => {
     await page.goto('/')
     
-    // Verify essential elements are present (includes Amigo Secreto for Spanish)
-    await expect(page.getByRole('heading', { name: /secret santa|amigo secreto/i })).toBeVisible()
+    // Verify essential elements are present (includes Spanish translation)
+    await expect(page.getByRole('heading', { name: /zava|intercambio/i })).toBeVisible()
     await expect(page.getByRole('button', { name: /crear nuevo juego|create new game/i })).toBeVisible()
     await expect(page.getByPlaceholder(/código de 6 dígitos|6-digit code/i)).toBeVisible()
     await expect(page.getByRole('button', { name: /es|en/i })).toBeVisible()
@@ -34,7 +34,7 @@ test.describe('Core User Flows', () => {
     await expect(page.getByText(/detalles del evento|event details/i)).toBeVisible()
     
     // Fill event details
-    await page.getByLabel(/nombre del evento|event name/i).fill('Test Secret Santa 2025')
+    await page.getByLabel(/nombre del evento|event name/i).fill('Test Gift Exchange 2025')
     await page.getByLabel(/monto del regalo|gift amount/i).fill('50')
     await page.getByLabel(/fecha del evento|event date/i).fill('2025-12-25')
     await page.getByLabel(/lugar del evento|event location/i).fill('Office Party')
@@ -106,7 +106,7 @@ test.describe('Core User Flows', () => {
     await expect(page.getByText(/detalles del evento|event details/i)).toBeVisible()
     
     await page.getByRole('button', { name: /atrás|back/i }).click()
-    await expect(page.getByRole('heading', { name: /secret santa|amigo secreto/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /zava|intercambio/i })).toBeVisible()
   })
 
   test('should require minimum 3 participants', async ({ page }) => {
@@ -151,14 +151,14 @@ test.describe('Core User Flows', () => {
     await page.setViewportSize({ width: 375, height: 667 })
     await page.goto('/')
     
-    await expect(page.getByRole('heading', { name: /secret santa|amigo secreto/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /zava|intercambio/i })).toBeVisible()
     await expect(page.getByRole('button', { name: /crear nuevo juego|create new game/i })).toBeVisible()
     
     // Test desktop viewport
     await page.setViewportSize({ width: 1920, height: 1080 })
     await page.goto('/')
     
-    await expect(page.getByRole('heading', { name: /secret santa|amigo secreto/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /zava|intercambio/i })).toBeVisible()
     await expect(page.getByRole('button', { name: /crear nuevo juego|create new game/i })).toBeVisible()
   })
 
@@ -211,7 +211,7 @@ test.describe('Core User Flows', () => {
     
     // Navigate back to home
     await page.getByRole('button', { name: /back|atrás|retour/i }).click()
-    await expect(page.getByRole('heading', { name: /secret santa|amigo secreto/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /zava|intercambio/i })).toBeVisible()
     
     // Test participant guide via URL parameter  
     await page.goto('/?view=participant-guide')
@@ -232,7 +232,7 @@ test.describe('Core User Flows', () => {
     
     // Navigate back to home
     await page.getByRole('button', { name: /back|atrás|retour/i }).click()
-    await expect(page.getByRole('heading', { name: /secret santa|amigo secreto/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /zava|intercambio/i })).toBeVisible()
     
     // Test participant guide via path-based URL
     await page.goto('/participant-guide')
@@ -458,7 +458,7 @@ test.describe('Error Handling and Token Entry', () => {
     // If the button is visible, click it and verify navigation
     if (await goHomeButton.isVisible({ timeout: 5000 }).catch(() => false)) {
       await goHomeButton.click()
-      await expect(page.getByRole('heading', { name: /secret santa|amigo secreto/i })).toBeVisible()
+      await expect(page.getByRole('heading', { name: /zava|intercambio/i })).toBeVisible()
     }
   })
 

@@ -1,9 +1,9 @@
 # ============================================================================
-# Secret Santa - CI/CD Pipeline
+# Zava Exchange Gift - CI/CD Pipeline
 # ============================================================================
 # Environment Strategy:
 # - PR: Ephemeral resource group per PR (auto-created and deleted)
-# - QA: Isolated resource group (`secretsanta-qa`) (deployed on main)
+# - QA: Isolated resource group (`zavaexchangegift-qa`) (deployed on main)
 # - Prod: Production environment (deployed on main after QA E2E tests pass)
 # 
 # Note: Staging environments are ENABLED for GitHub Actions deployments.
@@ -35,9 +35,9 @@ on:
 env:
   NODE_VERSION: '20'
   AZURE_LOCATION: 'centralus'
-  PROJECT_NAME: 'secretsanta'
-  AZURE_RESOURCE_GROUP: 'secretsanta'
-  AZURE_QA_RESOURCE_GROUP: 'secretsanta-qa'
+  PROJECT_NAME: 'zavaexchangegift'
+  AZURE_RESOURCE_GROUP: 'zavaexchangegift'
+  AZURE_QA_RESOURCE_GROUP: 'zavaexchangegift-qa'
 
 permissions:
   id-token: write

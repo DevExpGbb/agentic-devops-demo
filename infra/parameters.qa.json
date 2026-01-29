@@ -2,12 +2,12 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "projectName": { "value": "secretsanta" },
+    "projectName": { "value": "zavaexchangegift" },
     "environment": { "value": "qa" },
     "staticWebAppSku": { "value": "Free" },
     "enableEmailService": { "value": true },
     "emailDataLocation": { "value": "United States" },
-    "repositoryUrl": { "value": "https://github.com/dsanchezcr/secretsanta" },
+    "repositoryUrl": { "value": "https://github.com/dsanchezcr/zavaexchangegift" },
     "repositoryBranch": { "value": "main" }
   }
 }

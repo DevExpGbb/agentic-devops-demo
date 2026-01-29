@@ -64,7 +64,7 @@ describe('createGame function', () => {
 
   it('should create a game successfully with valid data', async () => {
     const requestBody = {
-      name: 'Christmas 2025',
+      name: 'Party 2025',
       amount: '20',
       currency: 'USD',
       date: '2025-12-25',
@@ -86,7 +86,7 @@ describe('createGame function', () => {
     
     const game = response.jsonBody as Game
     expect(game.code).toBe('123456')
-    expect(game.name).toBe('Christmas 2025')
+    expect(game.name).toBe('Party 2025')
     expect(game.participants).toHaveLength(3)
     expect(game.assignments).toHaveLength(3)
   })

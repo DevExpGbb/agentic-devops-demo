@@ -1,8 +1,8 @@
 {
-    "name": "secretsanta",
+    "name": "zavaexchangegift",
     "private": true,
     "version": "1.0.0",
-    "description": "Secret Santa - A modern web app for organizing gift exchanges",
+    "description": "Zava Exchange Gift - A modern web app for organizing gift exchanges",
     "type": "module",
     "scripts": {
         "dev": "vite",

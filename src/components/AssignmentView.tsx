@@ -411,7 +411,7 @@ export function AssignmentView({
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
-      a.download = `secretsanta-${game.code}.png`
+      a.download = `zavaexchangegift-${game.code}.png`
       a.click()
       URL.revokeObjectURL(url)
       toast.dismiss()

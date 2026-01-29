@@ -1,7 +1,7 @@
 // ============================================================================
-// Secret Santa - Infrastructure as Code
+// Zava Exchange Gift - Infrastructure as Code
 // ============================================================================
-// Infrastructure for Secret Santa gift exchange app
+// Infrastructure for Zava Exchange Gift app
 // 
 // Environment Strategy:
 // - PR: Ephemeral resource group per PR (auto-deleted on close)
@@ -9,12 +9,12 @@
 //       - Cosmos DB: Serverless (pay per request)
 //       - Email Service: Disabled
 //
-// - QA: Isolated resource group (`secretsanta-qa`)
+// - QA: Isolated resource group (`zavaexchangegift-qa`)
 //       - Static Web App: Free tier
 //       - Cosmos DB: Free tier (one per subscription, sufficient for testing)
 //       - Email Service: Enabled (for full testing)
 //
-// - Prod: Production resource group (`secretsanta`)
+// - Prod: Production resource group (`zavaexchangegift`)
 //       - Static Web App: Standard tier (SLA, custom domains)
 //       - Cosmos DB: Serverless (unlimited scaling, pay per request)
 //       - Email Service: Enabled
@@ -27,7 +27,7 @@
 // ============================================================================
 
 @description('Project name used for resource naming')
-param projectName string = 'secretsanta'
+param projectName string = 'zavaexchangegift'
 
 @description('Azure region for resources')
 param location string = resourceGroup().location
@@ -82,7 +82,7 @@ var communicationServiceName = 'ss-acs-${uniqueSuffix}'
 var emailServiceName = 'ss-email-${uniqueSuffix}'
 var logAnalyticsName = 'ss-logs-${uniqueSuffix}'
 var appInsightsName = 'ss-insights-${uniqueSuffix}'
-var databaseName = 'secretsanta'
+var databaseName = 'zavaexchangegift'
 var containerName = 'games'
 
 // Retention based on environment

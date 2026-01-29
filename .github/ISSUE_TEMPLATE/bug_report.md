@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a bug or issue with Secret Santa
+about: Report a bug or issue with Zava Exchange Gift
 title: '[BUG] '
 labels: bug
 assignees: ''
