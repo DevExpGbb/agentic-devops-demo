@@ -167,6 +167,8 @@ resource cosmosAccount 'Microsoft.DocumentDB/databaseAccounts@2024-11-15' = {
     capabilities: [
       { name: 'EnableServerless' }
     ]
+    // Allow key-based authentication (required for Static Web App managed functions)
+    disableLocalAuth: false
   }
 }
 
