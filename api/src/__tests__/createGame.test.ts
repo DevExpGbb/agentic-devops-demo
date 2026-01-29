@@ -67,7 +67,7 @@ describe('createGame function', () => {
       name: 'Party 2025',
       amount: '20',
       currency: 'USD',
-      date: '2025-12-25',
+      date: '2026-12-25',
       location: 'Office',
       allowReassignment: true,
       generalNotes: 'Bring wrapped gifts',
