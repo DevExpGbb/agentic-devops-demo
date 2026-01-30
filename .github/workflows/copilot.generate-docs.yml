@@ -9,6 +9,9 @@ on:
 jobs:
   generate-docs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read    # Required to read repository content and commit diffs
+      issues: write     # Required to create GitHub issues for documentation recommendations
     
     steps:
       - name: Checkout code
