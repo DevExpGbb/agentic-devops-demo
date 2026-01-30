@@ -14,6 +14,9 @@ on:
 jobs:
   generate-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read    # Required to read repository content and commit diffs
+      issues: write     # Required to create GitHub issues for test coverage recommendations
     
     steps:
       - name: Checkout code
