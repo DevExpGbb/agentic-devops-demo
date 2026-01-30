@@ -1,6 +1,6 @@
 # 🚀 Local Development Guide
 
-Get up and running with Zava Exchange Gift locally in minutes. This guide covers everything you need to develop, test, and debug the application on your machine.
+Get up and running with Zava Gift Exchange locally in minutes. This guide covers everything you need to develop, test, and debug the application on your machine.
 
 ## Table of Contents
 

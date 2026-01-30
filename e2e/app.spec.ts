@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 /**
- * Optimized E2E tests for Zava Exchange Gift
+ * Optimized E2E tests for Zava Gift Exchange
  * Focus on critical user flows only - not individual UI elements
  */
 

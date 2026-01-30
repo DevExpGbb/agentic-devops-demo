@@ -1,7 +1,7 @@
 // ============================================================================
-// Zava Exchange Gift - Infrastructure as Code
+// Zava Gift Exchange - Infrastructure as Code
 // ============================================================================
-// Infrastructure for Zava Exchange Gift app
+// Infrastructure for Zava Gift Exchange app
 // 
 // Environment Strategy:
 // - PR: Ephemeral resource group per PR (auto-deleted on close)

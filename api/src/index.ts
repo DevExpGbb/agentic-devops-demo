@@ -1,5 +1,5 @@
 /**
- * Zava Exchange Gift API - Azure Functions Entry Point
+ * Zava Gift Exchange API - Azure Functions Entry Point
  * This file imports all function handlers to register them with the runtime
  */
 

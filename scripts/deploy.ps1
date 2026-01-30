@@ -1,7 +1,7 @@
 #!/usr/bin/env pwsh
 <#
 .SYNOPSIS
-    One-command deployment script for Zava Exchange Gift to Azure
+    One-command deployment script for Zava Gift Exchange to Azure
     
 .DESCRIPTION
     Authenticates with Azure (az login), creates/updates resource group, 
@@ -62,7 +62,7 @@ $sku = $config['sku']
 $emailEnabled = $config['email']
 
 Write-Host "================================" -ForegroundColor Cyan
-Write-Host "🚀 Zava Exchange Gift Deployment" -ForegroundColor Cyan
+Write-Host "🚀 Zava Gift Exchange Deployment" -ForegroundColor Cyan
 Write-Host "================================" -ForegroundColor Cyan
 Write-Host "Environment: $Environment" -ForegroundColor Yellow
 Write-Host "Resource Group: $resourceGroup" -ForegroundColor Yellow

@@ -1,6 +1,6 @@
 # 🎯 Developer Setup Guide - Overview
 
-Welcome to Zava Exchange Gift! This guide helps you choose the right documentation for your needs.
+Welcome to Zava Gift Exchange! This guide helps you choose the right documentation for your needs.
 
 ## 📚 Documentation Roadmap
 

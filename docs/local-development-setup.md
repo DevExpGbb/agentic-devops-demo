@@ -4,7 +4,7 @@ This document explains how the local development environment is automatically co
 
 ## Overview
 
-When you set up Zava Exchange Gift locally, the system automatically creates and configures everything needed for development:
+When you set up Zava Gift Exchange locally, the system automatically creates and configures everything needed for development:
 
 - ✅ Database connection (`local.settings.json`)
 - ✅ Environment variables

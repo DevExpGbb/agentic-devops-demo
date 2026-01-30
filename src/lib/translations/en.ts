@@ -1,5 +1,5 @@
 export const en = {
-    appName: "Zava Exchange Gift",
+    appName: "Zava Gift Exchange",
     welcome: "Welcome!",
     welcomeDesc: "Organize your gift exchange easily and fun",
     loading: "Loading...",
@@ -332,7 +332,7 @@ export const en = {
     privacyTitle: "Privacy Policy",
     privacySubtitle: "How we handle your data",
     privacyDataCollectionTitle: "Data We Collect",
-    privacyDataCollectionDesc: "When using Zava Exchange Gift, we collect the following information to make the gift exchange work:",
+    privacyDataCollectionDesc: "When using Zava Gift Exchange, we collect the following information to make the gift exchange work:",
     privacyDataItem1: "Participant names",
     privacyDataItem2: "Email addresses (optional, for notifications)",
     privacyDataItem3: "Gift wishes (optional)",

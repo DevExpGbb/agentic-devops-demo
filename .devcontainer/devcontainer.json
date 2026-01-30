@@ -1,11 +1,11 @@
 {
-  // Dev Container Configuration for Zava Exchange Gift
+  // Dev Container Configuration for Zava Gift Exchange
   // SECURITY NOTE: This configuration mounts the Docker socket (/var/run/docker.sock)
   // which gives the container full root access to the host Docker daemon.
   // This is standard for Docker-outside-of-Docker workflows and appropriate for
   // trusted development environments (local dev, GitHub Codespaces).
   // Do NOT use this configuration in untrusted or production environments.
-  "name": "Zava Exchange Gift Development",
+  "name": "Zava Gift Exchange Development",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
   "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {},
@@ -65,7 +65,7 @@
     }
   },
   "postCreateCommand": "bash .devcontainer/setup.sh",
-  "postStartCommand": "echo '🎁 Zava Exchange Gift development environment ready!\\n\\nℹ️  If you see extension errors:\\n   - Wait for VS Code extensions to finish installing\\n   - Reload the window if needed (Ctrl+Shift+P > Reload Window)\\n\\n🚀 Press F5 to start debugging!'",
+  "postStartCommand": "echo '🎁 Zava Gift Exchange development environment ready!\\n\\nℹ️  If you see extension errors:\\n   - Wait for VS Code extensions to finish installing\\n   - Reload the window if needed (Ctrl+Shift+P > Reload Window)\\n\\n🚀 Press F5 to start debugging!'",
   "remoteUser": "root",
   "containerEnv": {
     "NODE_ENV": "development",

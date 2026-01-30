@@ -1,4 +1,4 @@
-# Zava Exchange Gift API Reference
+# Zava Gift Exchange API Reference
 
 ## Base URL
 - Local: `http://localhost:7071/api`

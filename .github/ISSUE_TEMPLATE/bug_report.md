@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a bug or issue with Zava Exchange Gift
+about: Report a bug or issue with Zava Gift Exchange
 title: '[BUG] '
 labels: bug
 assignees: ''

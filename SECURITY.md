@@ -1,6 +1,6 @@
 # Security Policy
 
-Thank you for helping keep Zava Exchange Gift secure!
+Thank you for helping keep Zava Gift Exchange secure!
 
 ## Reporting Security Issues
 

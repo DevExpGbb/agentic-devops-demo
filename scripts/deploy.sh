@@ -1,6 +1,6 @@
 #!/bin/bash
 ###############################################################################
-# Zava Exchange Gift Deployment Script
+# Zava Gift Exchange Deployment Script
 #
 # One-command deployment to Azure with automatic resource group creation
 # and infrastructure provisioning
@@ -77,7 +77,7 @@ EMAIL_ENABLED="${EMAIL_MAP[$ENVIRONMENT]}"
 
 # Header
 echo -e "${CYAN}================================${NC}"
-echo -e "${CYAN}🚀 Zava Exchange Gift Deployment${NC}"
+echo -e "${CYAN}🚀 Zava Gift Exchange Deployment${NC}"
 echo -e "${CYAN}================================${NC}"
 echo -e "${YELLOW}Environment: $ENVIRONMENT${NC}"
 echo -e "${YELLOW}Resource Group: $RESOURCE_GROUP${NC}"

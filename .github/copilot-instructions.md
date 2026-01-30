@@ -1,7 +1,7 @@
-# Copilot Instructions for Zava Exchange Gift
+# Copilot Instructions for Zava Gift Exchange
 
 ## Project Overview
-Multilingual Zava Exchange Gift exchange app built with React + Vite frontend and Azure Functions API, deployed on Azure Static Web Apps with Cosmos DB.
+Multilingual Zava Gift Exchange exchange app built with React + Vite frontend and Azure Functions API, deployed on Azure Static Web Apps with Cosmos DB.
 
 ## Environment Strategy
 - **PR**: Ephemeral resource group per PR (`zavaexchangegift-pr-{number}`) with Free tier resources

@@ -1,6 +1,6 @@
-# 🎁 Zava Exchange Gift
+# 🎁 Zava Gift Exchange
 
-Zava Exchange Gift gift exchange web application built with React + Vite, Azure Functions, and Azure Cosmos DB.
+Zava Gift Exchange gift exchange web application built with React + Vite, Azure Functions, and Azure Cosmos DB.
 
 [![CI/CD](https://github.com/dsanchezcr/zavaexchangegift/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/dsanchezcr/zavaexchangegift/actions/workflows/ci-cd.yml)
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dsanchezcr/zavaexchangegift?quickstart=1)

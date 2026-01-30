@@ -197,9 +197,9 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       footer: 'Gracias por usar Intercambio de Regalos Zava. ¡Que disfruten el intercambio de regalos!'
     },
     en: {
-      subject: `🎁 Your Zava Exchange Gift game "${game.name}" has been created`,
+      subject: `🎁 Your Zava Gift Exchange game "${game.name}" has been created`,
       greeting: 'Hello!',
-      gameCreated: 'Your Zava Exchange Gift game has been created successfully.',
+      gameCreated: 'Your Zava Gift Exchange game has been created successfully.',
       gameDetails: 'Game details:',
       name: 'Event name',
       code: 'Game code',
@@ -214,7 +214,7 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       organizerToken: 'Organizer token',
       organizerTokenDesc: 'Use this token along with the game code to manage the game (don\'t share it!):',
       shareCodeDesc: 'Share this code with all participants so they can join the game:',
-      footer: 'Thank you for using Zava Exchange Gift. Enjoy the gift exchange!'
+      footer: 'Thank you for using Zava Gift Exchange. Enjoy the gift exchange!'
     },
     pt: {
       subject: `🎁 Seu jogo de Troca de Presentes Zava "${game.name}" foi criado`,
@@ -371,7 +371,7 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="background: linear-gradient(135deg, #c41e3a 0%, #165B33 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
-    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Zava Exchange Gift</h1>
+    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Zava Gift Exchange</h1>
   </div>
   
   <div style="background: #fff; padding: 30px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 10px 10px;">
@@ -495,9 +495,9 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
       keepSecret: '🤫 Recuerda: ¡mantén en secreto a quién le regalas!'
     },
     en: {
-      subject: `🎁 Your Zava Exchange Gift assignment for "${game.name}"`,
+      subject: `🎁 Your Zava Gift Exchange assignment for "${game.name}"`,
       greeting: `Hello ${participant.name}!`,
-      intro: 'You have been included in a Zava Exchange Gift game.',
+      intro: 'You have been included in a Zava Gift Exchange game.',
       yourAssignment: 'Your assignment is ready!',
       youGiftTo: 'You\'re gifting to:',
       theirWish: 'Their gift wish:',
@@ -701,7 +701,7 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="background: linear-gradient(135deg, #c41e3a 0%, #165B33 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
-    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Zava Exchange Gift</h1>
+    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Zava Gift Exchange</h1>
   </div>
   
   <div style="background: #fff; padding: 30px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 10px 10px;">
@@ -874,7 +874,7 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
     en: {
       subject: `🔑 Link Recovery - "${game.name}"`,
       greeting: 'Hello!',
-      recoveryRequested: 'A link recovery has been requested for Your Zava Exchange Gift game organizer access.',
+      recoveryRequested: 'A link recovery has been requested for Your Zava Gift Exchange game organizer access.',
       recoveryDesc: 'If you requested this recovery, use the link or token below to access your organizer panel.',
       organizerLink: 'Your organizer link',
       organizerLinkDesc: 'Use this link to access the organizer panel:',
@@ -882,7 +882,7 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: 'Use this token to access:',
       securityNote: 'If you didn\'t request this recovery, you can ignore this email. Your access link remains valid.',
       notYou: 'Wasn\'t you?',
-      footer: 'Thank you for using Zava Exchange Gift.',
+      footer: 'Thank you for using Zava Gift Exchange.',
       headerTitle: 'Link Recovery'
     },
     pt: {
@@ -930,7 +930,7 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
     ja: {
       subject: `🔑 リンク復旧 - "${game.name}"`,
       greeting: 'こんにちは！',
-      recoveryRequested: 'Zava Exchange Giftゲームの主催者リンクの復旧がリクエストされました。',
+      recoveryRequested: 'Zava Gift Exchangeゲームの主催者リンクの復旧がリクエストされました。',
       recoveryDesc: 'この復旧をリクエストした場合は、以下のリンクまたはトークンを使用して主催者パネルにアクセスしてください。',
       organizerLink: '主催者リンク',
       organizerLinkDesc: 'このリンクを使用して主催者パネルにアクセスしてください:',
@@ -938,7 +938,7 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: 'このトークンを使用してアクセスしてください:',
       securityNote: 'この復旧をリクエストしていない場合は、このメールを無視してください。アクセスリンクは引き続き有効です。',
       notYou: '心当たりがない場合',
-      footer: 'Zava Exchange Giftをご利用いただきありがとうございます。',
+      footer: 'Zava Gift Exchangeをご利用いただきありがとうございます。',
       headerTitle: 'リンク復旧'
     },
     zh: {
@@ -972,7 +972,7 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
     nl: {
       subject: `🔑 Link Herstel - "${game.name}"`,
       greeting: 'Hallo!',
-      recoveryRequested: 'Er is een linkherstel aangevraagd voor uw Zava Exchange Gift organisatortoegang.',
+      recoveryRequested: 'Er is een linkherstel aangevraagd voor uw Zava Gift Exchange organisatortoegang.',
       recoveryDesc: 'Als u dit herstel heeft aangevraagd, gebruik dan de link of token hieronder om toegang te krijgen tot uw organisatorpaneel.',
       organizerLink: 'Uw organisatorlink',
       organizerLinkDesc: 'Gebruik deze link om toegang te krijgen tot het organisatorpaneel:',
@@ -1115,7 +1115,7 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
     en: {
       subject: `🔑 Link Recovery - "${game.name}"`,
       greeting: `Hello ${participant.name}!`,
-      recoveryRequested: 'A link recovery has been requested for Your Zava Exchange Gift game participation.',
+      recoveryRequested: 'A link recovery has been requested for Your Zava Gift Exchange game participation.',
       recoveryDesc: 'If you requested this recovery, use the link or token below to view your assignment.',
       participantLink: 'Your participant link',
       participantLinkDesc: 'Use this link to view your assignment:',
@@ -1123,7 +1123,7 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: 'Use this token to access:',
       securityNote: 'If you didn\'t request this recovery, you can ignore this email. Your access link remains valid.',
       notYou: 'Wasn\'t you?',
-      footer: 'Thank you for using Zava Exchange Gift.',
+      footer: 'Thank you for using Zava Gift Exchange.',
       headerTitle: 'Link Recovery',
       noTokenMessage: 'This game is not protected. Use the game code to access.'
     },
@@ -1175,7 +1175,7 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
     ja: {
       subject: `🔑 リンク復旧 - "${game.name}"`,
       greeting: `こんにちは ${participant.name}さん！`,
-      recoveryRequested: 'Zava Exchange Giftゲームの参加者リンクの復旧がリクエストされました。',
+      recoveryRequested: 'Zava Gift Exchangeゲームの参加者リンクの復旧がリクエストされました。',
       recoveryDesc: 'この復旧をリクエストした場合は、以下のリンクまたはトークンを使用して割り当てを確認してください。',
       participantLink: '参加者リンク',
       participantLinkDesc: 'このリンクを使用して割り当てを確認してください:',
@@ -1183,7 +1183,7 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: 'このトークンを使用してアクセスしてください:',
       securityNote: 'この復旧をリクエストしていない場合は、このメールを無視してください。アクセスリンクは引き続き有効です。',
       notYou: '心当たりがない場合',
-      footer: 'Zava Exchange Giftをご利用いただきありがとうございます。',
+      footer: 'Zava Gift Exchangeをご利用いただきありがとうございます。',
       headerTitle: 'リンク復旧',
       noTokenMessage: 'このゲームは保護されていません。ゲームコードを使用してアクセスしてください。'
     },
@@ -1205,7 +1205,7 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
     de: {
       subject: `🔑 Link-Wiederherstellung - "${game.name}"`,
       greeting: `Hallo ${participant.name}!`,
-      recoveryRequested: 'Eine Link-Wiederherstellung wurde für Ihre Zava Exchange Gift Teilnahme angefordert.',
+      recoveryRequested: 'Eine Link-Wiederherstellung wurde für Ihre Zava Gift Exchange Teilnahme angefordert.',
       recoveryDesc: 'Wenn Sie diese Wiederherstellung angefordert haben, verwenden Sie den Link oder Token unten, um Ihre Zuweisung anzuzeigen.',
       participantLink: 'Ihr Teilnehmer-Link',
       participantLinkDesc: 'Verwenden Sie diesen Link, um Ihre Zuweisung anzuzeigen:',
@@ -1220,7 +1220,7 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
     nl: {
       subject: `🔑 Link Herstel - "${game.name}"`,
       greeting: `Hallo ${participant.name}!`,
-      recoveryRequested: 'Er is een linkherstel aangevraagd voor uw Zava Exchange Gift deelname.',
+      recoveryRequested: 'Er is een linkherstel aangevraagd voor uw Zava Gift Exchange deelname.',
       recoveryDesc: 'Als u dit herstel heeft aangevraagd, gebruik dan de link of token hieronder om uw toewijzing te bekijken.',
       participantLink: 'Uw deelnemerslink',
       participantLinkDesc: 'Gebruik deze link om uw toewijzing te bekijken:',
@@ -1412,7 +1412,7 @@ export function generateParticipantConfirmedEmailContent(data: ParticipantConfir
       confirmedAt: 'Confirmed',
       viewPanel: 'View organizer panel',
       totalConfirmed: 'Total confirmed',
-      footer: 'Thank you for using Zava Exchange Gift.',
+      footer: 'Thank you for using Zava Gift Exchange.',
       confirmationReceived: 'Confirmation Received'
     },
     pt: {
@@ -1590,7 +1590,7 @@ export function generateReassignmentRequestedEmailContent(data: ReassignmentRequ
       pendingRequests: 'Pending requests',
       action: 'You can approve or reject this request from the organizer panel.',
       viewPanel: 'View organizer panel',
-      footer: 'Thank you for using Zava Exchange Gift.',
+      footer: 'Thank you for using Zava Gift Exchange.',
       newRequest: 'New Request'
     },
     pt: {
@@ -1772,7 +1772,7 @@ export function generateReassignmentResultEmailContent(data: ReassignmentResultE
       newAssignment: 'Your new assignment',
       youGiftTo: 'You\'re now gifting to:',
       contactOrganizer: 'If you have questions, contact the event organizer.',
-      footer: 'Thank you for using Zava Exchange Gift.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subjectApproved: `✅ Sua solicitação de reatribuição foi aprovada - "${game.name}"`,
@@ -1955,7 +1955,7 @@ export function generateWishUpdatedEmailContent(data: WishUpdatedEmailData): { s
       theirWish: 'Their new wish',
       theirDesiredGift: 'Desired gift',
       headerTitle: 'Wish Updated',
-      footer: 'Thank you for using Zava Exchange Gift.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `💡 ${receiver.name} atualizou sua lista de desejos - "${game.name}"`,
@@ -2120,7 +2120,7 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
     en: {
       subject: `📝 Event details have changed - "${game.name}"`,
       greeting: recipientName ? `Hello ${recipientName}!` : 'Hello!',
-      changed: 'The Zava Exchange Gift event details have been updated.',
+      changed: 'The Zava Gift Exchange event details have been updated.',
       whatChanged: 'What changed?',
       date: 'Date',
       time: 'Time',
@@ -2130,7 +2130,7 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
       to: 'Now',
       currentDetails: 'Current event details',
       viewEvent: 'View event',
-      footer: 'Thank you for using Zava Exchange Gift.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `📝 Os detalhes do evento mudaram - "${game.name}"`,
@@ -2385,9 +2385,9 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       footer: 'Gracias por usar Intercambio de Regalos Zava.'
     },
     en: {
-      subject: `🔔 Reminder: Zava Exchange Gift "${game.name}"`,
+      subject: `🔔 Reminder: Zava Gift Exchange "${game.name}"`,
       greeting: `Hello ${recipientName}!`,
-      reminder: 'This is a reminder about the Zava Exchange Gift event.',
+      reminder: 'This is a reminder about the Zava Gift Exchange event.',
       customMessageLabel: 'Message from organizer',
       eventDetails: 'Event details',
       name: 'Event',
@@ -2399,7 +2399,7 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       confirmReminder: 'Please confirm your participation if you haven\'t already.',
       viewEvent: 'View event',
       headerTitle: 'Reminder',
-      footer: 'Thank you for using Zava Exchange Gift.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `🔔 Lembrete: Troca de Presentes Zava "${game.name}"`,
@@ -2658,9 +2658,9 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
       footer: '¡Que disfrutes el intercambio de regalos!'
     },
     en: {
-      subject: `🎁 You've been invited to Zava Exchange Gift "${game.name}"`,
+      subject: `🎁 You've been invited to Zava Gift Exchange "${game.name}"`,
       greeting: `Hello ${participant.name}!`,
-      invited: 'You have been added to a Zava Exchange Gift game.',
+      invited: 'You have been added to a Zava Gift Exchange game.',
       eventDetails: 'Event details',
       name: 'Event',
       date: 'Date',
@@ -2790,7 +2790,7 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="background: linear-gradient(135deg, #c41e3a 0%, #165B33 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
-    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Zava Exchange Gift</h1>
+    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Zava Gift Exchange</h1>
   </div>
   
   <div style="background: #fff; padding: 30px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 10px 10px;">
@@ -2885,7 +2885,7 @@ export function generateFullReassignmentEmailContent(data: FullReassignmentEmail
     en: {
       subject: `🔄 New assignment in "${game.name}" - Organizer reassignment`,
       greeting: `Hello ${participant.name}!`,
-      intro: 'The organizer has performed a full reassignment of the Zava Exchange Gift game.',
+      intro: 'The organizer has performed a full reassignment of the Zava Gift Exchange game.',
       newAssignment: 'Your new assignment is ready!',
       youGiftTo: 'You\'re now gifting to:',
       theirWish: 'Their gift wish:',
@@ -3180,7 +3180,7 @@ export function generateParticipantRemovedEmailContent(data: ParticipantRemovedE
       sorry: 'We apologize for any inconvenience this may cause.',
       contact: 'If you have any questions, please contact the event organizer.',
       headerTitle: 'Event Update',
-      footer: 'Thank you for using Zava Exchange Gift.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `🎄 Você foi removido do jogo "${gameName}"`,
@@ -3361,7 +3361,7 @@ export function generateGameDeletedEmailContent(data: GameDeletedEmailData): { s
       sorry: 'We apologize for any inconvenience this may cause.',
       questions: 'If you have any questions, please contact the event organizer.',
       headerTitle: 'Event Cancelled',
-      footer: 'Thank you for using Zava Exchange Gift.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `❌ A troca de presentes "${gameName}" foi cancelada`,
@@ -3619,7 +3619,7 @@ export function generateEventUpcomingEmailContent(data: EventUpcomingEmailData):
       viewGame: 'View game',
       dontForget: 'Don\'t forget to bring your gift!',
       headerTitle: 'Event Reminder',
-      footer: 'Thank you for using Zava Exchange Gift. Enjoy the exchange!'
+      footer: 'Thank you for using Zava Gift Exchange. Enjoy the exchange!'
     },
     pt: {
       subject: `⏰ Lembrete! "${game.name}" é amanhã`,
@@ -3911,7 +3911,7 @@ export function generateAllConfirmedEmailContent(data: AllConfirmedEmailData): {
       participants: 'Participant list',
       manageGame: 'Manage game',
       headerTitle: 'All Confirmed!',
-      footer: 'Thank you for using Zava Exchange Gift.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `✅ Todos confirmados! "${game.name}" está pronto`,
@@ -4143,7 +4143,7 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
     en: {
       subject: `🔐 New organizer link - "${game.name}"`,
       greeting: 'Hello Organizer!',
-      tokenRegenerated: 'A new access link has been generated for your Zava Exchange Gift event.',
+      tokenRegenerated: 'A new access link has been generated for your Zava Gift Exchange event.',
       newLinkDesc: 'The previous link will no longer work. Use the new link below to access the organizer panel.',
       oldLinkWarning: '⚠️ The previous link has been deactivated for security.',
       organizerLink: 'New organizer link',
@@ -4152,7 +4152,7 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
       organizerTokenDesc: 'Use this token along with the game code to manage the game (don\'t share it!):',
       securityNote: 'If you didn\'t request this change, someone with access to your organizer panel regenerated the token.',
       headerTitle: 'New Access Link',
-      footer: 'Thank you for using Zava Exchange Gift.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `🔐 Novo link do organizador - "${game.name}"`,
@@ -4353,14 +4353,14 @@ export function generateEmailUpdatedEmailContent(data: EmailUpdatedEmailData): {
     en: {
       subject: `🔔 Your email has been updated - "${gameName}"`,
       greeting: `Hello ${participantName},`,
-      emailChanged: 'We\'re writing to let you know that your email address has been updated in the Zava Exchange Gift game.',
+      emailChanged: 'We\'re writing to let you know that your email address has been updated in the Zava Gift Exchange game.',
       forSecurity: 'For security purposes, we\'re sending this notification to your new email address.',
       previousEmail: 'Previous email',
       newEmailLabel: 'New email',
       notYou: 'Wasn\'t you?',
       contact: 'If you didn\'t make this change, please contact the event organizer immediately.',
       headerTitle: 'Email Updated',
-      footer: 'Thank you for using Zava Exchange Gift.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `🔔 Seu email foi atualizado - "${gameName}"`,

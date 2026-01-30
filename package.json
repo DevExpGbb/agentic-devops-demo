@@ -2,7 +2,7 @@
     "name": "zavaexchangegift",
     "private": true,
     "version": "1.0.0",
-    "description": "Zava Exchange Gift - A modern web app for organizing gift exchanges",
+    "description": "Zava Gift Exchange - A modern web app for organizing gift exchanges",
     "type": "module",
     "scripts": {
         "dev": "vite",

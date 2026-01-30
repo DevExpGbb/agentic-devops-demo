@@ -1,5 +1,5 @@
 # ============================================================================
-# Zava Exchange Gift - CI/CD Pipeline
+# Zava Gift Exchange - CI/CD Pipeline
 # ============================================================================
 # Environment Strategy:
 # - PR: Ephemeral resource group per PR (auto-created and deleted)

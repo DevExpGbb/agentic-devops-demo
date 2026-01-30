@@ -1,4 +1,4 @@
-# Contributing to Zava Exchange Gift
+# Contributing to Zava Gift Exchange
 
 Thank you for your interest in contributing! 🎁
 
