@@ -502,6 +502,12 @@ copilot -p "Analyze the latest commit for documentation needs" \
   --allow-all-tools
 ```
 
+**Flags explained:**
+- `--mcp-config .github/mcp.json` - Path to MCP configuration file (replaces deprecated `--enable-all-github-mcp-tools`)
+- `--allow-all-tools` - Allow Copilot to use all available MCP tools
+
+**Note:** The `--enable-all-github-mcp-tools` flag is deprecated. Always use `--mcp-config` with a configuration file instead.
+
 #### What You Can Do with MCP Locally
 
 - **Analyze code changes:** Ask Copilot to review commits and suggest improvements
