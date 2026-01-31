@@ -1,6 +1,7 @@
 name: Generate Documentation with Copilot
 
 on:
+  workflow_dispatch:
   push:
     paths-ignore:
       - 'docs/**'
