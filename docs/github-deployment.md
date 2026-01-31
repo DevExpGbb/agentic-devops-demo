@@ -12,6 +12,7 @@ Automate your entire deployment pipeline with GitHub Actions. This guide covers 
 - [Workflow Overview](#workflow-overview)
 - [Environments Explained](#environments-explained)
 - [Best Practices](#best-practices)
+- [MCP (Model Context Protocol) Configuration](#mcp-model-context-protocol-configuration)
 - [Troubleshooting](#troubleshooting)
 - [Security](#security)
 
@@ -247,6 +248,34 @@ az role assignment create \
 ```
 
 **That's the only secret needed!** Much simpler than before.
+
+---
+
+### Additional Secrets for Agentic Workflows (Optional)
+
+If you're using the agentic CI workflows (e.g., `copilot.generate-docs.yml`), you'll need this additional secret:
+
+| Name | Value | Source |
+|------|-------|--------|
+| `COPILOT_CLI_TOKEN` | Personal Access Token with Copilot scope | Create at https://github.com/settings/tokens |
+
+**Required token scopes:**
+- `copilot` - Access to GitHub Copilot API
+
+**How to create the token:**
+1. Go to GitHub Settings → Developer settings → Personal access tokens → Fine-grained tokens
+2. Click "Generate new token"
+3. Name: `Copilot CLI Token`
+4. Expiration: 90 days (recommended)
+5. Repository access: Select repositories that need Copilot workflows
+6. Permissions:
+   - Repository permissions → Copilot → Read and write
+7. Generate token and save it securely
+8. Add to repository secrets as `COPILOT_CLI_TOKEN`
+
+**Note:** The agentic workflows also use `GITHUB_TOKEN` (automatically provided by GitHub Actions) for MCP operations like creating issues. See the [MCP Configuration](#mcp-model-context-protocol-configuration) section below for details.
+
+---
 
 ### Configure Environments
 
@@ -634,6 +663,137 @@ Keep environments similar:
    - Availability tests failing
 3. Configure email/SMS notifications
 
+---
+
+## MCP (Model Context Protocol) Configuration
+
+### What is MCP?
+
+The **Model Context Protocol (MCP)** is a standard protocol that enables AI models like GitHub Copilot to interact with external tools and services. This repository uses MCP to power agentic workflows that can autonomously manage documentation and tests.
+
+### Why Use MCP?
+
+MCP enables GitHub Copilot to:
+
+- 📖 **Read repository content** - Examine code, diffs, and documentation
+- 🔍 **Navigate project structure** - Understand codebase organization
+- ✍️ **Create GitHub issues** - Automatically track work items
+- 👤 **Assign tasks** - Delegate work to humans or other agents
+- 🏷️ **Manage labels** - Organize and categorize issues
+- 🔄 **Interact with CI/CD** - Trigger and respond to workflow events
+
+### MCP Configuration File
+
+**Location:** `.github/mcp.json`
+
+```json
+{
+  "mcpServers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_MCP_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+#### Configuration Fields
+
+| Field | Value | Description |
+|-------|-------|-------------|
+| `mcpServers.github.type` | `http` | MCP server type (HTTP-based API) |
+| `mcpServers.github.url` | `https://api.githubcopilot.com/mcp/` | GitHub Copilot MCP server endpoint |
+| `mcpServers.github.headers.Authorization` | `Bearer ${GITHUB_MCP_TOKEN}` | Authentication using workflow token |
+
+The `${GITHUB_MCP_TOKEN}` environment variable is automatically substituted at runtime with the workflow's `GITHUB_TOKEN`.
+
+### Dual-Token Authentication Pattern
+
+Agentic workflows use **two different tokens** for different purposes:
+
+#### 1. `GH_TOKEN` (Copilot CLI Authentication)
+
+```yaml
+env:
+  GH_TOKEN: ${{ secrets.COPILOT_CLI_TOKEN }}
+```
+
+- **Purpose:** Authenticate Copilot CLI with GitHub Copilot API
+- **Source:** Repository secret `COPILOT_CLI_TOKEN`
+- **Used by:** Copilot CLI binary for API requests
+- **Required scope:** `copilot` (access to GitHub Copilot API)
+
+#### 2. `GITHUB_MCP_TOKEN` (MCP GitHub Operations)
+
+```yaml
+env:
+  GITHUB_MCP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+- **Purpose:** Authenticate MCP server for GitHub operations
+- **Source:** Automatic workflow token (no secret needed)
+- **Used by:** MCP server (via `mcp.json` configuration)
+- **Required permissions:** Set in workflow `permissions:` block
+  - `contents: read` - Read repository files and commit diffs
+  - `issues: write` - Create and manage GitHub issues
+
+### Workflow Configuration Example
+
+```yaml
+name: Generate Documentation with Copilot
+
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read    # Required for MCP to read repository content
+      issues: write     # Required for MCP to create GitHub issues
+    
+    steps:
+      - name: Analyze and delegate to Copilot
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_CLI_TOKEN }}           # Copilot API auth
+          GITHUB_MCP_TOKEN: ${{ secrets.GITHUB_TOKEN }}        # MCP GitHub ops
+        run: |
+          copilot -p "$PROMPT" \
+            --mcp-config .github/mcp.json \
+            --allow-all-tools
+```
+
+### Token Scopes Summary
+
+| Token | Environment Variable | Source | Scopes/Permissions |
+|-------|---------------------|--------|-------------------|
+| Copilot CLI Token | `GH_TOKEN` | `secrets.COPILOT_CLI_TOKEN` | `copilot` scope |
+| MCP Token | `GITHUB_MCP_TOKEN` | `secrets.GITHUB_TOKEN` | `contents: read`, `issues: write` |
+
+### MCP-Enabled Workflows
+
+This repository includes the following MCP-enabled workflows:
+
+1. **Generate Documentation** (`.github/workflows/copilot.generate-docs.yml`)
+   - Analyzes commits for documentation needs
+   - Creates issues for missing or outdated docs
+   - Assigns documentation tasks to Copilot
+
+2. **Generate Tests** (`.github/workflows/copilot.generate-tests.yml`)
+   - Identifies code missing test coverage
+   - Creates issues for test implementation
+   - Delegates test writing to Copilot
+
+For detailed workflow documentation, see [`labs/agentic-ci-workflows/`](../labs/agentic-ci-workflows/).
+
+---
+
 ### 6. Security
 
 - ✅ Use service principals (not personal access tokens)
@@ -786,6 +946,107 @@ az staticwebapp secrets list \
 3. Click "Review deployments"
 4. Approve for "production"
 5. Workflow continues
+
+### MCP Workflows Failing
+
+#### Problem: `Error: MCP authentication failed` or `401 Unauthorized`
+
+**Solutions:**
+
+1. **Verify workflow permissions:**
+   ```yaml
+   permissions:
+     contents: read    # Required to read repository content
+     issues: write     # Required to create GitHub issues
+   ```
+
+2. **Check MCP token configuration:**
+   - Ensure `GITHUB_MCP_TOKEN` is set to `${{ secrets.GITHUB_TOKEN }}`
+   - Verify token is passed as environment variable to the step
+
+3. **Validate MCP configuration file:**
+   ```bash
+   # Check file exists
+   cat .github/mcp.json
+   
+   # Validate JSON syntax
+   jq . .github/mcp.json
+   ```
+
+4. **Verify Copilot CLI token:**
+   - Ensure `COPILOT_CLI_TOKEN` secret exists
+   - Check token hasn't expired (90-day default)
+   - Verify token has `copilot` scope
+
+#### Problem: `Error: Cannot find mcp.json` or `Invalid MCP configuration`
+
+**Solutions:**
+
+1. **Verify file path:**
+   ```bash
+   # File must exist at repository root
+   ls -la .github/mcp.json
+   ```
+
+2. **Check JSON syntax:**
+   - No trailing commas
+   - Proper quote escaping
+   - Valid JSON structure
+
+3. **Ensure correct flag usage:**
+   ```yaml
+   # Correct (current)
+   copilot -p "$PROMPT" \
+     --mcp-config .github/mcp.json \
+     --allow-all-tools
+   
+   # Incorrect (deprecated)
+   copilot -p "$PROMPT" --enable-all-github-mcp-tools
+   ```
+
+#### Problem: `Copilot created issue but couldn't read commit diff`
+
+**Solutions:**
+
+1. **Check permissions:**
+   - Verify `contents: read` is granted in workflow
+   - Ensure repository is accessible to workflow token
+
+2. **Validate commit reference:**
+   ```bash
+   # Check commit exists
+   git show ${{ github.sha }}
+   
+   # Verify commit is in current branch
+   git log --oneline | grep ${{ github.sha }}
+   ```
+
+3. **Review workflow logs:**
+   - Look for MCP server connection errors
+   - Check for rate limiting issues
+   - Verify API endpoint is accessible
+
+#### Problem: `COPILOT_CLI_TOKEN` not working
+
+**Solutions:**
+
+1. **Recreate the token:**
+   - Go to GitHub Settings → Developer settings → Personal access tokens
+   - Generate new fine-grained token
+   - Select repository access
+   - Grant `copilot` scope (Read and write)
+   - Update `COPILOT_CLI_TOKEN` secret
+
+2. **Verify token format:**
+   ```bash
+   # Token should start with github_pat_
+   echo $GH_TOKEN | head -c 20
+   ```
+
+3. **Check token expiration:**
+   - Tokens expire after 90 days by default
+   - Set up calendar reminder to rotate tokens
+   - Consider using longer expiration for CI/CD
 
 ---
 

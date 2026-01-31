@@ -421,6 +421,148 @@ az billing invoice list --output table
 
 ---
 
+## 🤖 Agentic Workflows with MCP
+
+### What is MCP?
+
+The **Model Context Protocol (MCP)** is a standard protocol that enables AI models like GitHub Copilot to interact with external tools and services. This repository leverages MCP to create autonomous workflows that can manage documentation, tests, and other development tasks.
+
+### MCP in This Repository
+
+This project includes MCP-enabled workflows that autonomously:
+
+- 📖 **Analyze code changes** - Examine commits for documentation or test needs
+- ✍️ **Create GitHub issues** - Automatically track required work
+- 👤 **Assign tasks** - Delegate to Copilot Coding Agent or team members
+- 🏷️ **Manage workflow** - Label, track, and close issues automatically
+
+### Available Agentic Workflows
+
+#### 1. Generate Documentation (`copilot.generate-docs.yml`)
+
+**What it does:**
+- Monitors code changes for documentation needs
+- Analyzes commit diffs using MCP GitHub integration
+- Creates issues when public APIs or complex logic is added
+- Assigns documentation tasks to Copilot
+
+**When it runs:**
+- Every push to the repository
+- Excludes changes to docs and markdown files
+
+**Learn more:** [labs/agentic-ci-workflows/copilot.generate-docs.md](../labs/agentic-ci-workflows/copilot.generate-docs.md)
+
+#### 2. Generate Tests (`copilot.generate-tests.yml`)
+
+**What it does:**
+- Identifies code lacking test coverage
+- Creates issues for missing or incomplete tests
+- Assigns test implementation to Copilot
+
+**When it runs:**
+- On push to main and pull requests
+- Excludes non-code changes
+
+**Learn more:** [labs/agentic-ci-workflows/copilot.generate-tests.md](../labs/agentic-ci-workflows/copilot.generate-tests.md)
+
+### Local MCP Setup
+
+To use MCP-enabled tools locally with Copilot CLI:
+
+#### Prerequisites
+
+```bash
+# Install GitHub CLI with Copilot extension
+gh auth login
+gh extension install github/gh-copilot
+
+# Or install standalone Copilot CLI
+curl -fsSL https://gh.io/copilot-install | bash
+```
+
+#### Configuration
+
+The MCP configuration file is already included in the repository:
+
+```bash
+# View the configuration
+cat .github/mcp.json
+```
+
+#### Usage Example
+
+```bash
+# Set up authentication tokens
+export GH_TOKEN="your_personal_access_token"  # Token with 'copilot' scope
+export GITHUB_MCP_TOKEN="$GH_TOKEN"           # Use same token locally
+
+# Run Copilot with MCP
+copilot -p "Analyze the latest commit for documentation needs" \
+  --mcp-config .github/mcp.json \
+  --allow-all-tools
+```
+
+#### What You Can Do with MCP Locally
+
+- **Analyze code changes:** Ask Copilot to review commits and suggest improvements
+- **Generate documentation:** Request docs for specific functions or modules
+- **Create issues:** Have Copilot create GitHub issues for follow-up work
+- **Query repository:** Ask questions about codebase structure and history
+
+#### Example Prompts
+
+```bash
+# Analyze a specific commit
+copilot -p "Analyze commit abc1234 and determine if documentation is needed" \
+  --mcp-config .github/mcp.json --allow-all-tools
+
+# Generate documentation for a file
+copilot -p "Review src/app.ts and create API documentation" \
+  --mcp-config .github/mcp.json --allow-all-tools
+
+# Check test coverage
+copilot -p "Identify functions in src/utils.ts that lack unit tests" \
+  --mcp-config .github/mcp.json --allow-all-tools
+```
+
+### MCP Token Requirements
+
+When using MCP locally or in CI/CD:
+
+| Environment | Token Source | Required Scopes |
+|------------|--------------|-----------------|
+| **Local development** | Personal Access Token | `copilot`, `repo` |
+| **GitHub Actions** | `COPILOT_CLI_TOKEN` secret + `GITHUB_TOKEN` | `copilot` (PAT), `contents: read`, `issues: write` (workflow) |
+
+### Troubleshooting MCP Locally
+
+**Problem:** `Error: MCP authentication failed`
+
+**Solutions:**
+1. Check token is set: `echo $GH_TOKEN`
+2. Verify token has correct scopes (Settings → Developer settings → PAT)
+3. Ensure `.github/mcp.json` exists and is valid JSON
+
+**Problem:** `Cannot find mcp.json`
+
+**Solutions:**
+1. Verify file path: `ls .github/mcp.json`
+2. Use absolute path: `--mcp-config /full/path/to/.github/mcp.json`
+
+**Problem:** `Permission denied when creating issues`
+
+**Solutions:**
+1. Ensure token has `repo` scope (not just `copilot`)
+2. Verify you have write access to the repository
+
+### Learn More
+
+- **MCP Configuration Details:** [github-deployment.md - MCP Configuration](github-deployment.md#mcp-model-context-protocol-configuration)
+- **Workflow Setup:** [labs/agentic-ci-workflows/](../labs/agentic-ci-workflows/)
+- **Copilot CLI Docs:** [GitHub Copilot CLI Documentation](https://docs.github.com/en/copilot/github-copilot-in-the-cli)
+
+---
+
 **Last Updated:** December 2024
 
 **Version:** 1.0.0
