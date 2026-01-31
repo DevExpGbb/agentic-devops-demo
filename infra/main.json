@@ -11,7 +11,7 @@
   "parameters": {
     "projectName": {
       "type": "string",
-      "defaultValue": "secretsanta",
+      "defaultValue": "zavaexchangegift",
       "metadata": {
         "description": "Project name used for resource naming"
       }
@@ -113,7 +113,7 @@
     "emailServiceName": "[format('ss-email-{0}', variables('uniqueSuffix'))]",
     "logAnalyticsName": "[format('ss-logs-{0}', variables('uniqueSuffix'))]",
     "appInsightsName": "[format('ss-insights-{0}', variables('uniqueSuffix'))]",
-    "databaseName": "secretsanta",
+    "databaseName": "zavaexchangegift",
     "containerName": "games",
     "retentionDays": "[if(equals(parameters('environment'), 'prod'), 90, 30)]",
     "logAnalyticsSku": "PerGB2018",
@@ -178,7 +178,8 @@
           {
             "name": "EnableServerless"
           }
-        ]
+        ],
+        "disableLocalAuth": false
       }
     },
     {

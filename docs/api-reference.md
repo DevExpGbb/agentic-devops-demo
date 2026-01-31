@@ -1,4 +1,4 @@
-# Secret Santa API Reference
+# Zava Gift Exchange API Reference
 
 ## Base URL
 - Local: `http://localhost:7071/api`
@@ -118,7 +118,7 @@ Checks if the service is ready to handle requests (database connectivity).
 ```
 POST /api/games
 ```
-Creates a new Secret Santa game.
+Creates a new gift exchange game.
 
 **Validation:**
 - `date` must be today or a future date (past dates are rejected with 400 error)

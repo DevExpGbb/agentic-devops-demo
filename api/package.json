@@ -1,7 +1,7 @@
 {
-  "name": "secretsanta-api",
+  "name": "zavaexchangegift-api",
   "version": "1.0.0",
-  "description": "Azure Functions API for Secret Santa",
+  "description": "Azure Functions API for Zava Gift Exchange",
   "main": "dist/index.js",
   "scripts": {
     "setup": "node ../scripts/setup-local-settings.js",

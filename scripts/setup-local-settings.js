@@ -36,7 +36,7 @@ try {
 
   console.log('✓ Created api/local.settings.json from template');
   console.log('  - Configured for local Cosmos DB emulator (https://localhost:8081)');
-  console.log('  - Database: secretsanta');
+  console.log('  - Database: zavaexchangegift');
   console.log('  - Ready for local development!');
   console.log('');
   console.log('Next steps:');

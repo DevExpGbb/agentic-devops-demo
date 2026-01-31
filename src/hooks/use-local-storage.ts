@@ -8,7 +8,7 @@ export function useLocalStorage<T>(
   key: string,
   initialValue: T
 ): [T | undefined, (updater: T | ((prev: T | undefined) => T)) => void, () => void] {
-  const storageKey = `secretsanta:${key}`
+  const storageKey = `zavaexchangegift:${key}`
   
   // Get initial value from localStorage or use default
   const [storedValue, setStoredValue] = useState<T | undefined>(() => {

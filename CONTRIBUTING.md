@@ -1,4 +1,4 @@
-# Contributing to Secret Santa
+# Contributing to Zava Gift Exchange
 
 Thank you for your interest in contributing! 🎁
 
@@ -16,8 +16,8 @@ See [README.md](../README.md) for detailed setup.
 
 ```bash
 # 1. Clone your fork
-git clone https://github.com/YOUR_USERNAME/secretsanta.git
-cd secretsanta
+git clone https://github.com/YOUR_USERNAME/zavaexchangegift.git
+cd zavaexchangegift
 
 # 2. Start Docker containers (runs Cosmos DB emulator)
 docker-compose up -d

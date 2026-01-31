@@ -1,6 +1,6 @@
 # Translations
 
-This directory contains translation files for the Secret Santa application.
+This directory contains translation files for the Zava Gift Exchange application.
 
 ## Structure
 
@@ -91,7 +91,7 @@ Each translation file exports a single constant object with all the translation 
 
 ```typescript
 export const en = {
-  appName: "Secret Santa",
+  appName: "Zava Gift Exchange",
   welcome: "Welcome!",
   // ... more translations
 }
@@ -104,4 +104,4 @@ If you have questions about translations or need clarification on any strings, p
 - Reach out to the maintainers
 - Check existing translations in other languages for context
 
-Thank you for helping make Secret Santa accessible to more people! 🎅🎁
+Thank you for helping make Zava Gift Exchange accessible to more people! 🎁

@@ -1,6 +1,6 @@
 # 🎯 Developer Setup Guide - Overview
 
-Welcome to Secret Santa! This guide helps you choose the right documentation for your needs.
+Welcome to Zava Gift Exchange! This guide helps you choose the right documentation for your needs.
 
 ## 📚 Documentation Roadmap
 
@@ -409,7 +409,7 @@ gh run list --workflow ci-cd.yml
 
 # View Azure resources
 az group list --output table
-az resource list --resource-group secretsanta --output table
+az resource list --resource-group zavaexchangegift --output table
 
 # Check costs
 az billing invoice list --output table
@@ -435,7 +435,7 @@ Ready to get started? 👇
 
 🔧 **DevOps?** → [Read github-deployment.md](github-deployment.md)
 
-❓ **Questions?** → [Open an Issue](https://github.com/dsanchezcr/secretsanta/issues)
+❓ **Questions?** → [Open an Issue](https://github.com/dsanchezcr/zavaexchangegift/issues)
 
 ````
 

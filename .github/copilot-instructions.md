@@ -1,18 +1,18 @@
-# Copilot Instructions for Secret Santa
+# Copilot Instructions for Zava Gift Exchange
 
 ## Project Overview
-Multilingual Secret Santa gift exchange app built with React + Vite frontend and Azure Functions API, deployed on Azure Static Web Apps with Cosmos DB.
+Multilingual Zava Gift Exchange exchange app built with React + Vite frontend and Azure Functions API, deployed on Azure Static Web Apps with Cosmos DB.
 
 ## Environment Strategy
-- **PR**: Ephemeral resource group per PR (`secretsanta-pr-{number}`) with Free tier resources
-- **QA**: Isolated resource group (`secretsanta-qa`) with Free tier for cost-effective testing
-- **Production**: Production resource group (`secretsanta`) with production-ready tiers
+- **PR**: Ephemeral resource group per PR (`zavaexchangegift-pr-{number}`) with Free tier resources
+- **QA**: Isolated resource group (`zavaexchangegift-qa`) with Free tier for cost-effective testing
+- **Production**: Production resource group (`zavaexchangegift`) with production-ready tiers
 
 | Environment | Resource Group | Static Web App | Cosmos DB | Email |
 |-------------|---------------|----------------|-----------|-------|
-| PR | `secretsanta-pr-{n}` | Free | Serverless | ❌ |
-| QA | `secretsanta-qa` | Free | Free Tier | ✅ |
-| Production | `secretsanta` | Standard | Serverless | ✅ |
+| PR | `zavaexchangegift-pr-{n}` | Free | Serverless | ❌ |
+| QA | `zavaexchangegift-qa` | Free | Free Tier | ✅ |
+| Production | `zavaexchangegift` | Standard | Serverless | ✅ |
 
 Each environment has its own isolated resources. All environments auto-configure: Cosmos DB, App Insights, ACS (email for QA/Prod).
 
@@ -20,7 +20,7 @@ Note: Staging environments are ENABLED in Static Web Apps to support GitHub Acti
 
 ## Project Structure
 ```
-secretsanta/
+zavaexchangegift/
 ├── src/                    # React frontend
 │   ├── components/         # UI components
 │   │   └── ui/            # shadcn/ui components
@@ -34,7 +34,7 @@ secretsanta/
 ├── infra/                 # Bicep infrastructure
 │   ├── main.bicep         # Main template
 │   ├── parameters.dev.json    # PR environments
-│   ├── parameters.qa.json     # QA environment (isolated in secretsanta-qa RG)
+│   ├── parameters.qa.json     # QA environment (isolated in zavaexchangegift-qa RG)
 │   └── parameters.prod.json   # Production
 ├── docs/                  # Documentation
 │   ├── getting-started.md # Local development guide
@@ -159,24 +159,24 @@ Only ONE secret is needed:
 
 ### Resource Group Naming
 All resource groups are **created automatically** by the CI/CD workflow:
-- **PR Deployments**: `secretsanta-pr-{PR_NUMBER}` (created automatically, deleted when PR closes)
-- **QA Environment**: `secretsanta-qa` (created automatically on first push to main)
-- **Production**: `secretsanta` (created automatically on first push to main)
+- **PR Deployments**: `zavaexchangegift-pr-{PR_NUMBER}` (created automatically, deleted when PR closes)
+- **QA Environment**: `zavaexchangegift-qa` (created automatically on first push to main)
+- **Production**: `zavaexchangegift` (created automatically on first push to main)
 
 ### Manual Deployment (Optional)
 If you need to deploy manually outside the CI/CD workflow:
 ```bash
 # Deploy QA environment (creates RG if needed)
-az group create --name secretsanta-qa --location centralus
+az group create --name zavaexchangegift-qa --location centralus
 az deployment group create \
-  --resource-group secretsanta-qa \
+  --resource-group zavaexchangegift-qa \
   --template-file infra/main.bicep \
   --parameters infra/parameters.qa.json deploymentId=qa-stable
 
 # Deploy Production environment (creates RG if needed)
-az group create --name secretsanta --location centralus
+az group create --name zavaexchangegift --location centralus
 az deployment group create \
-  --resource-group secretsanta \
+  --resource-group zavaexchangegift \
   --template-file infra/main.bicep \
   --parameters infra/parameters.prod.json deploymentId=prod-stable
 ```

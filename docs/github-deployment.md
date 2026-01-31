@@ -27,7 +27,7 @@ az login
 
 # Create service principal for CI/CD
 az ad sp create-for-rbac \
-  --name "secretsanta-github-cicd" \
+  --name "zavaexchangegift-github-cicd" \
   --role contributor \
   --scopes /subscriptions/{subscription-id} --json-auth
 ```
@@ -36,7 +36,7 @@ az ad sp create-for-rbac \
 ```json
 {
   "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "displayName": "secretsanta-github-cicd",
+  "displayName": "zavaexchangegift-github-cicd",
   "password": "xxxxxxx~xxxxx_xxx",
   "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -114,12 +114,12 @@ Push to main (after PR merged)
 [E2E Tests (Local)]
     ↓
 If PASSED:
-    ├─→ [Create/Verify QA RG] ←─ auto-created (secretsanta-qa)
+    ├─→ [Create/Verify QA RG] ←─ auto-created (zavaexchangegift-qa)
     ├─→ [Deploy QA Infrastructure] ←─ SWA (Free), Cosmos DB (Free Tier), Email enabled
     ├─→ [Deploy to QA] ←─ QA Static Web App URL
     │
     └─ If deployment PASSED:
-        ├─→ [Create/Verify Prod RG] ←─ auto-created (secretsanta)
+        ├─→ [Create/Verify Prod RG] ←─ auto-created (zavaexchangegift)
         ├─→ [Deploy Production Infrastructure] ←─ SWA (Standard), Cosmos DB (Serverless)
         ├─→ [Deploy to Production] ← REQUIRES APPROVAL
         └─→ [Deployment Summary] ← documents the release
@@ -171,7 +171,7 @@ az account set --subscription "subscription-id"
 
 # 4. Create service principal
 az ad sp create-for-rbac \
-  --name "secretsanta-github-cicd" \
+  --name "zavaexchangegift-github-cicd" \
   --role contributor \
   --scopes /subscriptions/$(az account show --query id -o tsv)
 ```
@@ -180,7 +180,7 @@ az ad sp create-for-rbac \
 ```json
 {
   "appId": "12345678-1234-1234-1234-123456789012",
-  "displayName": "secretsanta-github-cicd",
+  "displayName": "zavaexchangegift-github-cicd",
   "password": "xxxxx~xxxxx_xxx",
   "tenant": "87654321-4321-4321-4321-210987654321",
   "subscriptionId": "11111111-2222-3333-4444-555555555555"
@@ -193,7 +193,7 @@ az ad sp create-for-rbac \
 
 1. Go to **Azure Active Directory** → **App registrations**
 2. Click **New registration**
-3. Name: `secretsanta-github-cicd`
+3. Name: `zavaexchangegift-github-cicd`
 4. Click **Register**
 5. Copy **Application (client) ID**
 6. Go to **Certificates & secrets**
@@ -239,7 +239,7 @@ az role assignment create \
 ```json
 {
   "appId": "12345678-1234-1234-1234-123456789012",
-  "displayName": "secretsanta-github-cicd",
+  "displayName": "zavaexchangegift-github-cicd",
   "password": "xxxxx~xxxxx_xxx",
   "tenant": "87654321-4321-4321-4321-210987654321",
   "subscriptionId": "11111111-2222-3333-4444-555555555555"
@@ -316,7 +316,7 @@ var uniqueSuffix = uniqueString(
 
 # Results in names like:
 # ss7hx5k9qm2p    (Cosmos DB - 24 char limit)
-# secretsanta-qa-7hx5k9qm2p  (Static Web App)
+# zavaexchangegift-qa-7hx5k9qm2p  (Static Web App)
 # ss-acs-7hx5k9qm2p         (Communication Services)
 ```
 
@@ -349,24 +349,24 @@ As a developer, you don't need to do anything special:
 
 **Scenario 1: Alice deploys PR #42**
 ```
-Resource Group: secretsanta-pr-42
+Resource Group: zavaexchangegift-pr-42
 Cosmos DB: ssa1b2c3d4e5f6g7h
-Static Web App: secretsanta-pr-42-a1b2c3d4e5f
+Static Web App: zavaexchangegift-pr-42-a1b2c3d4e5f
 ```
 
 **Scenario 2: Bob forks the repo and deploys prod to his subscription**
 ```
-Resource Group: secretsanta
+Resource Group: zavaexchangegift
 Cosmos DB: ssx9y8z7w6v5u4t
-Static Web App: secretsanta-prod-x9y8z7w6v5
+Static Web App: zavaexchangegift-prod-x9y8z7w6v5
 (Different uniqueSuffix = no conflicts!)
 ```
 
 **Scenario 3: Carol deploys QA from her fork**
 ```
-Resource Group: secretsanta
+Resource Group: zavaexchangegift
 Cosmos DB: ssk1l2m3n4o5p6q
-Static Web App: secretsanta-qa-k1l2m3n4o5p
+Static Web App: zavaexchangegift-qa-k1l2m3n4o5p
 (Different uniqueSuffix = no conflicts!)
 ```
 
@@ -447,13 +447,13 @@ Result: SWA URL posted to PR comment ✅
    └─ Playwright against mock environment
 
 3. [3 min]  Deploy QA Infrastructure
-   └─ Create/verify secretsanta-qa RG, deploy free tier resources
+   └─ Create/verify zavaexchangegift-qa RG, deploy free tier resources
 
 4. [2 min]  Deploy to QA
    └─ Static Web App upload
 
 5. [3 min]  Deploy Production Infrastructure
-   └─ Deploy to secretsanta RG (Standard SWA, Serverless Cosmos DB)
+   └─ Deploy to zavaexchangegift RG (Standard SWA, Serverless Cosmos DB)
 
 6. [WAIT]   🔔 AWAITING APPROVAL 🔔
    └─ Required reviewer must approve
@@ -475,7 +475,7 @@ Result: App live in production ✅
 **Purpose:** Preview changes before merge
 
 **Resources created per PR:**
-- Resource Group: `secretsanta-pr-{PR_NUMBER}`
+- Resource Group: `zavaexchangegift-pr-{PR_NUMBER}`
   - Static Web App (Free SKU) with preview deployment
   - Cosmos DB (Serverless, free tier)
   - Application Insights
@@ -501,7 +501,7 @@ Result: App live in production ✅
 **Purpose:** Test against production-like infrastructure before release, completely isolated from production
 
 **Resources:**
-- Isolated Resource Group: `secretsanta-qa` (separate from production)
+- Isolated Resource Group: `zavaexchangegift-qa` (separate from production)
 - Static Web App (Free SKU) - no staging slots
 - Cosmos DB (Free Tier - 1000 RU/s, 25GB storage, sufficient for testing)
 - Application Insights (30-day retention)
@@ -530,7 +530,7 @@ Result: App live in production ✅
 **Purpose:** Live application for end users
 
 **Resources:**
-- Resource Group: `secretsanta`
+- Resource Group: `zavaexchangegift`
 - Static Web App (Standard SKU) - SLA, custom domains support
 - Cosmos DB (Serverless - unlimited scaling, pay per request)
 - Application Insights (90-day retention)
@@ -707,7 +707,7 @@ npm install -D typescript
 2. Create new service principal:
    ```bash
    az ad sp create-for-rbac \
-     --name "secretsanta-github-cicd-new" \
+     --name "zavaexchangegift-github-cicd-new" \
      --role contributor \
      --scopes /subscriptions/{subscription-id}
    ```
@@ -725,7 +725,7 @@ az bicep build --file ./infra/main.bicep
 
 # Check syntax
 az deployment group validate \
-  --resource-group secretsanta \
+  --resource-group zavaexchangegift \
   --template-file ./infra/main.bicep \
   --parameters ./infra/parameters.prod.json
 ```
@@ -751,7 +751,7 @@ az role assignment create \
 **Problem:** `Cannot read deployment token`
 
 **Solution:**
-1. Verify Static Web App exists in `secretsanta-qa` resource group
+1. Verify Static Web App exists in `zavaexchangegift-qa` resource group
 2. Check Azure CLI is authenticated with correct subscription
 3. Verify step "Get Static Web App Token" succeeded
 
@@ -761,8 +761,8 @@ az role assignment create \
 ```bash
 # Verify Static Web App token
 az staticwebapp secrets list \
-  --name secretsanta-qa \
-  --resource-group secretsanta-qa
+  --name zavaexchangegift-qa \
+  --resource-group zavaexchangegift-qa
 
 # Token should be returned successfully
 ```
@@ -818,7 +818,7 @@ Every 90 days:
 ```bash
 # Create new service principal
 az ad sp create-for-rbac \
-  --name "secretsanta-github-cicd-new" \
+  --name "zavaexchangegift-github-cicd-new" \
   --role contributor \
   --scopes /subscriptions/{subscription-id}
 
@@ -953,7 +953,7 @@ A: Azure automatically regenerates them. Workflow handles this.
 
 ---
 
-**Questions?** [Open an issue](https://github.com/dsanchezcr/secretsanta/issues) or [start a discussion](https://github.com/dsanchezcr/secretsanta/discussions).
+**Questions?** [Open an issue](https://github.com/dsanchezcr/zavaexchangegift/issues) or [start a discussion](https://github.com/dsanchezcr/zavaexchangegift/discussions).
 
 ````
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 ###############################################################################
-# Secret Santa Deployment Script
+# Zava Gift Exchange Deployment Script
 #
 # One-command deployment to Azure with automatic resource group creation
 # and infrastructure provisioning
@@ -23,7 +23,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Configuration
-PROJECT_NAME="secretsanta"
+PROJECT_NAME="zavaexchangegift"
 LOCATION="centralus"
 INFRA_PATH="./infra"
 
@@ -66,9 +66,9 @@ declare -A EMAIL_MAP=(
 )
 
 declare -A RG_MAP=(
-    [dev]="secretsanta-dev"
-    [qa]="secretsanta-qa"
-    [prod]="secretsanta"
+    [dev]="zavaexchangegift-dev"
+    [qa]="zavaexchangegift-qa"
+    [prod]="zavaexchangegift"
 )
 
 RESOURCE_GROUP="${RG_MAP[$ENVIRONMENT]}"
@@ -77,7 +77,7 @@ EMAIL_ENABLED="${EMAIL_MAP[$ENVIRONMENT]}"
 
 # Header
 echo -e "${CYAN}================================${NC}"
-echo -e "${CYAN}🚀 Secret Santa Deployment${NC}"
+echo -e "${CYAN}🚀 Zava Gift Exchange Deployment${NC}"
 echo -e "${CYAN}================================${NC}"
 echo -e "${YELLOW}Environment: $ENVIRONMENT${NC}"
 echo -e "${YELLOW}Resource Group: $RESOURCE_GROUP${NC}"

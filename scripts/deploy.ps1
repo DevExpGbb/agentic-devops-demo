@@ -1,7 +1,7 @@
 #!/usr/bin/env pwsh
 <#
 .SYNOPSIS
-    One-command deployment script for Secret Santa to Azure
+    One-command deployment script for Zava Gift Exchange to Azure
     
 .DESCRIPTION
     Authenticates with Azure (az login), creates/updates resource group, 
@@ -33,7 +33,7 @@ param(
 $ErrorActionPreference = 'Stop'
 
 # Configuration
-$projectName = 'secretsanta'
+$projectName = 'zavaexchangegift'
 $location = 'centralus'
 $infraPath = './infra'
 
@@ -42,17 +42,17 @@ $envConfig = @{
     'dev' = @{
         'sku' = 'Free'
         'email' = $false
-        'rg' = 'secretsanta-dev'
+        'rg' = 'zavaexchangegift-dev'
     }
     'qa' = @{
         'sku' = 'Free'
         'email' = $true
-        'rg' = 'secretsanta-qa'
+        'rg' = 'zavaexchangegift-qa'
     }
     'prod' = @{
         'sku' = 'Standard'
         'email' = $true
-        'rg' = 'secretsanta'
+        'rg' = 'zavaexchangegift'
     }
 }
 
@@ -62,7 +62,7 @@ $sku = $config['sku']
 $emailEnabled = $config['email']
 
 Write-Host "================================" -ForegroundColor Cyan
-Write-Host "🚀 Secret Santa Deployment" -ForegroundColor Cyan
+Write-Host "🚀 Zava Gift Exchange Deployment" -ForegroundColor Cyan
 Write-Host "================================" -ForegroundColor Cyan
 Write-Host "Environment: $Environment" -ForegroundColor Yellow
 Write-Host "Resource Group: $resourceGroup" -ForegroundColor Yellow
