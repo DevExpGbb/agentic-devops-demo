@@ -1,6 +1,6 @@
 # Generate Tests Workflow
 
-**Workflow File**: [`.github/workflows/generate-tests.yml`](../../.github/workflows/generate-tests.yml)
+**Workflow File**: [`.github/workflows/generate-tests.yml`](../../.github/workflows/copilot.generate-tests.yml)
 
 This workflow analyzes commits for missing unit test coverage and automatically creates issues for Copilot to write the tests.
 

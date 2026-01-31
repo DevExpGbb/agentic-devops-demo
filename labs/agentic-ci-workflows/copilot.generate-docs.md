@@ -1,6 +1,6 @@
 # Generate Documentation Workflow
 
-**Workflow File**: [`.github/workflows/generate-docs.yml`](../../.github/workflows/generate-docs.yml)
+**Workflow File**: [`.github/workflows/generate-docs.yml`](../../.github/workflows/copilot.generate-docs.yml)
 
 ## Overview
 
