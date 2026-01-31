@@ -28,7 +28,7 @@ jobs:
       - name: Analyze and delegate to Copilot
         env:
           GITHUB_MCP_TOKEN: ${{ secrets.GITHUB_TOKEN }}        # Workflow token for MCP GitHub operations (issues)
-          GH_TOKEN: ${{ secrets.COPILOT_CLI_TOKEN }}           # Personal PAT for Copilot API authentication
+          GITHUB_TOKEN: ${{ secrets.COPILOT_CLI_TOKEN }}       # Personal PAT for Copilot API authentication
         run: |
           echo "Analyzing commit ${{ github.sha }}"
           echo "Loading documentation criteria from prompt..."
