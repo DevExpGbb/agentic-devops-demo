@@ -177,9 +177,9 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
     shareCodeDesc: string; footer: string;
   }> = {
     es: {
-      subject: `🎁 Tu juego de Secret Santa "${game.name}" ha sido creado`,
+      subject: `🎁 Tu juego de Intercambio de Regalos Zava "${game.name}" ha sido creado`,
       greeting: '¡Hola!',
-      gameCreated: 'Tu juego de Secret Santa ha sido creado exitosamente.',
+      gameCreated: 'Tu juego de Intercambio de Regalos Zava ha sido creado exitosamente.',
       gameDetails: 'Detalles del juego:',
       name: 'Nombre del evento',
       code: 'Código del juego',
@@ -194,12 +194,12 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       organizerToken: 'Token del organizador',
       organizerTokenDesc: 'Usa este token junto con el código del juego para administrar el juego (¡no lo compartas!):',
       shareCodeDesc: 'Comparte este código con todos los participantes para que se unan al juego:',
-      footer: 'Gracias por usar Secret Santa. ¡Que disfruten el intercambio de regalos!'
+      footer: 'Gracias por usar Intercambio de Regalos Zava. ¡Que disfruten el intercambio de regalos!'
     },
     en: {
-      subject: `🎁 Your Secret Santa game "${game.name}" has been created`,
+      subject: `🎁 Your Zava Gift Exchange game "${game.name}" has been created`,
       greeting: 'Hello!',
-      gameCreated: 'Your Secret Santa game has been created successfully.',
+      gameCreated: 'Your Zava Gift Exchange game has been created successfully.',
       gameDetails: 'Game details:',
       name: 'Event name',
       code: 'Game code',
@@ -214,12 +214,12 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       organizerToken: 'Organizer token',
       organizerTokenDesc: 'Use this token along with the game code to manage the game (don\'t share it!):',
       shareCodeDesc: 'Share this code with all participants so they can join the game:',
-      footer: 'Thank you for using Secret Santa. Enjoy the gift exchange!'
+      footer: 'Thank you for using Zava Gift Exchange. Enjoy the gift exchange!'
     },
     pt: {
-      subject: `🎁 Seu jogo de Secret Santa "${game.name}" foi criado`,
+      subject: `🎁 Seu jogo de Troca de Presentes Zava "${game.name}" foi criado`,
       greeting: 'Olá!',
-      gameCreated: 'Seu jogo de Secret Santa foi criado com sucesso.',
+      gameCreated: 'Seu jogo de Troca de Presentes Zava foi criado com sucesso.',
       gameDetails: 'Detalhes do jogo:',
       name: 'Nome do evento',
       code: 'Código do jogo',
@@ -234,12 +234,12 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       organizerToken: 'Token do organizador',
       organizerTokenDesc: 'Use este token junto com o código do jogo para gerenciá-lo (não compartilhe!):',
       shareCodeDesc: 'Compartilhe este código com todos os participantes para que entrem no jogo:',
-      footer: 'Obrigado por usar o Secret Santa. Aproveite a troca de presentes!'
+      footer: 'Obrigado por usar a Troca de Presentes Zava. Aproveite a troca de presentes!'
     },
     fr: {
-      subject: `🎁 Votre jeu Secret Santa "${game.name}" a été créé`,
+      subject: `🎁 Votre jeu Échange de Cadeaux Zava "${game.name}" a été créé`,
       greeting: 'Bonjour !',
-      gameCreated: 'Votre jeu Secret Santa a été créé avec succès.',
+      gameCreated: 'Votre jeu Échange de Cadeaux Zava a été créé avec succès.',
       gameDetails: 'Détails du jeu :',
       name: 'Nom de l\'événement',
       code: 'Code du jeu',
@@ -254,12 +254,12 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       organizerToken: 'Token organisateur',
       organizerTokenDesc: 'Utilisez ce token avec le code du jeu pour le gérer (ne le partagez pas !) :',
       shareCodeDesc: 'Partagez ce code avec tous les participants pour qu\'ils rejoignent le jeu :',
-      footer: 'Merci d\'utiliser Secret Santa. Profitez de l\'échange de cadeaux !'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava. Profitez de l\'échange de cadeaux !'
     },
     it: {
-      subject: `🎁 Il tuo gioco Secret Santa "${game.name}" è stato creato`,
+      subject: `🎁 Il tuo gioco Scambio Regali Zava "${game.name}" è stato creato`,
       greeting: 'Ciao!',
-      gameCreated: 'Il tuo gioco Secret Santa è stato creato con successo.',
+      gameCreated: 'Il tuo gioco Scambio Regali Zava è stato creato con successo.',
       gameDetails: 'Dettagli del gioco:',
       name: 'Nome dell\'evento',
       code: 'Codice del gioco',
@@ -274,12 +274,12 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       organizerToken: 'Token dell\'organizzatore',
       organizerTokenDesc: 'Usa questo token insieme al codice del gioco per gestirlo (non condividerlo!):',
       shareCodeDesc: 'Condividi questo codice con tutti i partecipanti per farli unire al gioco:',
-      footer: 'Grazie per aver usato Secret Santa. Buon scambio di regali!'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava. Buon scambio di regali!'
     },
     ja: {
-      subject: `🎁 シークレットサンタゲーム「${game.name}」が作成されました`,
+      subject: `🎁 Zava ギフト交換ゲーム「${game.name}」が作成されました`,
       greeting: 'こんにちは！',
-      gameCreated: 'シークレットサンタゲームが正常に作成されました。',
+      gameCreated: 'Zava ギフト交換ゲームが正常に作成されました。',
       gameDetails: 'ゲームの詳細：',
       name: 'イベント名',
       code: 'ゲームコード',
@@ -294,12 +294,12 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       organizerToken: '主催者トークン',
       organizerTokenDesc: 'このトークンとゲームコードを使用してゲームを管理してください（共有しないでください）：',
       shareCodeDesc: 'このコードを全参加者と共有してゲームに参加してもらいましょう：',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。プレゼント交換をお楽しみください！'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。プレゼント交換をお楽しみください！'
     },
     zh: {
-      subject: `🎁 您的神秘圣诞老人游戏"${game.name}"已创建`,
+      subject: `🎁 您的Zava礼物交换游戏"${game.name}"已创建`,
       greeting: '您好！',
-      gameCreated: '您的神秘圣诞老人游戏已成功创建。',
+      gameCreated: '您的Zava礼物交换游戏已成功创建。',
       gameDetails: '游戏详情：',
       name: '活动名称',
       code: '游戏代码',
@@ -314,12 +314,12 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       organizerToken: '组织者令牌',
       organizerTokenDesc: '使用此令牌和游戏代码管理游戏（请勿分享）：',
       shareCodeDesc: '与所有参与者分享此代码以加入游戏：',
-      footer: '感谢使用神秘圣诞老人。祝您礼物交换愉快！'
+      footer: '感谢使用Zava礼物交换。祝您礼物交换愉快！'
     },
     de: {
-      subject: `🎁 Dein Wichteln-Spiel "${game.name}" wurde erstellt`,
+      subject: `🎁 Dein Zava Geschenkaustausch "${game.name}" wurde erstellt`,
       greeting: 'Hallo!',
-      gameCreated: 'Dein Wichteln-Spiel wurde erfolgreich erstellt.',
+      gameCreated: 'Dein Zava Geschenkaustausch wurde erfolgreich erstellt.',
       gameDetails: 'Spieldetails:',
       name: 'Veranstaltungsname',
       code: 'Spielcode',
@@ -334,12 +334,12 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       organizerToken: 'Organisator-Token',
       organizerTokenDesc: 'Verwende dieses Token zusammen mit dem Spielcode um das Spiel zu verwalten (nicht teilen!):',
       shareCodeDesc: 'Teile diesen Code mit allen Teilnehmern, damit sie dem Spiel beitreten können:',
-      footer: 'Danke, dass du Wichteln verwendest. Viel Spaß beim Geschenkeaustausch!'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest. Viel Spaß beim Geschenkeaustausch!'
     },
     nl: {
-      subject: `🎁 Je Secret Santa spel "${game.name}" is aangemaakt`,
+      subject: `🎁 Je Zava Cadeauwisseling spel "${game.name}" is aangemaakt`,
       greeting: 'Hallo!',
-      gameCreated: 'Je Secret Santa spel is succesvol aangemaakt.',
+      gameCreated: 'Je Zava Cadeauwisseling spel is succesvol aangemaakt.',
       gameDetails: 'Speldetails:',
       name: 'Evenementnaam',
       code: 'Spelcode',
@@ -354,7 +354,7 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
       organizerToken: 'Organisator-token',
       organizerTokenDesc: 'Gebruik deze token samen met de spelcode om het spel te beheren (deel deze niet!):',
       shareCodeDesc: 'Deel deze code met alle deelnemers zodat ze kunnen deelnemen aan het spel:',
-      footer: 'Bedankt voor het gebruik van Secret Santa. Veel plezier met het cadeautjes ruilen!'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava. Veel plezier met het cadeautjes ruilen!'
     }
   }
 
@@ -371,7 +371,7 @@ export function generateOrganizerEmailContent(data: GameEmailTemplateData): { su
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="background: linear-gradient(135deg, #c41e3a 0%, #165B33 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
-    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Secret Santa</h1>
+    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Zava Gift Exchange</h1>
   </div>
   
   <div style="background: #fff; padding: 30px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 10px 10px;">
@@ -471,9 +471,9 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
     gameCodeDesc: string; footer: string; keepSecret: string;
   }> = {
     es: {
-      subject: `🎁 Tu asignación de Secret Santa para "${game.name}"`,
+      subject: `🎁 Tu asignación del Intercambio de Regalos Zava para "${game.name}"`,
       greeting: `¡Hola ${participant.name}!`,
-      intro: 'Has sido incluido en un juego de Secret Santa.',
+      intro: 'Has sido incluido en un juego de Intercambio de Regalos Zava.',
       yourAssignment: '¡Tu asignación está lista!',
       youGiftTo: 'Le regalas a:',
       theirWish: 'Su deseo de regalo:',
@@ -495,9 +495,9 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
       keepSecret: '🤫 Recuerda: ¡mantén en secreto a quién le regalas!'
     },
     en: {
-      subject: `🎁 Your Secret Santa assignment for "${game.name}"`,
+      subject: `🎁 Your Zava Gift Exchange assignment for "${game.name}"`,
       greeting: `Hello ${participant.name}!`,
-      intro: 'You have been included in a Secret Santa game.',
+      intro: 'You have been included in a Zava Gift Exchange game.',
       yourAssignment: 'Your assignment is ready!',
       youGiftTo: 'You\'re gifting to:',
       theirWish: 'Their gift wish:',
@@ -519,9 +519,9 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
       keepSecret: '🤫 Remember: keep your assignment a secret!'
     },
     pt: {
-      subject: `🎁 Sua atribuição do Secret Santa para "${game.name}"`,
+      subject: `🎁 Sua atribuição da Troca de Presentes Zava para "${game.name}"`,
       greeting: `Olá ${participant.name}!`,
-      intro: 'Você foi incluído em um jogo de Secret Santa.',
+      intro: 'Você foi incluído em um jogo de Troca de Presentes Zava.',
       yourAssignment: 'Sua atribuição está pronta!',
       youGiftTo: 'Você vai presentear:',
       theirWish: 'Desejo de presente:',
@@ -543,9 +543,9 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
       keepSecret: '🤫 Lembre-se: mantenha em segredo para quem você vai dar o presente!'
     },
     fr: {
-      subject: `🎁 Votre attribution Secret Santa pour "${game.name}"`,
+      subject: `🎁 Votre attribution Échange de Cadeaux Zava pour "${game.name}"`,
       greeting: `Bonjour ${participant.name} !`,
-      intro: 'Vous avez été inclus dans un jeu Secret Santa.',
+      intro: 'Vous avez été inclus dans un jeu Échange de Cadeaux Zava.',
       yourAssignment: 'Votre attribution est prête !',
       youGiftTo: 'Vous offrez à :',
       theirWish: 'Son souhait de cadeau :',
@@ -567,9 +567,9 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
       keepSecret: '🤫 N\'oubliez pas : gardez secrète votre attribution !'
     },
     it: {
-      subject: `🎁 La tua assegnazione Secret Santa per "${game.name}"`,
+      subject: `🎁 La tua assegnazione Scambio Regali Zava per "${game.name}"`,
       greeting: `Ciao ${participant.name}!`,
-      intro: 'Sei stato incluso in un gioco di Secret Santa.',
+      intro: 'Sei stato incluso in un gioco di Échange de Cadeaux Zava.',
       yourAssignment: 'La tua assegnazione è pronta!',
       youGiftTo: 'Farai un regalo a:',
       theirWish: 'Il suo desiderio regalo:',
@@ -591,9 +591,9 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
       keepSecret: '🤫 Ricorda: mantieni segreta la tua assegnazione!'
     },
     ja: {
-      subject: `🎁 「${game.name}」のシークレットサンタの割り当て`,
+      subject: `🎁 「${game.name}」のZava ギフト交換の割り当て`,
       greeting: `こんにちは、${participant.name}さん！`,
-      intro: 'シークレットサンタゲームに参加しています。',
+      intro: 'Zava ギフト交換ゲームに参加しています。',
       yourAssignment: '割り当てが決まりました！',
       youGiftTo: 'プレゼントを贈る相手：',
       theirWish: '相手のウィッシュリスト：',
@@ -615,9 +615,9 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
       keepSecret: '🤫 忘れずに：誰にプレゼントを贈るかは秘密にしてください！'
     },
     zh: {
-      subject: `🎁 您的"${game.name}"神秘圣诞老人分配`,
+      subject: `🎁 您的"${game.name}"Zava礼物交换分配`,
       greeting: `您好，${participant.name}！`,
-      intro: '您已被加入神秘圣诞老人游戏。',
+      intro: '您已被加入Zava礼物交换游戏。',
       yourAssignment: '您的分配已准备好！',
       youGiftTo: '您要送礼物给：',
       theirWish: '对方的礼物愿望：',
@@ -639,9 +639,9 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
       keepSecret: '🤫 记住：请对您的分配对象保密！'
     },
     de: {
-      subject: `🎁 Deine Wichtel-Zuweisung für "${game.name}"`,
+      subject: `🎁 Deine Zava Geschenkaustausch-Zuweisung für "${game.name}"`,
       greeting: `Hallo ${participant.name}!`,
-      intro: 'Du wurdest in ein Wichteln-Spiel aufgenommen.',
+      intro: 'Du wurdest in ein Zava Geschenkaustausch aufgenommen.',
       yourAssignment: 'Deine Zuweisung steht fest!',
       youGiftTo: 'Du beschenkst:',
       theirWish: 'Geschenkwunsch:',
@@ -663,9 +663,9 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
       keepSecret: '🤫 Denk daran: Halte geheim, wen du beschenkst!'
     },
     nl: {
-      subject: `🎁 Jouw Secret Santa toewijzing voor "${game.name}"`,
+      subject: `🎁 Jouw Zava Cadeauwisseling toewijzing voor "${game.name}"`,
       greeting: `Hallo ${participant.name}!`,
-      intro: 'Je bent toegevoegd aan een Secret Santa spel.',
+      intro: 'Je bent toegevoegd aan een Zava Cadeauwisseling spel.',
       yourAssignment: 'Je toewijzing is klaar!',
       youGiftTo: 'Je geeft een cadeau aan:',
       theirWish: 'Hun cadeauwens:',
@@ -701,7 +701,7 @@ export function generateParticipantEmailContent(data: ParticipantEmailTemplateDa
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="background: linear-gradient(135deg, #c41e3a 0%, #165B33 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
-    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Secret Santa</h1>
+    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Zava Gift Exchange</h1>
   </div>
   
   <div style="background: #fff; padding: 30px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 10px 10px;">
@@ -860,7 +860,7 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
     es: {
       subject: `🔑 Recuperación de enlace - "${game.name}"`,
       greeting: '¡Hola!',
-      recoveryRequested: 'Se ha solicitado la recuperación del enlace de organizador para tu juego de Secret Santa.',
+      recoveryRequested: 'Se ha solicitado la recuperación del enlace de organizador para Tu juego de Intercambio de Regalos Zava.',
       recoveryDesc: 'Si solicitaste esta recuperación, usa el enlace o token a continuación para acceder a tu panel de organizador.',
       organizerLink: 'Tu enlace de organizador',
       organizerLinkDesc: 'Usa este enlace para acceder al panel de organizador:',
@@ -868,13 +868,13 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: 'Usa este token para acceder:',
       securityNote: 'Si no solicitaste esta recuperación, puedes ignorar este correo. Tu enlace de acceso sigue siendo válido.',
       notYou: '¿No fuiste tú?',
-      footer: 'Gracias por usar Secret Santa.',
+      footer: 'Gracias por usar Intercambio de Regalos Zava.',
       headerTitle: 'Recuperación de Enlace'
     },
     en: {
       subject: `🔑 Link Recovery - "${game.name}"`,
       greeting: 'Hello!',
-      recoveryRequested: 'A link recovery has been requested for your Secret Santa game organizer access.',
+      recoveryRequested: 'A link recovery has been requested for Your Zava Gift Exchange game organizer access.',
       recoveryDesc: 'If you requested this recovery, use the link or token below to access your organizer panel.',
       organizerLink: 'Your organizer link',
       organizerLinkDesc: 'Use this link to access the organizer panel:',
@@ -882,13 +882,13 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: 'Use this token to access:',
       securityNote: 'If you didn\'t request this recovery, you can ignore this email. Your access link remains valid.',
       notYou: 'Wasn\'t you?',
-      footer: 'Thank you for using Secret Santa.',
+      footer: 'Thank you for using Zava Gift Exchange.',
       headerTitle: 'Link Recovery'
     },
     pt: {
       subject: `🔑 Recuperação de link - "${game.name}"`,
       greeting: 'Olá!',
-      recoveryRequested: 'Foi solicitada a recuperação do link de organizador do seu jogo de Secret Santa.',
+      recoveryRequested: 'Foi solicitada a recuperação do link de organizador do Seu jogo de Troca de Presentes Zava.',
       recoveryDesc: 'Se você solicitou esta recuperação, use o link ou token abaixo para acessar seu painel de organizador.',
       organizerLink: 'Seu link de organizador',
       organizerLinkDesc: 'Use este link para acessar o painel de organizador:',
@@ -896,13 +896,13 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: 'Use este token para acessar:',
       securityNote: 'Se você não solicitou esta recuperação, pode ignorar este email. Seu link de acesso continua válido.',
       notYou: 'Não foi você?',
-      footer: 'Obrigado por usar o Secret Santa.',
+      footer: 'Obrigado por usar a Troca de Presentes Zava.',
       headerTitle: 'Recuperação de Link'
     },
     fr: {
       subject: `🔑 Récupération de lien - "${game.name}"`,
       greeting: 'Bonjour!',
-      recoveryRequested: 'Une récupération de lien a été demandée pour l\'accès organisateur de votre jeu Secret Santa.',
+      recoveryRequested: 'Une récupération de lien a été demandée pour l\'accès organisateur de Votre jeu Échange de Cadeaux Zava.',
       recoveryDesc: 'Si vous avez demandé cette récupération, utilisez le lien ou le jeton ci-dessous pour accéder à votre panneau d\'organisateur.',
       organizerLink: 'Votre lien d\'organisateur',
       organizerLinkDesc: 'Utilisez ce lien pour accéder au panneau d\'organisateur:',
@@ -910,13 +910,13 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: 'Utilisez ce jeton pour accéder:',
       securityNote: 'Si vous n\'avez pas demandé cette récupération, vous pouvez ignorer cet email. Votre lien d\'accès reste valide.',
       notYou: 'Ce n\'était pas vous?',
-      footer: 'Merci d\'utiliser Secret Santa.',
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.',
       headerTitle: 'Récupération de Lien'
     },
     it: {
       subject: `🔑 Recupero link - "${game.name}"`,
       greeting: 'Ciao!',
-      recoveryRequested: 'È stato richiesto il recupero del link organizzatore per il tuo gioco Secret Santa.',
+      recoveryRequested: 'È stato richiesto il recupero del link organizzatore per il tuo gioco Échange de Cadeaux Zava.',
       recoveryDesc: 'Se hai richiesto questo recupero, usa il link o il token qui sotto per accedere al tuo pannello organizzatore.',
       organizerLink: 'Il tuo link organizzatore',
       organizerLinkDesc: 'Usa questo link per accedere al pannello organizzatore:',
@@ -924,13 +924,13 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: 'Usa questo token per accedere:',
       securityNote: 'Se non hai richiesto questo recupero, puoi ignorare questa email. Il tuo link di accesso rimane valido.',
       notYou: 'Non sei stato tu?',
-      footer: 'Grazie per usare Secret Santa.',
+      footer: 'Grazie per usare Échange de Cadeaux Zava.',
       headerTitle: 'Recupero Link'
     },
     ja: {
       subject: `🔑 リンク復旧 - "${game.name}"`,
       greeting: 'こんにちは！',
-      recoveryRequested: 'Secret Santaゲームの主催者リンクの復旧がリクエストされました。',
+      recoveryRequested: 'Zava Gift Exchangeゲームの主催者リンクの復旧がリクエストされました。',
       recoveryDesc: 'この復旧をリクエストした場合は、以下のリンクまたはトークンを使用して主催者パネルにアクセスしてください。',
       organizerLink: '主催者リンク',
       organizerLinkDesc: 'このリンクを使用して主催者パネルにアクセスしてください:',
@@ -938,13 +938,13 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: 'このトークンを使用してアクセスしてください:',
       securityNote: 'この復旧をリクエストしていない場合は、このメールを無視してください。アクセスリンクは引き続き有効です。',
       notYou: '心当たりがない場合',
-      footer: 'Secret Santaをご利用いただきありがとうございます。',
+      footer: 'Zava Gift Exchangeをご利用いただきありがとうございます。',
       headerTitle: 'リンク復旧'
     },
     zh: {
       subject: `🔑 链接恢复 - "${game.name}"`,
       greeting: '您好！',
-      recoveryRequested: '已请求恢复您的Secret Santa游戏组织者链接。',
+      recoveryRequested: '已请求恢复您的Zava礼物交换游戏组织者链接。',
       recoveryDesc: '如果您请求了此恢复，请使用下面的链接或令牌访问您的组织者面板。',
       organizerLink: '您的组织者链接',
       organizerLinkDesc: '使用此链接访问组织者面板:',
@@ -952,13 +952,13 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: '使用此令牌访问:',
       securityNote: '如果您没有请求此恢复，可以忽略此邮件。您的访问链接仍然有效。',
       notYou: '不是您操作的？',
-      footer: '感谢您使用Secret Santa。',
+      footer: '感谢您使用Zava礼物交换。',
       headerTitle: '链接恢复'
     },
     de: {
       subject: `🔑 Link-Wiederherstellung - "${game.name}"`,
       greeting: 'Hallo!',
-      recoveryRequested: 'Eine Link-Wiederherstellung wurde für Ihren Secret Santa Organisator-Zugang angefordert.',
+      recoveryRequested: 'Eine Link-Wiederherstellung wurde für Ihren Zava Cadeauwisseling organisator-Zugang angefordert.',
       recoveryDesc: 'Wenn Sie diese Wiederherstellung angefordert haben, verwenden Sie den Link oder Token unten, um auf Ihr Organisator-Panel zuzugreifen.',
       organizerLink: 'Ihr Organisator-Link',
       organizerLinkDesc: 'Verwenden Sie diesen Link, um auf das Organisator-Panel zuzugreifen:',
@@ -966,13 +966,13 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: 'Verwenden Sie diesen Token für den Zugang:',
       securityNote: 'Wenn Sie diese Wiederherstellung nicht angefordert haben, können Sie diese E-Mail ignorieren. Ihr Zugangslink bleibt gültig.',
       notYou: 'Waren Sie das nicht?',
-      footer: 'Vielen Dank für die Nutzung von Secret Santa.',
+      footer: 'Vielen Dank für die Nutzung von Échange de Cadeaux Zava.',
       headerTitle: 'Link-Wiederherstellung'
     },
     nl: {
       subject: `🔑 Link Herstel - "${game.name}"`,
       greeting: 'Hallo!',
-      recoveryRequested: 'Er is een linkherstel aangevraagd voor uw Secret Santa organisatortoegang.',
+      recoveryRequested: 'Er is een linkherstel aangevraagd voor uw Zava Gift Exchange organisatortoegang.',
       recoveryDesc: 'Als u dit herstel heeft aangevraagd, gebruik dan de link of token hieronder om toegang te krijgen tot uw organisatorpaneel.',
       organizerLink: 'Uw organisatorlink',
       organizerLinkDesc: 'Gebruik deze link om toegang te krijgen tot het organisatorpaneel:',
@@ -980,7 +980,7 @@ export function generateOrganizerRecoveryEmailContent(data: OrganizerRecoveryEma
       organizerTokenDesc: 'Gebruik deze token voor toegang:',
       securityNote: 'Als u dit herstel niet heeft aangevraagd, kunt u deze e-mail negeren. Uw toegangslink blijft geldig.',
       notYou: 'Was u dit niet?',
-      footer: 'Bedankt voor het gebruik van Secret Santa.',
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.',
       headerTitle: 'Link Herstel'
     }
   }
@@ -1100,7 +1100,7 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
     es: {
       subject: `🔑 Recuperación de enlace - "${game.name}"`,
       greeting: `¡Hola ${participant.name}!`,
-      recoveryRequested: 'Se ha solicitado la recuperación de tu enlace de participante para el juego de Secret Santa.',
+      recoveryRequested: 'Se ha solicitado la recuperación de tu enlace de participante para el juego de Intercambio de Regalos Zava.',
       recoveryDesc: 'Si solicitaste esta recuperación, usa el enlace o token a continuación para ver tu asignación.',
       participantLink: 'Tu enlace de participante',
       participantLinkDesc: 'Usa este enlace para ver tu asignación:',
@@ -1108,14 +1108,14 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: 'Usa este token para acceder:',
       securityNote: 'Si no solicitaste esta recuperación, puedes ignorar este correo. Tu enlace de acceso sigue siendo válido.',
       notYou: '¿No fuiste tú?',
-      footer: 'Gracias por usar Secret Santa.',
+      footer: 'Gracias por usar Intercambio de Regalos Zava.',
       headerTitle: 'Recuperación de Enlace',
       noTokenMessage: 'Este juego no está protegido. Usa el código del juego para acceder.'
     },
     en: {
       subject: `🔑 Link Recovery - "${game.name}"`,
       greeting: `Hello ${participant.name}!`,
-      recoveryRequested: 'A link recovery has been requested for your Secret Santa game participation.',
+      recoveryRequested: 'A link recovery has been requested for Your Zava Gift Exchange game participation.',
       recoveryDesc: 'If you requested this recovery, use the link or token below to view your assignment.',
       participantLink: 'Your participant link',
       participantLinkDesc: 'Use this link to view your assignment:',
@@ -1123,14 +1123,14 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: 'Use this token to access:',
       securityNote: 'If you didn\'t request this recovery, you can ignore this email. Your access link remains valid.',
       notYou: 'Wasn\'t you?',
-      footer: 'Thank you for using Secret Santa.',
+      footer: 'Thank you for using Zava Gift Exchange.',
       headerTitle: 'Link Recovery',
       noTokenMessage: 'This game is not protected. Use the game code to access.'
     },
     pt: {
       subject: `🔑 Recuperação de link - "${game.name}"`,
       greeting: `Olá ${participant.name}!`,
-      recoveryRequested: 'Foi solicitada a recuperação do seu link de participante do jogo de Secret Santa.',
+      recoveryRequested: 'Foi solicitada a recuperação do seu link de participante do jogo de Troca de Presentes Zava.',
       recoveryDesc: 'Se você solicitou esta recuperação, use o link ou token abaixo para ver sua atribuição.',
       participantLink: 'Seu link de participante',
       participantLinkDesc: 'Use este link para ver sua atribuição:',
@@ -1138,14 +1138,14 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: 'Use este token para acessar:',
       securityNote: 'Se você não solicitou esta recuperação, pode ignorar este email. Seu link de acesso continua válido.',
       notYou: 'Não foi você?',
-      footer: 'Obrigado por usar o Secret Santa.',
+      footer: 'Obrigado por usar a Troca de Presentes Zava.',
       headerTitle: 'Recuperação de Link',
       noTokenMessage: 'Este jogo não é protegido. Use o código do jogo para acessar.'
     },
     fr: {
       subject: `🔑 Récupération de lien - "${game.name}"`,
       greeting: `Bonjour ${participant.name}!`,
-      recoveryRequested: 'Une récupération de lien a été demandée pour votre participation au Secret Santa.',
+      recoveryRequested: 'Une récupération de lien a été demandée pour votre participation au Échange de Cadeaux Zava.',
       recoveryDesc: 'Si vous avez demandé cette récupération, utilisez le lien ou le jeton ci-dessous pour voir votre attribution.',
       participantLink: 'Votre lien de participant',
       participantLinkDesc: 'Utilisez ce lien pour voir votre attribution:',
@@ -1153,14 +1153,14 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: 'Utilisez ce jeton pour accéder:',
       securityNote: 'Si vous n\'avez pas demandé cette récupération, vous pouvez ignorer cet email. Votre lien d\'accès reste valide.',
       notYou: 'Ce n\'était pas vous?',
-      footer: 'Merci d\'utiliser Secret Santa.',
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.',
       headerTitle: 'Récupération de Lien',
       noTokenMessage: 'Ce jeu n\'est pas protégé. Utilisez le code du jeu pour accéder.'
     },
     it: {
       subject: `🔑 Recupero link - "${game.name}"`,
       greeting: `Ciao ${participant.name}!`,
-      recoveryRequested: 'È stato richiesto il recupero del tuo link partecipante per il gioco Secret Santa.',
+      recoveryRequested: 'È stato richiesto il recupero del tuo link partecipante per il gioco Échange de Cadeaux Zava.',
       recoveryDesc: 'Se hai richiesto questo recupero, usa il link o il token qui sotto per vedere la tua assegnazione.',
       participantLink: 'Il tuo link partecipante',
       participantLinkDesc: 'Usa questo link per vedere la tua assegnazione:',
@@ -1168,14 +1168,14 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: 'Usa questo token per accedere:',
       securityNote: 'Se non hai richiesto questo recupero, puoi ignorare questa email. Il tuo link di accesso rimane valido.',
       notYou: 'Non sei stato tu?',
-      footer: 'Grazie per usare Secret Santa.',
+      footer: 'Grazie per usare Échange de Cadeaux Zava.',
       headerTitle: 'Recupero Link',
       noTokenMessage: 'Questo gioco non è protetto. Usa il codice del gioco per accedere.'
     },
     ja: {
       subject: `🔑 リンク復旧 - "${game.name}"`,
       greeting: `こんにちは ${participant.name}さん！`,
-      recoveryRequested: 'Secret Santaゲームの参加者リンクの復旧がリクエストされました。',
+      recoveryRequested: 'Zava Gift Exchangeゲームの参加者リンクの復旧がリクエストされました。',
       recoveryDesc: 'この復旧をリクエストした場合は、以下のリンクまたはトークンを使用して割り当てを確認してください。',
       participantLink: '参加者リンク',
       participantLinkDesc: 'このリンクを使用して割り当てを確認してください:',
@@ -1183,14 +1183,14 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: 'このトークンを使用してアクセスしてください:',
       securityNote: 'この復旧をリクエストしていない場合は、このメールを無視してください。アクセスリンクは引き続き有効です。',
       notYou: '心当たりがない場合',
-      footer: 'Secret Santaをご利用いただきありがとうございます。',
+      footer: 'Zava Gift Exchangeをご利用いただきありがとうございます。',
       headerTitle: 'リンク復旧',
       noTokenMessage: 'このゲームは保護されていません。ゲームコードを使用してアクセスしてください。'
     },
     zh: {
       subject: `🔑 链接恢复 - "${game.name}"`,
       greeting: `您好 ${participant.name}！`,
-      recoveryRequested: '已请求恢复您的Secret Santa游戏参与者链接。',
+      recoveryRequested: '已请求恢复您的Zava礼物交换游戏参与者链接。',
       recoveryDesc: '如果您请求了此恢复，请使用下面的链接或令牌查看您的分配。',
       participantLink: '您的参与者链接',
       participantLinkDesc: '使用此链接查看您的分配:',
@@ -1198,14 +1198,14 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: '使用此令牌访问:',
       securityNote: '如果您没有请求此恢复，可以忽略此邮件。您的访问链接仍然有效。',
       notYou: '不是您操作的？',
-      footer: '感谢您使用Secret Santa。',
+      footer: '感谢您使用Zava礼物交换。',
       headerTitle: '链接恢复',
       noTokenMessage: '此游戏未受保护。使用游戏代码访问。'
     },
     de: {
       subject: `🔑 Link-Wiederherstellung - "${game.name}"`,
       greeting: `Hallo ${participant.name}!`,
-      recoveryRequested: 'Eine Link-Wiederherstellung wurde für Ihre Secret Santa Teilnahme angefordert.',
+      recoveryRequested: 'Eine Link-Wiederherstellung wurde für Ihre Zava Gift Exchange Teilnahme angefordert.',
       recoveryDesc: 'Wenn Sie diese Wiederherstellung angefordert haben, verwenden Sie den Link oder Token unten, um Ihre Zuweisung anzuzeigen.',
       participantLink: 'Ihr Teilnehmer-Link',
       participantLinkDesc: 'Verwenden Sie diesen Link, um Ihre Zuweisung anzuzeigen:',
@@ -1213,14 +1213,14 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: 'Verwenden Sie diesen Token für den Zugang:',
       securityNote: 'Wenn Sie diese Wiederherstellung nicht angefordert haben, können Sie diese E-Mail ignorieren. Ihr Zugangslink bleibt gültig.',
       notYou: 'Waren Sie das nicht?',
-      footer: 'Vielen Dank für die Nutzung von Secret Santa.',
+      footer: 'Vielen Dank für die Nutzung von Échange de Cadeaux Zava.',
       headerTitle: 'Link-Wiederherstellung',
       noTokenMessage: 'Dieses Spiel ist nicht geschützt. Verwenden Sie den Spielcode für den Zugang.'
     },
     nl: {
       subject: `🔑 Link Herstel - "${game.name}"`,
       greeting: `Hallo ${participant.name}!`,
-      recoveryRequested: 'Er is een linkherstel aangevraagd voor uw Secret Santa deelname.',
+      recoveryRequested: 'Er is een linkherstel aangevraagd voor uw Zava Gift Exchange deelname.',
       recoveryDesc: 'Als u dit herstel heeft aangevraagd, gebruik dan de link of token hieronder om uw toewijzing te bekijken.',
       participantLink: 'Uw deelnemerslink',
       participantLinkDesc: 'Gebruik deze link om uw toewijzing te bekijken:',
@@ -1228,7 +1228,7 @@ export function generateParticipantRecoveryEmailContent(data: ParticipantRecover
       participantTokenDesc: 'Gebruik deze token voor toegang:',
       securityNote: 'Als u dit herstel niet heeft aangevraagd, kunt u deze e-mail negeren. Uw toegangslink blijft geldig.',
       notYou: 'Was u dit niet?',
-      footer: 'Bedankt voor het gebruik van Secret Santa.',
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.',
       headerTitle: 'Link Herstel',
       noTokenMessage: 'Dit spel is niet beveiligd. Gebruik de spelcode voor toegang.'
     }
@@ -1401,7 +1401,7 @@ export function generateParticipantConfirmedEmailContent(data: ParticipantConfir
       confirmedAt: 'Confirmado',
       viewPanel: 'Ver panel del organizador',
       totalConfirmed: 'Total confirmados',
-      footer: 'Gracias por usar Secret Santa.',
+      footer: 'Gracias por usar Intercambio de Regalos Zava.',
       confirmationReceived: 'Confirmación Recibida'
     },
     en: {
@@ -1412,7 +1412,7 @@ export function generateParticipantConfirmedEmailContent(data: ParticipantConfir
       confirmedAt: 'Confirmed',
       viewPanel: 'View organizer panel',
       totalConfirmed: 'Total confirmed',
-      footer: 'Thank you for using Secret Santa.',
+      footer: 'Thank you for using Zava Gift Exchange.',
       confirmationReceived: 'Confirmation Received'
     },
     pt: {
@@ -1423,7 +1423,7 @@ export function generateParticipantConfirmedEmailContent(data: ParticipantConfir
       confirmedAt: 'Confirmado',
       viewPanel: 'Ver painel do organizador',
       totalConfirmed: 'Total confirmados',
-      footer: 'Obrigado por usar o Secret Santa.',
+      footer: 'Obrigado por usar a Troca de Presentes Zava.',
       confirmationReceived: 'Confirmação Recebida'
     },
     fr: {
@@ -1434,7 +1434,7 @@ export function generateParticipantConfirmedEmailContent(data: ParticipantConfir
       confirmedAt: 'Confirmé',
       viewPanel: 'Voir le panneau organisateur',
       totalConfirmed: 'Total confirmés',
-      footer: 'Merci d\'utiliser Secret Santa.',
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.',
       confirmationReceived: 'Confirmation Reçue'
     },
     it: {
@@ -1445,7 +1445,7 @@ export function generateParticipantConfirmedEmailContent(data: ParticipantConfir
       confirmedAt: 'Confermato',
       viewPanel: 'Vedi pannello organizzatore',
       totalConfirmed: 'Totale confermati',
-      footer: 'Grazie per aver usato Secret Santa.',
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.',
       confirmationReceived: 'Conferma Ricevuta'
     },
     ja: {
@@ -1456,7 +1456,7 @@ export function generateParticipantConfirmedEmailContent(data: ParticipantConfir
       confirmedAt: '確認済み',
       viewPanel: '主催者パネルを見る',
       totalConfirmed: '確認済み合計',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。',
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。',
       confirmationReceived: '確認を受信'
     },
     zh: {
@@ -1467,7 +1467,7 @@ export function generateParticipantConfirmedEmailContent(data: ParticipantConfir
       confirmedAt: '已确认',
       viewPanel: '查看组织者面板',
       totalConfirmed: '已确认总数',
-      footer: '感谢使用神秘圣诞老人。',
+      footer: '感谢使用Zava礼物交换。',
       confirmationReceived: '已收到确认'
     },
     de: {
@@ -1478,7 +1478,7 @@ export function generateParticipantConfirmedEmailContent(data: ParticipantConfir
       confirmedAt: 'Bestätigt',
       viewPanel: 'Organisator-Panel anzeigen',
       totalConfirmed: 'Gesamt bestätigt',
-      footer: 'Danke, dass du Wichteln verwendest.',
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.',
       confirmationReceived: 'Bestätigung erhalten'
     },
     nl: {
@@ -1489,7 +1489,7 @@ export function generateParticipantConfirmedEmailContent(data: ParticipantConfir
       confirmedAt: 'Bevestigd',
       viewPanel: 'Organisator-paneel bekijken',
       totalConfirmed: 'Totaal bevestigd',
-      footer: 'Bedankt voor het gebruik van Secret Santa.',
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.',
       confirmationReceived: 'Bevestiging Ontvangen'
     }
   }
@@ -1579,7 +1579,7 @@ export function generateReassignmentRequestedEmailContent(data: ReassignmentRequ
       pendingRequests: 'Solicitudes pendientes',
       action: 'Puedes aprobar o rechazar esta solicitud desde el panel del organizador.',
       viewPanel: 'Ver panel del organizador',
-      footer: 'Gracias por usar Secret Santa.',
+      footer: 'Gracias por usar Intercambio de Regalos Zava.',
       newRequest: 'Nueva Solicitud'
     },
     en: {
@@ -1590,7 +1590,7 @@ export function generateReassignmentRequestedEmailContent(data: ReassignmentRequ
       pendingRequests: 'Pending requests',
       action: 'You can approve or reject this request from the organizer panel.',
       viewPanel: 'View organizer panel',
-      footer: 'Thank you for using Secret Santa.',
+      footer: 'Thank you for using Zava Gift Exchange.',
       newRequest: 'New Request'
     },
     pt: {
@@ -1601,7 +1601,7 @@ export function generateReassignmentRequestedEmailContent(data: ReassignmentRequ
       pendingRequests: 'Solicitações pendentes',
       action: 'Você pode aprovar ou rejeitar esta solicitação no painel do organizador.',
       viewPanel: 'Ver painel do organizador',
-      footer: 'Obrigado por usar o Secret Santa.',
+      footer: 'Obrigado por usar a Troca de Presentes Zava.',
       newRequest: 'Nova Solicitação'
     },
     fr: {
@@ -1612,7 +1612,7 @@ export function generateReassignmentRequestedEmailContent(data: ReassignmentRequ
       pendingRequests: 'Demandes en attente',
       action: 'Vous pouvez approuver ou rejeter cette demande depuis le panneau organisateur.',
       viewPanel: 'Voir le panneau organisateur',
-      footer: 'Merci d\'utiliser Secret Santa.',
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.',
       newRequest: 'Nouvelle Demande'
     },
     it: {
@@ -1623,7 +1623,7 @@ export function generateReassignmentRequestedEmailContent(data: ReassignmentRequ
       pendingRequests: 'Richieste in sospeso',
       action: 'Puoi approvare o rifiutare questa richiesta dal pannello organizzatore.',
       viewPanel: 'Vedi pannello organizzatore',
-      footer: 'Grazie per aver usato Secret Santa.',
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.',
       newRequest: 'Nuova Richiesta'
     },
     ja: {
@@ -1634,7 +1634,7 @@ export function generateReassignmentRequestedEmailContent(data: ReassignmentRequ
       pendingRequests: '保留中のリクエスト',
       action: '主催者パネルからこのリクエストを承認または拒否できます。',
       viewPanel: '主催者パネルを見る',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。',
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。',
       newRequest: '新しいリクエスト'
     },
     zh: {
@@ -1645,7 +1645,7 @@ export function generateReassignmentRequestedEmailContent(data: ReassignmentRequ
       pendingRequests: '待处理请求',
       action: '您可以从组织者面板批准或拒绝此请求。',
       viewPanel: '查看组织者面板',
-      footer: '感谢使用神秘圣诞老人。',
+      footer: '感谢使用Zava礼物交换。',
       newRequest: '新请求'
     },
     de: {
@@ -1656,7 +1656,7 @@ export function generateReassignmentRequestedEmailContent(data: ReassignmentRequ
       pendingRequests: 'Ausstehende Anfragen',
       action: 'Du kannst diese Anfrage im Organisator-Panel genehmigen oder ablehnen.',
       viewPanel: 'Organisator-Panel anzeigen',
-      footer: 'Danke, dass du Wichteln verwendest.',
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.',
       newRequest: 'Neue Anfrage'
     },
     nl: {
@@ -1667,7 +1667,7 @@ export function generateReassignmentRequestedEmailContent(data: ReassignmentRequ
       pendingRequests: 'Openstaande verzoeken',
       action: 'Je kunt dit verzoek goedkeuren of afwijzen via het organisator-paneel.',
       viewPanel: 'Organisator-paneel bekijken',
-      footer: 'Bedankt voor het gebruik van Secret Santa.',
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.',
       newRequest: 'Nieuw Verzoek'
     }
   }
@@ -1761,7 +1761,7 @@ export function generateReassignmentResultEmailContent(data: ReassignmentResultE
       newAssignment: 'Tu nueva asignación',
       youGiftTo: 'Ahora le regalas a:',
       contactOrganizer: 'Si tienes preguntas, contacta al organizador del evento.',
-      footer: 'Gracias por usar Secret Santa.'
+      footer: 'Gracias por usar Intercambio de Regalos Zava.'
     },
     en: {
       subjectApproved: `✅ Your reassignment request was approved - "${game.name}"`,
@@ -1772,7 +1772,7 @@ export function generateReassignmentResultEmailContent(data: ReassignmentResultE
       newAssignment: 'Your new assignment',
       youGiftTo: 'You\'re now gifting to:',
       contactOrganizer: 'If you have questions, contact the event organizer.',
-      footer: 'Thank you for using Secret Santa.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subjectApproved: `✅ Sua solicitação de reatribuição foi aprovada - "${game.name}"`,
@@ -1783,7 +1783,7 @@ export function generateReassignmentResultEmailContent(data: ReassignmentResultE
       newAssignment: 'Sua nova atribuição',
       youGiftTo: 'Agora você presenteia:',
       contactOrganizer: 'Se tiver dúvidas, entre em contato com o organizador do evento.',
-      footer: 'Obrigado por usar o Secret Santa.'
+      footer: 'Obrigado por usar a Troca de Presentes Zava.'
     },
     fr: {
       subjectApproved: `✅ Votre demande de réattribution a été approuvée - "${game.name}"`,
@@ -1794,7 +1794,7 @@ export function generateReassignmentResultEmailContent(data: ReassignmentResultE
       newAssignment: 'Votre nouvelle attribution',
       youGiftTo: 'Vous offrez maintenant à :',
       contactOrganizer: 'Si vous avez des questions, contactez l\'organisateur de l\'événement.',
-      footer: 'Merci d\'utiliser Secret Santa.'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.'
     },
     it: {
       subjectApproved: `✅ La tua richiesta di riassegnazione è stata approvata - "${game.name}"`,
@@ -1805,7 +1805,7 @@ export function generateReassignmentResultEmailContent(data: ReassignmentResultE
       newAssignment: 'La tua nuova assegnazione',
       youGiftTo: 'Ora regali a:',
       contactOrganizer: 'Se hai domande, contatta l\'organizzatore dell\'evento.',
-      footer: 'Grazie per aver usato Secret Santa.'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.'
     },
     ja: {
       subjectApproved: `✅ 再割り当てリクエストが承認されました - 「${game.name}」`,
@@ -1816,7 +1816,7 @@ export function generateReassignmentResultEmailContent(data: ReassignmentResultE
       newAssignment: '新しい割り当て',
       youGiftTo: 'プレゼントを贈る相手：',
       contactOrganizer: 'ご質問がある場合は、イベント主催者にお問い合わせください。',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。'
     },
     zh: {
       subjectApproved: `✅ 您的重新分配请求已获批准 - "${game.name}"`,
@@ -1827,7 +1827,7 @@ export function generateReassignmentResultEmailContent(data: ReassignmentResultE
       newAssignment: '您的新分配',
       youGiftTo: '您现在要送礼物给：',
       contactOrganizer: '如有疑问，请联系活动组织者。',
-      footer: '感谢使用神秘圣诞老人。'
+      footer: '感谢使用Zava礼物交换。'
     },
     de: {
       subjectApproved: `✅ Deine Neuzuweisungsanfrage wurde genehmigt - "${game.name}"`,
@@ -1838,7 +1838,7 @@ export function generateReassignmentResultEmailContent(data: ReassignmentResultE
       newAssignment: 'Deine neue Zuweisung',
       youGiftTo: 'Du beschenkst jetzt:',
       contactOrganizer: 'Bei Fragen wende dich an den Veranstalter.',
-      footer: 'Danke, dass du Wichteln verwendest.'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.'
     },
     nl: {
       subjectApproved: `✅ Je hertoewijzingsverzoek is goedgekeurd - "${game.name}"`,
@@ -1849,7 +1849,7 @@ export function generateReassignmentResultEmailContent(data: ReassignmentResultE
       newAssignment: 'Je nieuwe toewijzing',
       youGiftTo: 'Je geeft nu een cadeau aan:',
       contactOrganizer: 'Als je vragen hebt, neem contact op met de organisator van het evenement.',
-      footer: 'Bedankt voor het gebruik van Secret Santa.'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.'
     }
   }
 
@@ -1946,7 +1946,7 @@ export function generateWishUpdatedEmailContent(data: WishUpdatedEmailData): { s
       theirWish: 'Su nuevo deseo',
       theirDesiredGift: 'Regalo que desea',
       headerTitle: 'Actualización de Deseo',
-      footer: 'Gracias por usar Secret Santa.'
+      footer: 'Gracias por usar Intercambio de Regalos Zava.'
     },
     en: {
       subject: `💡 ${receiver.name} updated their wish list - "${game.name}"`,
@@ -1955,7 +1955,7 @@ export function generateWishUpdatedEmailContent(data: WishUpdatedEmailData): { s
       theirWish: 'Their new wish',
       theirDesiredGift: 'Desired gift',
       headerTitle: 'Wish Updated',
-      footer: 'Thank you for using Secret Santa.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `💡 ${receiver.name} atualizou sua lista de desejos - "${game.name}"`,
@@ -1964,7 +1964,7 @@ export function generateWishUpdatedEmailContent(data: WishUpdatedEmailData): { s
       theirWish: 'Seu novo desejo',
       theirDesiredGift: 'Presente desejado',
       headerTitle: 'Desejo Atualizado',
-      footer: 'Obrigado por usar o Secret Santa.'
+      footer: 'Obrigado por usar a Troca de Presentes Zava.'
     },
     fr: {
       subject: `💡 ${receiver.name} a mis à jour sa liste de souhaits - "${game.name}"`,
@@ -1973,7 +1973,7 @@ export function generateWishUpdatedEmailContent(data: WishUpdatedEmailData): { s
       theirWish: 'Son nouveau souhait',
       theirDesiredGift: 'Cadeau souhaité',
       headerTitle: 'Souhait Mis à Jour',
-      footer: 'Merci d\'utiliser Secret Santa.'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.'
     },
     it: {
       subject: `💡 ${receiver.name} ha aggiornato la sua lista dei desideri - "${game.name}"`,
@@ -1982,7 +1982,7 @@ export function generateWishUpdatedEmailContent(data: WishUpdatedEmailData): { s
       theirWish: 'Il suo nuovo desiderio',
       theirDesiredGift: 'Regalo desiderato',
       headerTitle: 'Desiderio Aggiornato',
-      footer: 'Grazie per aver usato Secret Santa.'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.'
     },
     ja: {
       subject: `💡 ${receiver.name}さんがウィッシュリストを更新しました - 「${game.name}」`,
@@ -1991,7 +1991,7 @@ export function generateWishUpdatedEmailContent(data: WishUpdatedEmailData): { s
       theirWish: '新しいウィッシュ',
       theirDesiredGift: '希望のプレゼント',
       headerTitle: 'ウィッシュ更新',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。'
     },
     zh: {
       subject: `💡 ${receiver.name}更新了愿望清单 - "${game.name}"`,
@@ -2000,7 +2000,7 @@ export function generateWishUpdatedEmailContent(data: WishUpdatedEmailData): { s
       theirWish: '新的愿望',
       theirDesiredGift: '想要的礼物',
       headerTitle: '愿望已更新',
-      footer: '感谢使用神秘圣诞老人。'
+      footer: '感谢使用Zava礼物交换。'
     },
     de: {
       subject: `💡 ${receiver.name} hat die Wunschliste aktualisiert - "${game.name}"`,
@@ -2009,7 +2009,7 @@ export function generateWishUpdatedEmailContent(data: WishUpdatedEmailData): { s
       theirWish: 'Neuer Wunsch',
       theirDesiredGift: 'Gewünschtes Geschenk',
       headerTitle: 'Wunsch Aktualisiert',
-      footer: 'Danke, dass du Wichteln verwendest.'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.'
     },
     nl: {
       subject: `💡 ${receiver.name} heeft de verlanglijst bijgewerkt - "${game.name}"`,
@@ -2018,7 +2018,7 @@ export function generateWishUpdatedEmailContent(data: WishUpdatedEmailData): { s
       theirWish: 'Nieuwe wens',
       theirDesiredGift: 'Gewenst cadeau',
       headerTitle: 'Wens Bijgewerkt',
-      footer: 'Bedankt voor het gebruik van Secret Santa.'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.'
     }
   }
 
@@ -2105,7 +2105,7 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
     es: {
       subject: `📝 Los detalles del evento han cambiado - "${game.name}"`,
       greeting: recipientName ? `¡Hola ${recipientName}!` : '¡Hola!',
-      changed: 'Los detalles del evento de Secret Santa han sido actualizados.',
+      changed: 'Los detalles del evento de Intercambio de Regalos Zava han sido actualizados.',
       whatChanged: '¿Qué cambió?',
       date: 'Fecha',
       time: 'Hora',
@@ -2115,12 +2115,12 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
       to: 'Ahora',
       currentDetails: 'Detalles actuales del evento',
       viewEvent: 'Ver evento',
-      footer: 'Gracias por usar Secret Santa.'
+      footer: 'Gracias por usar Intercambio de Regalos Zava.'
     },
     en: {
       subject: `📝 Event details have changed - "${game.name}"`,
       greeting: recipientName ? `Hello ${recipientName}!` : 'Hello!',
-      changed: 'The Secret Santa event details have been updated.',
+      changed: 'The Zava Gift Exchange event details have been updated.',
       whatChanged: 'What changed?',
       date: 'Date',
       time: 'Time',
@@ -2130,12 +2130,12 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
       to: 'Now',
       currentDetails: 'Current event details',
       viewEvent: 'View event',
-      footer: 'Thank you for using Secret Santa.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `📝 Os detalhes do evento mudaram - "${game.name}"`,
       greeting: recipientName ? `Olá ${recipientName}!` : 'Olá!',
-      changed: 'Os detalhes do evento Secret Santa foram atualizados.',
+      changed: 'Os detalhes do evento Troca de Presentes Zava foram atualizados.',
       whatChanged: 'O que mudou?',
       date: 'Data',
       time: 'Hora',
@@ -2145,12 +2145,12 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
       to: 'Agora',
       currentDetails: 'Detalhes atuais do evento',
       viewEvent: 'Ver evento',
-      footer: 'Obrigado por usar o Secret Santa.'
+      footer: 'Obrigado por usar a Troca de Presentes Zava.'
     },
     fr: {
       subject: `📝 Les détails de l'événement ont changé - "${game.name}"`,
       greeting: recipientName ? `Bonjour ${recipientName} !` : 'Bonjour !',
-      changed: 'Les détails de l\'événement Secret Santa ont été mis à jour.',
+      changed: 'Les détails de l\'événement Échange de Cadeaux Zava ont été mis à jour.',
       whatChanged: 'Qu\'est-ce qui a changé ?',
       date: 'Date',
       time: 'Heure',
@@ -2160,12 +2160,12 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
       to: 'Maintenant',
       currentDetails: 'Détails actuels de l\'événement',
       viewEvent: 'Voir l\'événement',
-      footer: 'Merci d\'utiliser Secret Santa.'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.'
     },
     it: {
       subject: `📝 I dettagli dell'evento sono cambiati - "${game.name}"`,
       greeting: recipientName ? `Ciao ${recipientName}!` : 'Ciao!',
-      changed: 'I dettagli dell\'evento Secret Santa sono stati aggiornati.',
+      changed: 'I dettagli dell\'evento Scambio Regali Zava sono stati aggiornati.',
       whatChanged: 'Cosa è cambiato?',
       date: 'Data',
       time: 'Ora',
@@ -2175,12 +2175,12 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
       to: 'Adesso',
       currentDetails: 'Dettagli attuali dell\'evento',
       viewEvent: 'Visualizza evento',
-      footer: 'Grazie per aver usato Secret Santa.'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.'
     },
     ja: {
       subject: `📝 イベントの詳細が変更されました - 「${game.name}」`,
       greeting: recipientName ? `こんにちは、${recipientName}さん！` : 'こんにちは！',
-      changed: 'シークレットサンタイベントの詳細が更新されました。',
+      changed: 'Zava ギフト交換イベントの詳細が更新されました。',
       whatChanged: '変更内容',
       date: '日付',
       time: '時間',
@@ -2190,12 +2190,12 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
       to: '変更後',
       currentDetails: '現在のイベント詳細',
       viewEvent: 'イベントを見る',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。'
     },
     zh: {
       subject: `📝 活动详情已更改 - "${game.name}"`,
       greeting: recipientName ? `您好，${recipientName}！` : '您好！',
-      changed: '神秘圣诞老人活动详情已更新。',
+      changed: 'Zava礼物交换活动详情已更新。',
       whatChanged: '有什么变化？',
       date: '日期',
       time: '时间',
@@ -2205,12 +2205,12 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
       to: '现在',
       currentDetails: '当前活动详情',
       viewEvent: '查看活动',
-      footer: '感谢使用神秘圣诞老人。'
+      footer: '感谢使用Zava礼物交换。'
     },
     de: {
       subject: `📝 Die Veranstaltungsdetails haben sich geändert - "${game.name}"`,
       greeting: recipientName ? `Hallo ${recipientName}!` : 'Hallo!',
-      changed: 'Die Details der Wichtel-Veranstaltung wurden aktualisiert.',
+      changed: 'Die Details der Zava Geschenkaustausch-Veranstaltung wurden aktualisiert.',
       whatChanged: 'Was hat sich geändert?',
       date: 'Datum',
       time: 'Uhrzeit',
@@ -2220,12 +2220,12 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
       to: 'Jetzt',
       currentDetails: 'Aktuelle Veranstaltungsdetails',
       viewEvent: 'Veranstaltung anzeigen',
-      footer: 'Danke, dass du Wichteln verwendest.'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.'
     },
     nl: {
       subject: `📝 Evenementdetails zijn gewijzigd - "${game.name}"`,
       greeting: recipientName ? `Hallo ${recipientName}!` : 'Hallo!',
-      changed: 'De details van het Secret Santa-evenement zijn bijgewerkt.',
+      changed: 'De details van het Zava Cadeauwisseling-evenement zijn bijgewerkt.',
       whatChanged: 'Wat is er veranderd?',
       date: 'Datum',
       time: 'Tijd',
@@ -2235,7 +2235,7 @@ export function generateEventDetailsChangedEmailContent(data: EventDetailsChange
       to: 'Nu',
       currentDetails: 'Huidige evenementdetails',
       viewEvent: 'Bekijk evenement',
-      footer: 'Bedankt voor het gebruik van Secret Santa.'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.'
     }
   }
 
@@ -2368,9 +2368,9 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
     headerTitle: string; footer: string;
   }> = {
     es: {
-      subject: `🔔 Recordatorio: Secret Santa "${game.name}"`,
+      subject: `🔔 Recordatorio: Intercambio de Regalos Zava "${game.name}"`,
       greeting: `¡Hola ${recipientName}!`,
-      reminder: 'Este es un recordatorio sobre el evento de Secret Santa.',
+      reminder: 'Este es un recordatorio sobre el evento de Intercambio de Regalos Zava.',
       customMessageLabel: 'Mensaje del organizador',
       eventDetails: 'Detalles del evento',
       name: 'Evento',
@@ -2382,12 +2382,12 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       confirmReminder: 'Por favor confirma tu participación si aún no lo has hecho.',
       viewEvent: 'Ver evento',
       headerTitle: 'Recordatorio',
-      footer: 'Gracias por usar Secret Santa.'
+      footer: 'Gracias por usar Intercambio de Regalos Zava.'
     },
     en: {
-      subject: `🔔 Reminder: Secret Santa "${game.name}"`,
+      subject: `🔔 Reminder: Zava Gift Exchange "${game.name}"`,
       greeting: `Hello ${recipientName}!`,
-      reminder: 'This is a reminder about the Secret Santa event.',
+      reminder: 'This is a reminder about the Zava Gift Exchange event.',
       customMessageLabel: 'Message from organizer',
       eventDetails: 'Event details',
       name: 'Event',
@@ -2399,12 +2399,12 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       confirmReminder: 'Please confirm your participation if you haven\'t already.',
       viewEvent: 'View event',
       headerTitle: 'Reminder',
-      footer: 'Thank you for using Secret Santa.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
-      subject: `🔔 Lembrete: Secret Santa "${game.name}"`,
+      subject: `🔔 Lembrete: Troca de Presentes Zava "${game.name}"`,
       greeting: `Olá ${recipientName}!`,
-      reminder: 'Este é um lembrete sobre o evento Secret Santa.',
+      reminder: 'Este é um lembrete sobre o evento Échange de Cadeaux Zava.',
       customMessageLabel: 'Mensagem do organizador',
       eventDetails: 'Detalhes do evento',
       name: 'Evento',
@@ -2416,12 +2416,12 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       confirmReminder: 'Por favor, confirme sua participação se ainda não o fez.',
       viewEvent: 'Ver evento',
       headerTitle: 'Lembrete',
-      footer: 'Obrigado por usar o Secret Santa.'
+      footer: 'Obrigado por usar a Troca de Presentes Zava.'
     },
     fr: {
-      subject: `🔔 Rappel : Secret Santa "${game.name}"`,
+      subject: `🔔 Rappel : Échange de Cadeaux Zava "${game.name}"`,
       greeting: `Bonjour ${recipientName} !`,
-      reminder: 'Ceci est un rappel concernant l\'événement Secret Santa.',
+      reminder: 'Ceci est un rappel concernant l\'événement Échange de Cadeaux Zava.',
       customMessageLabel: 'Message de l\'organisateur',
       eventDetails: 'Détails de l\'événement',
       name: 'Événement',
@@ -2433,12 +2433,12 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       confirmReminder: 'Veuillez confirmer votre participation si vous ne l\'avez pas encore fait.',
       viewEvent: 'Voir l\'événement',
       headerTitle: 'Rappel',
-      footer: 'Merci d\'utiliser Secret Santa.'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.'
     },
     it: {
-      subject: `🔔 Promemoria: Secret Santa "${game.name}"`,
+      subject: `🔔 Promemoria: Scambio Regali Zava "${game.name}"`,
       greeting: `Ciao ${recipientName}!`,
-      reminder: 'Questo è un promemoria sull\'evento Secret Santa.',
+      reminder: 'Questo è un promemoria sull\'evento Échange de Cadeaux Zava.',
       customMessageLabel: 'Messaggio dall\'organizzatore',
       eventDetails: 'Dettagli dell\'evento',
       name: 'Evento',
@@ -2450,12 +2450,12 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       confirmReminder: 'Per favore conferma la tua partecipazione se non l\'hai ancora fatto.',
       viewEvent: 'Visualizza evento',
       headerTitle: 'Promemoria',
-      footer: 'Grazie per aver usato Secret Santa.'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.'
     },
     ja: {
-      subject: `🔔 リマインダー：シークレットサンタ「${game.name}」`,
+      subject: `🔔 リマインダー：Zava ギフト交換「${game.name}」`,
       greeting: `こんにちは、${recipientName}さん！`,
-      reminder: 'シークレットサンタイベントのリマインダーです。',
+      reminder: 'Zava ギフト交換イベントのリマインダーです。',
       customMessageLabel: '主催者からのメッセージ',
       eventDetails: 'イベント詳細',
       name: 'イベント',
@@ -2467,12 +2467,12 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       confirmReminder: 'まだの場合は、参加を確認してください。',
       viewEvent: 'イベントを見る',
       headerTitle: 'リマインダー',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。'
     },
     zh: {
-      subject: `🔔 提醒：神秘圣诞老人"${game.name}"`,
+      subject: `🔔 提醒：Zava礼物交换"${game.name}"`,
       greeting: `您好，${recipientName}！`,
-      reminder: '这是关于神秘圣诞老人活动的提醒。',
+      reminder: '这是关于Zava礼物交换活动的提醒。',
       customMessageLabel: '组织者的消息',
       eventDetails: '活动详情',
       name: '活动',
@@ -2484,12 +2484,12 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       confirmReminder: '如果您还没有确认，请确认您的参与。',
       viewEvent: '查看活动',
       headerTitle: '提醒',
-      footer: '感谢使用神秘圣诞老人。'
+      footer: '感谢使用Zava礼物交换。'
     },
     de: {
-      subject: `🔔 Erinnerung: Wichteln "${game.name}"`,
+      subject: `🔔 Erinnerung: Zava Geschenkaustausch "${game.name}"`,
       greeting: `Hallo ${recipientName}!`,
-      reminder: 'Dies ist eine Erinnerung an die Wichtel-Veranstaltung.',
+      reminder: 'Dies ist eine Erinnerung an die Zava Geschenkaustausch-Veranstaltung.',
       customMessageLabel: 'Nachricht vom Organisator',
       eventDetails: 'Veranstaltungsdetails',
       name: 'Veranstaltung',
@@ -2501,12 +2501,12 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       confirmReminder: 'Bitte bestätige deine Teilnahme, falls du es noch nicht getan hast.',
       viewEvent: 'Veranstaltung anzeigen',
       headerTitle: 'Erinnerung',
-      footer: 'Danke, dass du Wichteln verwendest.'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.'
     },
     nl: {
-      subject: `🔔 Herinnering: Secret Santa "${game.name}"`,
+      subject: `🔔 Herinnering: Zava Cadeauwisseling "${game.name}"`,
       greeting: `Hallo ${recipientName}!`,
-      reminder: 'Dit is een herinnering over het Secret Santa-evenement.',
+      reminder: 'Dit is een herinnering over het Zava Cadeauwisseling-evenement.',
       customMessageLabel: 'Bericht van de organisator',
       eventDetails: 'Evenementdetails',
       name: 'Evenement',
@@ -2518,7 +2518,7 @@ export function generateReminderEmailContent(data: ReminderEmailData, recipientN
       confirmReminder: 'Bevestig je deelname als je dat nog niet hebt gedaan.',
       viewEvent: 'Bekijk evenement',
       headerTitle: 'Herinnering',
-      footer: 'Bedankt voor het gebruik van Secret Santa.'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.'
     }
   }
 
@@ -2643,9 +2643,9 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
     action: string; viewEvent: string; footer: string;
   }> = {
     es: {
-      subject: `🎁 Has sido invitado al Secret Santa "${game.name}"`,
+      subject: `🎁 Has sido invitado al Intercambio de Regalos Zava "${game.name}"`,
       greeting: `¡Hola ${participant.name}!`,
-      invited: 'Has sido agregado a un juego de Secret Santa.',
+      invited: 'Has sido agregado a un juego de Intercambio de Regalos Zava.',
       eventDetails: 'Detalles del evento',
       name: 'Evento',
       date: 'Fecha',
@@ -2658,9 +2658,9 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
       footer: '¡Que disfrutes el intercambio de regalos!'
     },
     en: {
-      subject: `🎁 You've been invited to Secret Santa "${game.name}"`,
+      subject: `🎁 You've been invited to Zava Gift Exchange "${game.name}"`,
       greeting: `Hello ${participant.name}!`,
-      invited: 'You have been added to a Secret Santa game.',
+      invited: 'You have been added to a Zava Gift Exchange game.',
       eventDetails: 'Event details',
       name: 'Event',
       date: 'Date',
@@ -2673,9 +2673,9 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
       footer: 'Enjoy the gift exchange!'
     },
     pt: {
-      subject: `🎁 Você foi convidado para o Secret Santa "${game.name}"`,
+      subject: `🎁 Você foi convidado para a Troca de Presentes Zava "${game.name}"`,
       greeting: `Olá ${participant.name}!`,
-      invited: 'Você foi adicionado a um jogo de Secret Santa.',
+      invited: 'Você foi adicionado a um jogo de Troca de Presentes Zava.',
       eventDetails: 'Detalhes do evento',
       name: 'Evento',
       date: 'Data',
@@ -2688,9 +2688,9 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
       footer: 'Aproveite a troca de presentes!'
     },
     fr: {
-      subject: `🎁 Vous avez été invité au Secret Santa "${game.name}"`,
+      subject: `🎁 Vous avez été invité au Échange de Cadeaux Zava "${game.name}"`,
       greeting: `Bonjour ${participant.name} !`,
-      invited: 'Vous avez été ajouté à un jeu Secret Santa.',
+      invited: 'Vous avez été ajouté à un jeu Échange de Cadeaux Zava.',
       eventDetails: 'Détails de l\'événement',
       name: 'Événement',
       date: 'Date',
@@ -2703,9 +2703,9 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
       footer: 'Profitez de l\'échange de cadeaux !'
     },
     it: {
-      subject: `🎁 Sei stato invitato al Secret Santa "${game.name}"`,
+      subject: `🎁 Sei stato invitato al Intercambio de Regalos Zava "${game.name}"`,
       greeting: `Ciao ${participant.name}!`,
-      invited: 'Sei stato aggiunto a un gioco di Secret Santa.',
+      invited: 'Sei stato aggiunto a un gioco di Échange de Cadeaux Zava.',
       eventDetails: 'Dettagli dell\'evento',
       name: 'Evento',
       date: 'Data',
@@ -2718,9 +2718,9 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
       footer: 'Goditi lo scambio di regali!'
     },
     ja: {
-      subject: `🎁 シークレットサンタ「${game.name}」に招待されました`,
+      subject: `🎁 Zava ギフト交換「${game.name}」に招待されました`,
       greeting: `こんにちは、${participant.name}さん！`,
-      invited: 'シークレットサンタゲームに追加されました。',
+      invited: 'Zava ギフト交換ゲームに追加されました。',
       eventDetails: 'イベント詳細',
       name: 'イベント',
       date: '日付',
@@ -2733,9 +2733,9 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
       footer: 'プレゼント交換をお楽しみください！'
     },
     zh: {
-      subject: `🎁 您已被邀请参加神秘圣诞老人"${game.name}"`,
+      subject: `🎁 您已被邀请参加Zava礼物交换"${game.name}"`,
       greeting: `您好，${participant.name}！`,
-      invited: '您已被添加到神秘圣诞老人游戏中。',
+      invited: '您已被添加到Zava礼物交换游戏中。',
       eventDetails: '活动详情',
       name: '活动',
       date: '日期',
@@ -2748,9 +2748,9 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
       footer: '祝您礼物交换愉快！'
     },
     de: {
-      subject: `🎁 Du wurdest zum Wichteln "${game.name}" eingeladen`,
+      subject: `🎁 Du wurdest zum Zava Geschenkaustausch "${game.name}" eingeladen`,
       greeting: `Hallo ${participant.name}!`,
-      invited: 'Du wurdest zu einem Wichtelspiel hinzugefügt.',
+      invited: 'Du wurdest zu einem Zava Geschenkaustausch hinzugefügt.',
       eventDetails: 'Veranstaltungsdetails',
       name: 'Veranstaltung',
       date: 'Datum',
@@ -2763,9 +2763,9 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
       footer: 'Viel Spaß beim Geschenkaustausch!'
     },
     nl: {
-      subject: `🎁 Je bent uitgenodigd voor Secret Santa "${game.name}"`,
+      subject: `🎁 Je bent uitgenodigd voor Zava Cadeauwisseling "${game.name}"`,
       greeting: `Hallo ${participant.name}!`,
-      invited: 'Je bent toegevoegd aan een Secret Santa-spel.',
+      invited: 'Je bent toegevoegd aan een Zava Cadeauwisseling-spel.',
       eventDetails: 'Evenementdetails',
       name: 'Evenement',
       date: 'Datum',
@@ -2790,7 +2790,7 @@ export function generateParticipantInvitationEmailContent(data: ParticipantInvit
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="background: linear-gradient(135deg, #c41e3a 0%, #165B33 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
-    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Secret Santa</h1>
+    <h1 style="color: white; margin: 0; font-size: 28px;">🎁 Zava Gift Exchange</h1>
   </div>
   
   <div style="background: #fff; padding: 30px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 10px 10px;">
@@ -2869,7 +2869,7 @@ export function generateFullReassignmentEmailContent(data: FullReassignmentEmail
     es: {
       subject: `🔄 Nueva asignación en "${game.name}" - Reasignación del organizador`,
       greeting: `¡Hola ${participant.name}!`,
-      intro: 'El organizador ha realizado una reasignación completa del juego de Secret Santa.',
+      intro: 'El organizador ha realizado una reasignación completa del juego de Intercambio de Regalos Zava.',
       newAssignment: '¡Tu nueva asignación está lista!',
       youGiftTo: 'Ahora le regalas a:',
       theirWish: 'Su deseo de regalo:',
@@ -2885,7 +2885,7 @@ export function generateFullReassignmentEmailContent(data: FullReassignmentEmail
     en: {
       subject: `🔄 New assignment in "${game.name}" - Organizer reassignment`,
       greeting: `Hello ${participant.name}!`,
-      intro: 'The organizer has performed a full reassignment of the Secret Santa game.',
+      intro: 'The organizer has performed a full reassignment of the Zava Gift Exchange game.',
       newAssignment: 'Your new assignment is ready!',
       youGiftTo: 'You\'re now gifting to:',
       theirWish: 'Their gift wish:',
@@ -2901,7 +2901,7 @@ export function generateFullReassignmentEmailContent(data: FullReassignmentEmail
     pt: {
       subject: `🔄 Nova atribuição em "${game.name}" - Reatribuição do organizador`,
       greeting: `Olá ${participant.name}!`,
-      intro: 'O organizador realizou uma reatribuição completa do jogo Secret Santa.',
+      intro: 'O organizador realizou uma reatribuição completa do jogo Échange de Cadeaux Zava.',
       newAssignment: 'Sua nova atribuição está pronta!',
       youGiftTo: 'Agora você presenteia:',
       theirWish: 'Desejo de presente:',
@@ -2917,7 +2917,7 @@ export function generateFullReassignmentEmailContent(data: FullReassignmentEmail
     fr: {
       subject: `🔄 Nouvelle attribution dans "${game.name}" - Réattribution par l'organisateur`,
       greeting: `Bonjour ${participant.name} !`,
-      intro: 'L\'organisateur a effectué une réattribution complète du jeu Secret Santa.',
+      intro: 'L\'organisateur a effectué une réattribution complète du jeu Échange de Cadeaux Zava.',
       newAssignment: 'Votre nouvelle attribution est prête !',
       youGiftTo: 'Vous offrez maintenant à :',
       theirWish: 'Son souhait de cadeau :',
@@ -2933,7 +2933,7 @@ export function generateFullReassignmentEmailContent(data: FullReassignmentEmail
     it: {
       subject: `🔄 Nuova assegnazione in "${game.name}" - Riassegnazione dell'organizzatore`,
       greeting: `Ciao ${participant.name}!`,
-      intro: 'L\'organizzatore ha effettuato una riassegnazione completa del gioco Secret Santa.',
+      intro: 'L\'organizzatore ha effettuato una riassegnazione completa del gioco Échange de Cadeaux Zava.',
       newAssignment: 'La tua nuova assegnazione è pronta!',
       youGiftTo: 'Ora regali a:',
       theirWish: 'Il suo desiderio:',
@@ -2949,7 +2949,7 @@ export function generateFullReassignmentEmailContent(data: FullReassignmentEmail
     ja: {
       subject: `🔄 「${game.name}」の新しい割り当て - 主催者による再割り当て`,
       greeting: `こんにちは、${participant.name}さん！`,
-      intro: '主催者がシークレットサンタゲームの完全な再割り当てを行いました。',
+      intro: '主催者がZava ギフト交換ゲームの完全な再割り当てを行いました。',
       newAssignment: '新しい割り当てが準備できました！',
       youGiftTo: 'プレゼントを贈る相手：',
       theirWish: 'プレゼントの希望：',
@@ -2965,7 +2965,7 @@ export function generateFullReassignmentEmailContent(data: FullReassignmentEmail
     zh: {
       subject: `🔄 "${game.name}"中的新分配 - 组织者重新分配`,
       greeting: `您好，${participant.name}！`,
-      intro: '组织者已对神秘圣诞老人游戏进行了完全重新分配。',
+      intro: '组织者已对Zava礼物交换游戏进行了完全重新分配。',
       newAssignment: '您的新分配已准备就绪！',
       youGiftTo: '您现在要送礼物给：',
       theirWish: '他们的礼物愿望：',
@@ -2981,7 +2981,7 @@ export function generateFullReassignmentEmailContent(data: FullReassignmentEmail
     de: {
       subject: `🔄 Neue Zuweisung in "${game.name}" - Neuzuweisung durch den Organisator`,
       greeting: `Hallo ${participant.name}!`,
-      intro: 'Der Organisator hat eine vollständige Neuzuweisung des Wichtelspiels durchgeführt.',
+      intro: 'Der Organisator hat eine vollständige Neuzuweisung des Zava Geschenkaustauschs durchgeführt.',
       newAssignment: 'Deine neue Zuweisung ist bereit!',
       youGiftTo: 'Du beschenkst jetzt:',
       theirWish: 'Geschenkwunsch:',
@@ -2997,7 +2997,7 @@ export function generateFullReassignmentEmailContent(data: FullReassignmentEmail
     nl: {
       subject: `🔄 Nieuwe toewijzing in "${game.name}" - Hertoewijzing door organisator`,
       greeting: `Hallo ${participant.name}!`,
-      intro: 'De organisator heeft een volledige hertoewijzing van het Secret Santa-spel uitgevoerd.',
+      intro: 'De organisator heeft een volledige hertoewijzing van het Zava Cadeauwisseling-spel uitgevoerd.',
       newAssignment: 'Je nieuwe toewijzing is klaar!',
       youGiftTo: 'Je geeft nu een cadeau aan:',
       theirWish: 'Hun cadeauwens:',
@@ -3170,7 +3170,7 @@ export function generateParticipantRemovedEmailContent(data: ParticipantRemovedE
       sorry: 'Lamentamos cualquier inconveniente que esto pueda causar.',
       contact: 'Si tienes alguna pregunta, por favor contacta al organizador del evento.',
       headerTitle: 'Actualización del Evento',
-      footer: 'Gracias por usar Secret Santa.'
+      footer: 'Gracias por usar Intercambio de Regalos Zava.'
     },
     en: {
       subject: `🎄 You have been removed from "${gameName}"`,
@@ -3180,7 +3180,7 @@ export function generateParticipantRemovedEmailContent(data: ParticipantRemovedE
       sorry: 'We apologize for any inconvenience this may cause.',
       contact: 'If you have any questions, please contact the event organizer.',
       headerTitle: 'Event Update',
-      footer: 'Thank you for using Secret Santa.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `🎄 Você foi removido do jogo "${gameName}"`,
@@ -3190,7 +3190,7 @@ export function generateParticipantRemovedEmailContent(data: ParticipantRemovedE
       sorry: 'Pedimos desculpas por qualquer inconveniente que isso possa causar.',
       contact: 'Se você tiver alguma dúvida, entre em contato com o organizador do evento.',
       headerTitle: 'Atualização do Evento',
-      footer: 'Obrigado por usar o Secret Santa.'
+      footer: 'Obrigado por usar a Troca de Presentes Zava.'
     },
     fr: {
       subject: `🎄 Vous avez été retiré de "${gameName}"`,
@@ -3200,7 +3200,7 @@ export function generateParticipantRemovedEmailContent(data: ParticipantRemovedE
       sorry: 'Nous nous excusons pour tout inconvénient que cela pourrait causer.',
       contact: 'Si vous avez des questions, veuillez contacter l\'organisateur de l\'événement.',
       headerTitle: 'Mise à Jour de l\'Événement',
-      footer: 'Merci d\'utiliser Secret Santa.'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.'
     },
     it: {
       subject: `🎄 Sei stato rimosso da "${gameName}"`,
@@ -3210,7 +3210,7 @@ export function generateParticipantRemovedEmailContent(data: ParticipantRemovedE
       sorry: 'Ci scusiamo per eventuali inconvenienti che questo possa causare.',
       contact: 'Se hai domande, contatta l\'organizzatore dell\'evento.',
       headerTitle: 'Aggiornamento Evento',
-      footer: 'Grazie per aver usato Secret Santa.'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.'
     },
     ja: {
       subject: `🎄 「${gameName}」から削除されました`,
@@ -3220,7 +3220,7 @@ export function generateParticipantRemovedEmailContent(data: ParticipantRemovedE
       sorry: 'ご不便をおかけして申し訳ございません。',
       contact: 'ご質問がある場合は、イベント主催者にお問い合わせください。',
       headerTitle: 'イベント更新',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。'
     },
     zh: {
       subject: `🎄 您已从"${gameName}"中移除`,
@@ -3230,7 +3230,7 @@ export function generateParticipantRemovedEmailContent(data: ParticipantRemovedE
       sorry: '对于由此造成的任何不便，我们深表歉意。',
       contact: '如有任何问题，请联系活动组织者。',
       headerTitle: '活动更新',
-      footer: '感谢使用神秘圣诞老人。'
+      footer: '感谢使用Zava礼物交换。'
     },
     de: {
       subject: `🎄 Du wurdest aus "${gameName}" entfernt`,
@@ -3240,7 +3240,7 @@ export function generateParticipantRemovedEmailContent(data: ParticipantRemovedE
       sorry: 'Wir entschuldigen uns für eventuelle Unannehmlichkeiten.',
       contact: 'Bei Fragen wende dich bitte an den Veranstalter.',
       headerTitle: 'Event-Aktualisierung',
-      footer: 'Danke, dass du Wichteln verwendest.'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.'
     },
     nl: {
       subject: `🎄 Je bent verwijderd uit "${gameName}"`,
@@ -3250,7 +3250,7 @@ export function generateParticipantRemovedEmailContent(data: ParticipantRemovedE
       sorry: 'Onze excuses voor het ongemak dat dit kan veroorzaken.',
       contact: 'Als je vragen hebt, neem dan contact op met de organisator.',
       headerTitle: 'Evenement Update',
-      footer: 'Bedankt voor het gebruik van Secret Santa.'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.'
     }
   }
 
@@ -3350,7 +3350,7 @@ export function generateGameDeletedEmailContent(data: GameDeletedEmailData): { s
       sorry: 'Lamentamos cualquier inconveniente que esto pueda causar.',
       questions: 'Si tienes alguna pregunta, por favor contacta al organizador del evento.',
       headerTitle: 'Evento Cancelado',
-      footer: 'Gracias por usar Secret Santa.'
+      footer: 'Gracias por usar Intercambio de Regalos Zava.'
     },
     en: {
       subject: `❌ The gift exchange "${gameName}" has been cancelled`,
@@ -3361,7 +3361,7 @@ export function generateGameDeletedEmailContent(data: GameDeletedEmailData): { s
       sorry: 'We apologize for any inconvenience this may cause.',
       questions: 'If you have any questions, please contact the event organizer.',
       headerTitle: 'Event Cancelled',
-      footer: 'Thank you for using Secret Santa.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `❌ A troca de presentes "${gameName}" foi cancelada`,
@@ -3372,7 +3372,7 @@ export function generateGameDeletedEmailContent(data: GameDeletedEmailData): { s
       sorry: 'Pedimos desculpas por qualquer inconveniente que isso possa causar.',
       questions: 'Se você tiver alguma dúvida, entre em contato com o organizador do evento.',
       headerTitle: 'Evento Cancelado',
-      footer: 'Obrigado por usar o Secret Santa.'
+      footer: 'Obrigado por usar a Troca de Presentes Zava.'
     },
     fr: {
       subject: `❌ L'échange de cadeaux "${gameName}" a été annulé`,
@@ -3383,7 +3383,7 @@ export function generateGameDeletedEmailContent(data: GameDeletedEmailData): { s
       sorry: 'Nous nous excusons pour tout inconvénient que cela pourrait causer.',
       questions: 'Si vous avez des questions, veuillez contacter l\'organisateur de l\'événement.',
       headerTitle: 'Événement Annulé',
-      footer: 'Merci d\'utiliser Secret Santa.'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.'
     },
     it: {
       subject: `❌ Lo scambio di regali "${gameName}" è stato annullato`,
@@ -3394,7 +3394,7 @@ export function generateGameDeletedEmailContent(data: GameDeletedEmailData): { s
       sorry: 'Ci scusiamo per eventuali inconvenienti che questo possa causare.',
       questions: 'Se hai domande, contatta l\'organizzatore dell\'evento.',
       headerTitle: 'Evento Annullato',
-      footer: 'Grazie per aver usato Secret Santa.'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.'
     },
     ja: {
       subject: `❌ ギフト交換「${gameName}」がキャンセルされました`,
@@ -3405,7 +3405,7 @@ export function generateGameDeletedEmailContent(data: GameDeletedEmailData): { s
       sorry: 'ご不便をおかけして申し訳ございません。',
       questions: 'ご質問がある場合は、イベント主催者にお問い合わせください。',
       headerTitle: 'イベントキャンセル',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。'
     },
     zh: {
       subject: `❌ 礼物交换"${gameName}"已取消`,
@@ -3416,7 +3416,7 @@ export function generateGameDeletedEmailContent(data: GameDeletedEmailData): { s
       sorry: '对于由此造成的任何不便，我们深表歉意。',
       questions: '如有任何问题，请联系活动组织者。',
       headerTitle: '活动已取消',
-      footer: '感谢使用神秘圣诞老人。'
+      footer: '感谢使用Zava礼物交换。'
     },
     de: {
       subject: `❌ Der Geschenkaustausch "${gameName}" wurde abgesagt`,
@@ -3427,7 +3427,7 @@ export function generateGameDeletedEmailContent(data: GameDeletedEmailData): { s
       sorry: 'Wir entschuldigen uns für eventuelle Unannehmlichkeiten.',
       questions: 'Bei Fragen wende dich bitte an den Veranstalter.',
       headerTitle: 'Event Abgesagt',
-      footer: 'Danke, dass du Wichteln verwendest.'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.'
     },
     nl: {
       subject: `❌ De cadeauuitwisseling "${gameName}" is geannuleerd`,
@@ -3438,7 +3438,7 @@ export function generateGameDeletedEmailContent(data: GameDeletedEmailData): { s
       sorry: 'Onze excuses voor het ongemak dat dit kan veroorzaken.',
       questions: 'Als je vragen hebt, neem dan contact op met de organisator.',
       headerTitle: 'Evenement Geannuleerd',
-      footer: 'Bedankt voor het gebruik van Secret Santa.'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.'
     }
   }
 
@@ -3601,7 +3601,7 @@ export function generateEventUpcomingEmailContent(data: EventUpcomingEmailData):
       viewGame: 'Ver juego',
       dontForget: '¡No olvides traer tu regalo!',
       headerTitle: 'Recordatorio del Evento',
-      footer: 'Gracias por usar Secret Santa. ¡Que disfruten el intercambio!'
+      footer: 'Gracias por usar Intercambio de Regalos Zava. ¡Que disfruten el intercambio!'
     },
     en: {
       subject: `⏰ Reminder! "${game.name}" is tomorrow`,
@@ -3619,7 +3619,7 @@ export function generateEventUpcomingEmailContent(data: EventUpcomingEmailData):
       viewGame: 'View game',
       dontForget: 'Don\'t forget to bring your gift!',
       headerTitle: 'Event Reminder',
-      footer: 'Thank you for using Secret Santa. Enjoy the exchange!'
+      footer: 'Thank you for using Zava Gift Exchange. Enjoy the exchange!'
     },
     pt: {
       subject: `⏰ Lembrete! "${game.name}" é amanhã`,
@@ -3637,7 +3637,7 @@ export function generateEventUpcomingEmailContent(data: EventUpcomingEmailData):
       viewGame: 'Ver jogo',
       dontForget: 'Não esqueça de trazer seu presente!',
       headerTitle: 'Lembrete do Evento',
-      footer: 'Obrigado por usar o Secret Santa. Aproveite a troca!'
+      footer: 'Obrigado por usar a Troca de Presentes Zava. Aproveite a troca!'
     },
     fr: {
       subject: `⏰ Rappel ! "${game.name}" c'est demain`,
@@ -3655,7 +3655,7 @@ export function generateEventUpcomingEmailContent(data: EventUpcomingEmailData):
       viewGame: 'Voir le jeu',
       dontForget: 'N\'oubliez pas d\'apporter votre cadeau !',
       headerTitle: 'Rappel de l\'Événement',
-      footer: 'Merci d\'utiliser Secret Santa. Profitez de l\'échange !'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava. Profitez de l\'échange !'
     },
     it: {
       subject: `⏰ Promemoria! "${game.name}" è domani`,
@@ -3673,7 +3673,7 @@ export function generateEventUpcomingEmailContent(data: EventUpcomingEmailData):
       viewGame: 'Vedi gioco',
       dontForget: 'Non dimenticare di portare il tuo regalo!',
       headerTitle: 'Promemoria Evento',
-      footer: 'Grazie per aver usato Secret Santa. Buon scambio!'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava. Buon scambio!'
     },
     ja: {
       subject: `⏰ リマインダー！「${game.name}」は明日です`,
@@ -3691,7 +3691,7 @@ export function generateEventUpcomingEmailContent(data: EventUpcomingEmailData):
       viewGame: 'ゲームを見る',
       dontForget: 'プレゼントを忘れずに！',
       headerTitle: 'イベントリマインダー',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。交換を楽しんでください！'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。交換を楽しんでください！'
     },
     zh: {
       subject: `⏰ 提醒！"${game.name}"是明天`,
@@ -3709,7 +3709,7 @@ export function generateEventUpcomingEmailContent(data: EventUpcomingEmailData):
       viewGame: '查看游戏',
       dontForget: '别忘了带上您的礼物！',
       headerTitle: '活动提醒',
-      footer: '感谢使用神秘圣诞老人。享受交换乐趣！'
+      footer: '感谢使用Zava礼物交换。享受交换乐趣！'
     },
     de: {
       subject: `⏰ Erinnerung! "${game.name}" ist morgen`,
@@ -3727,7 +3727,7 @@ export function generateEventUpcomingEmailContent(data: EventUpcomingEmailData):
       viewGame: 'Spiel ansehen',
       dontForget: 'Vergiss nicht, dein Geschenk mitzubringen!',
       headerTitle: 'Event-Erinnerung',
-      footer: 'Danke, dass du Wichteln verwendest. Viel Spaß beim Austausch!'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest. Viel Spaß beim Austausch!'
     },
     nl: {
       subject: `⏰ Herinnering! "${game.name}" is morgen`,
@@ -3745,7 +3745,7 @@ export function generateEventUpcomingEmailContent(data: EventUpcomingEmailData):
       viewGame: 'Bekijk spel',
       dontForget: 'Vergeet niet je cadeau mee te nemen!',
       headerTitle: 'Evenement Herinnering',
-      footer: 'Bedankt voor het gebruik van Secret Santa. Geniet van de uitwisseling!'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava. Geniet van de uitwisseling!'
     }
   }
 
@@ -3897,7 +3897,7 @@ export function generateAllConfirmedEmailContent(data: AllConfirmedEmailData): {
       participants: 'Lista de participantes',
       manageGame: 'Administrar juego',
       headerTitle: '¡Todos Confirmados!',
-      footer: 'Gracias por usar Secret Santa.'
+      footer: 'Gracias por usar Intercambio de Regalos Zava.'
     },
     en: {
       subject: `✅ All confirmed! "${game.name}" is ready`,
@@ -3911,7 +3911,7 @@ export function generateAllConfirmedEmailContent(data: AllConfirmedEmailData): {
       participants: 'Participant list',
       manageGame: 'Manage game',
       headerTitle: 'All Confirmed!',
-      footer: 'Thank you for using Secret Santa.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `✅ Todos confirmados! "${game.name}" está pronto`,
@@ -3925,7 +3925,7 @@ export function generateAllConfirmedEmailContent(data: AllConfirmedEmailData): {
       participants: 'Lista de participantes',
       manageGame: 'Gerenciar jogo',
       headerTitle: 'Todos Confirmados!',
-      footer: 'Obrigado por usar o Secret Santa.'
+      footer: 'Obrigado por usar a Troca de Presentes Zava.'
     },
     fr: {
       subject: `✅ Tous confirmés ! "${game.name}" est prêt`,
@@ -3939,7 +3939,7 @@ export function generateAllConfirmedEmailContent(data: AllConfirmedEmailData): {
       participants: 'Liste des participants',
       manageGame: 'Gérer le jeu',
       headerTitle: 'Tous Confirmés !',
-      footer: 'Merci d\'utiliser Secret Santa.'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.'
     },
     it: {
       subject: `✅ Tutti confermati! "${game.name}" è pronto`,
@@ -3953,7 +3953,7 @@ export function generateAllConfirmedEmailContent(data: AllConfirmedEmailData): {
       participants: 'Lista partecipanti',
       manageGame: 'Gestisci gioco',
       headerTitle: 'Tutti Confermati!',
-      footer: 'Grazie per aver usato Secret Santa.'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.'
     },
     ja: {
       subject: `✅ 全員確認完了！「${game.name}」準備完了`,
@@ -3967,7 +3967,7 @@ export function generateAllConfirmedEmailContent(data: AllConfirmedEmailData): {
       participants: '参加者リスト',
       manageGame: 'ゲームを管理',
       headerTitle: '全員確認完了！',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。'
     },
     zh: {
       subject: `✅ 全部确认！"${game.name}"已准备就绪`,
@@ -3981,7 +3981,7 @@ export function generateAllConfirmedEmailContent(data: AllConfirmedEmailData): {
       participants: '参与者列表',
       manageGame: '管理游戏',
       headerTitle: '全部确认！',
-      footer: '感谢使用神秘圣诞老人。'
+      footer: '感谢使用Zava礼物交换。'
     },
     de: {
       subject: `✅ Alle bestätigt! "${game.name}" ist bereit`,
@@ -3995,7 +3995,7 @@ export function generateAllConfirmedEmailContent(data: AllConfirmedEmailData): {
       participants: 'Teilnehmerliste',
       manageGame: 'Spiel verwalten',
       headerTitle: 'Alle Bestätigt!',
-      footer: 'Danke, dass du Wichteln verwendest.'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.'
     },
     nl: {
       subject: `✅ Allemaal bevestigd! "${game.name}" is klaar`,
@@ -4009,7 +4009,7 @@ export function generateAllConfirmedEmailContent(data: AllConfirmedEmailData): {
       participants: 'Deelnemerslijst',
       manageGame: 'Spel beheren',
       headerTitle: 'Allemaal Bevestigd!',
-      footer: 'Bedankt voor het gebruik van Secret Santa.'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.'
     }
   }
 
@@ -4129,7 +4129,7 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
     es: {
       subject: `🔐 Nuevo enlace de organizador - "${game.name}"`,
       greeting: '¡Hola Organizador!',
-      tokenRegenerated: 'Se ha generado un nuevo enlace de acceso para tu evento de Secret Santa.',
+      tokenRegenerated: 'Se ha generado un nuevo enlace de acceso para tu evento de Intercambio de Regalos Zava.',
       newLinkDesc: 'El enlace anterior ya no funcionará. Usa el nuevo enlace a continuación para acceder al panel de organizador.',
       oldLinkWarning: '⚠️ El enlace anterior ha sido desactivado por seguridad.',
       organizerLink: 'Nuevo enlace del organizador',
@@ -4138,12 +4138,12 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
       organizerTokenDesc: 'Usa este token junto con el código del juego para administrar el juego (¡no lo compartas!):',
       securityNote: 'Si no solicitaste este cambio, alguien con acceso a tu panel de organizador regeneró el token.',
       headerTitle: 'Nuevo Enlace de Acceso',
-      footer: 'Gracias por usar Secret Santa.'
+      footer: 'Gracias por usar Intercambio de Regalos Zava.'
     },
     en: {
       subject: `🔐 New organizer link - "${game.name}"`,
       greeting: 'Hello Organizer!',
-      tokenRegenerated: 'A new access link has been generated for your Secret Santa event.',
+      tokenRegenerated: 'A new access link has been generated for your Zava Gift Exchange event.',
       newLinkDesc: 'The previous link will no longer work. Use the new link below to access the organizer panel.',
       oldLinkWarning: '⚠️ The previous link has been deactivated for security.',
       organizerLink: 'New organizer link',
@@ -4152,12 +4152,12 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
       organizerTokenDesc: 'Use this token along with the game code to manage the game (don\'t share it!):',
       securityNote: 'If you didn\'t request this change, someone with access to your organizer panel regenerated the token.',
       headerTitle: 'New Access Link',
-      footer: 'Thank you for using Secret Santa.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `🔐 Novo link do organizador - "${game.name}"`,
       greeting: 'Olá Organizador!',
-      tokenRegenerated: 'Um novo link de acesso foi gerado para seu evento de Secret Santa.',
+      tokenRegenerated: 'Um novo link de acesso foi gerado para seu evento de Intercambio de Regalos Zava.',
       newLinkDesc: 'O link anterior não funcionará mais. Use o novo link abaixo para acessar o painel do organizador.',
       oldLinkWarning: '⚠️ O link anterior foi desativado por segurança.',
       organizerLink: 'Novo link do organizador',
@@ -4166,12 +4166,12 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
       organizerTokenDesc: 'Use este token junto com o código do jogo para gerenciá-lo (não compartilhe!):',
       securityNote: 'Se você não solicitou essa alteração, alguém com acesso ao seu painel de organizador regenerou o token.',
       headerTitle: 'Novo Link de Acesso',
-      footer: 'Obrigado por usar o Secret Santa.'
+      footer: 'Obrigado por usar a Troca de Presentes Zava.'
     },
     fr: {
       subject: `🔐 Nouveau lien organisateur - "${game.name}"`,
       greeting: 'Bonjour Organisateur !',
-      tokenRegenerated: 'Un nouveau lien d\'accès a été généré pour votre événement Secret Santa.',
+      tokenRegenerated: 'Un nouveau lien d\'accès a été généré pour votre événement Échange de Cadeaux Zava.',
       newLinkDesc: 'L\'ancien lien ne fonctionnera plus. Utilisez le nouveau lien ci-dessous pour accéder au panneau organisateur.',
       oldLinkWarning: '⚠️ L\'ancien lien a été désactivé pour des raisons de sécurité.',
       organizerLink: 'Nouveau lien organisateur',
@@ -4180,12 +4180,12 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
       organizerTokenDesc: 'Utilisez ce token avec le code du jeu pour le gérer (ne le partagez pas !) :',
       securityNote: 'Si vous n\'avez pas demandé ce changement, quelqu\'un ayant accès à votre panneau organisateur a régénéré le token.',
       headerTitle: 'Nouveau Lien d\'Accès',
-      footer: 'Merci d\'utiliser Secret Santa.'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.'
     },
     it: {
       subject: `🔐 Nuovo link organizzatore - "${game.name}"`,
       greeting: 'Ciao Organizzatore!',
-      tokenRegenerated: 'È stato generato un nuovo link di accesso per il tuo evento Secret Santa.',
+      tokenRegenerated: 'È stato generato un nuovo link di accesso per il tuo evento Échange de Cadeaux Zava.',
       newLinkDesc: 'Il link precedente non funzionerà più. Usa il nuovo link qui sotto per accedere al pannello organizzatore.',
       oldLinkWarning: '⚠️ Il link precedente è stato disattivato per sicurezza.',
       organizerLink: 'Nuovo link dell\'organizzatore',
@@ -4194,12 +4194,12 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
       organizerTokenDesc: 'Usa questo token insieme al codice del gioco per gestirlo (non condividerlo!):',
       securityNote: 'Se non hai richiesto questa modifica, qualcuno con accesso al tuo pannello organizzatore ha rigenerato il token.',
       headerTitle: 'Nuovo Link di Accesso',
-      footer: 'Grazie per aver usato Secret Santa.'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.'
     },
     ja: {
       subject: `🔐 新しい主催者リンク - 「${game.name}」`,
       greeting: 'こんにちは、主催者さん！',
-      tokenRegenerated: 'シークレットサンタイベントの新しいアクセスリンクが生成されました。',
+      tokenRegenerated: 'Zava ギフト交換イベントの新しいアクセスリンクが生成されました。',
       newLinkDesc: '以前のリンクは使用できなくなりました。以下の新しいリンクを使用して主催者パネルにアクセスしてください。',
       oldLinkWarning: '⚠️ セキュリティのため、以前のリンクは無効になりました。',
       organizerLink: '新しい主催者リンク',
@@ -4208,12 +4208,12 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
       organizerTokenDesc: 'このトークンとゲームコードを使用してゲームを管理してください（共有しないでください）：',
       securityNote: 'この変更をリクエストしていない場合、主催者パネルにアクセスできる誰かがトークンを再生成しました。',
       headerTitle: '新しいアクセスリンク',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。'
     },
     zh: {
       subject: `🔐 新的组织者链接 - "${game.name}"`,
       greeting: '您好，组织者！',
-      tokenRegenerated: '已为您的神秘圣诞老人活动生成了新的访问链接。',
+      tokenRegenerated: '已为您的Zava礼物交换活动生成了新的访问链接。',
       newLinkDesc: '之前的链接将不再有效。请使用下面的新链接访问组织者面板。',
       oldLinkWarning: '⚠️ 出于安全考虑，之前的链接已被停用。',
       organizerLink: '新的组织者链接',
@@ -4222,12 +4222,12 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
       organizerTokenDesc: '使用此令牌和游戏代码管理游戏（请勿分享）：',
       securityNote: '如果您没有请求此更改，则有权访问您的组织者面板的人重新生成了令牌。',
       headerTitle: '新的访问链接',
-      footer: '感谢使用神秘圣诞老人。'
+      footer: '感谢使用Zava礼物交换。'
     },
     de: {
       subject: `🔐 Neuer Organisator-Link - "${game.name}"`,
       greeting: 'Hallo Organisator!',
-      tokenRegenerated: 'Ein neuer Zugriffslink wurde für dein Wichteln-Event generiert.',
+      tokenRegenerated: 'Ein neuer Zugriffslink wurde für dein Zava Geschenkaustausch-Event generiert.',
       newLinkDesc: 'Der vorherige Link funktioniert nicht mehr. Verwende den neuen Link unten, um auf das Organisator-Panel zuzugreifen.',
       oldLinkWarning: '⚠️ Der vorherige Link wurde aus Sicherheitsgründen deaktiviert.',
       organizerLink: 'Neuer Organisator-Link',
@@ -4236,12 +4236,12 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
       organizerTokenDesc: 'Verwende dieses Token zusammen mit dem Spielcode um das Spiel zu verwalten (nicht teilen!):',
       securityNote: 'Wenn du diese Änderung nicht angefordert hast, hat jemand mit Zugriff auf dein Organisator-Panel das Token neu generiert.',
       headerTitle: 'Neuer Zugriffslink',
-      footer: 'Danke, dass du Wichteln verwendest.'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.'
     },
     nl: {
       subject: `🔐 Nieuwe organisator-link - "${game.name}"`,
       greeting: 'Hallo Organisator!',
-      tokenRegenerated: 'Er is een nieuwe toegangslink gegenereerd voor je Secret Santa-evenement.',
+      tokenRegenerated: 'Er is een nieuwe toegangslink gegenereerd voor je Zava Cadeauwisseling-evenement.',
       newLinkDesc: 'De vorige link werkt niet meer. Gebruik de nieuwe link hieronder om toegang te krijgen tot het organisator-paneel.',
       oldLinkWarning: '⚠️ De vorige link is uit veiligheidsoverwegingen gedeactiveerd.',
       organizerLink: 'Nieuwe organisator-link',
@@ -4250,7 +4250,7 @@ export function generateNewOrganizerLinkEmailContent(data: NewOrganizerLinkEmail
       organizerTokenDesc: 'Gebruik deze token samen met de spelcode om het spel te beheren (deel deze niet!):',
       securityNote: 'Als je deze wijziging niet hebt aangevraagd, heeft iemand met toegang tot je organisator-paneel de token opnieuw gegenereerd.',
       headerTitle: 'Nieuwe Toegangslink',
-      footer: 'Bedankt voor het gebruik van Secret Santa.'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.'
     }
   }
 
@@ -4341,110 +4341,110 @@ export function generateEmailUpdatedEmailContent(data: EmailUpdatedEmailData): {
     es: {
       subject: `🔔 Tu email ha sido actualizado - "${gameName}"`,
       greeting: `Hola ${participantName},`,
-      emailChanged: 'Te informamos que tu dirección de correo electrónico ha sido actualizada en el juego de Secret Santa.',
+      emailChanged: 'Te informamos que tu dirección de correo electrónico ha sido actualizada en el juego de Intercambio de Regalos Zava.',
       forSecurity: 'Por seguridad, te enviamos esta notificación a tu nueva dirección de correo.',
       previousEmail: 'Email anterior',
       newEmailLabel: 'Nuevo email',
       notYou: '¿No fuiste tú?',
       contact: 'Si no realizaste este cambio, por favor contacta al organizador del evento inmediatamente.',
       headerTitle: 'Email Actualizado',
-      footer: 'Gracias por usar Secret Santa.'
+      footer: 'Gracias por usar Intercambio de Regalos Zava.'
     },
     en: {
       subject: `🔔 Your email has been updated - "${gameName}"`,
       greeting: `Hello ${participantName},`,
-      emailChanged: 'We\'re writing to let you know that your email address has been updated in the Secret Santa game.',
+      emailChanged: 'We\'re writing to let you know that your email address has been updated in the Zava Gift Exchange game.',
       forSecurity: 'For security purposes, we\'re sending this notification to your new email address.',
       previousEmail: 'Previous email',
       newEmailLabel: 'New email',
       notYou: 'Wasn\'t you?',
       contact: 'If you didn\'t make this change, please contact the event organizer immediately.',
       headerTitle: 'Email Updated',
-      footer: 'Thank you for using Secret Santa.'
+      footer: 'Thank you for using Zava Gift Exchange.'
     },
     pt: {
       subject: `🔔 Seu email foi atualizado - "${gameName}"`,
       greeting: `Olá ${participantName},`,
-      emailChanged: 'Informamos que seu endereço de email foi atualizado no jogo de Secret Santa.',
+      emailChanged: 'Informamos que seu endereço de email foi atualizado no jogo de Troca de Presentes Zava.',
       forSecurity: 'Por segurança, estamos enviando esta notificação para seu novo endereço de email.',
       previousEmail: 'Email anterior',
       newEmailLabel: 'Novo email',
       notYou: 'Não foi você?',
       contact: 'Se você não fez esta alteração, entre em contato com o organizador do evento imediatamente.',
       headerTitle: 'Email Atualizado',
-      footer: 'Obrigado por usar o Secret Santa.'
+      footer: 'Obrigado por usar a Troca de Presentes Zava.'
     },
     fr: {
       subject: `🔔 Votre email a été mis à jour - "${gameName}"`,
       greeting: `Bonjour ${participantName},`,
-      emailChanged: 'Nous vous informons que votre adresse email a été mise à jour dans le jeu Secret Santa.',
+      emailChanged: 'Nous vous informons que votre adresse email a été mise à jour dans le jeu Échange de Cadeaux Zava.',
       forSecurity: 'Pour des raisons de sécurité, nous envoyons cette notification à votre nouvelle adresse email.',
       previousEmail: 'Email précédent',
       newEmailLabel: 'Nouvel email',
       notYou: 'Ce n\'était pas vous ?',
       contact: 'Si vous n\'avez pas effectué ce changement, veuillez contacter l\'organisateur de l\'événement immédiatement.',
       headerTitle: 'Email Mis à Jour',
-      footer: 'Merci d\'utiliser Secret Santa.'
+      footer: 'Merci d\'utiliser Échange de Cadeaux Zava.'
     },
     it: {
       subject: `🔔 La tua email è stata aggiornata - "${gameName}"`,
       greeting: `Ciao ${participantName},`,
-      emailChanged: 'Ti informiamo che il tuo indirizzo email è stato aggiornato nel gioco Secret Santa.',
+      emailChanged: 'Ti informiamo che il tuo indirizzo email è stato aggiornato nel gioco Échange de Cadeaux Zava.',
       forSecurity: 'Per sicurezza, stiamo inviando questa notifica al tuo nuovo indirizzo email.',
       previousEmail: 'Email precedente',
       newEmailLabel: 'Nuova email',
       notYou: 'Non sei stato tu?',
       contact: 'Se non hai effettuato questa modifica, contatta immediatamente l\'organizzatore dell\'evento.',
       headerTitle: 'Email Aggiornata',
-      footer: 'Grazie per aver usato Secret Santa.'
+      footer: 'Grazie per aver usato Échange de Cadeaux Zava.'
     },
     ja: {
       subject: `🔔 メールアドレスが更新されました - 「${gameName}」`,
       greeting: `${participantName}さん、こんにちは。`,
-      emailChanged: 'シークレットサンタゲームでメールアドレスが更新されたことをお知らせします。',
+      emailChanged: 'Zava ギフト交換ゲームでメールアドレスが更新されたことをお知らせします。',
       forSecurity: 'セキュリティのため、この通知を新しいメールアドレスに送信しています。',
       previousEmail: '以前のメール',
       newEmailLabel: '新しいメール',
       notYou: 'あなたではありませんか？',
       contact: 'この変更を行っていない場合は、すぐにイベント主催者に連絡してください。',
       headerTitle: 'メール更新',
-      footer: 'シークレットサンタをご利用いただきありがとうございます。'
+      footer: 'Zava ギフト交換をご利用いただきありがとうございます。'
     },
     zh: {
       subject: `🔔 您的邮箱已更新 - "${gameName}"`,
       greeting: `${participantName}，您好，`,
-      emailChanged: '我们通知您，您在神秘圣诞老人游戏中的电子邮箱地址已更新。',
+      emailChanged: '我们通知您，您在Zava礼物交换游戏中的电子邮箱地址已更新。',
       forSecurity: '出于安全考虑，我们将此通知发送到您的新电子邮箱地址。',
       previousEmail: '之前的邮箱',
       newEmailLabel: '新邮箱',
       notYou: '不是您本人操作？',
       contact: '如果您没有进行此更改，请立即联系活动组织者。',
       headerTitle: '邮箱已更新',
-      footer: '感谢使用神秘圣诞老人。'
+      footer: '感谢使用Zava礼物交换。'
     },
     de: {
       subject: `🔔 Deine E-Mail wurde aktualisiert - "${gameName}"`,
       greeting: `Hallo ${participantName},`,
-      emailChanged: 'Wir möchten dich informieren, dass deine E-Mail-Adresse im Wichteln-Spiel aktualisiert wurde.',
+      emailChanged: 'Wir möchten dich informieren, dass deine E-Mail-Adresse im Zava Geschenkaustausch aktualisiert wurde.',
       forSecurity: 'Aus Sicherheitsgründen senden wir diese Benachrichtigung an deine neue E-Mail-Adresse.',
       previousEmail: 'Vorherige E-Mail',
       newEmailLabel: 'Neue E-Mail',
       notYou: 'Warst du das nicht?',
       contact: 'Wenn du diese Änderung nicht vorgenommen hast, kontaktiere bitte sofort den Veranstalter.',
       headerTitle: 'E-Mail Aktualisiert',
-      footer: 'Danke, dass du Wichteln verwendest.'
+      footer: 'Danke, dass du Zava Geschenkaustausch verwendest.'
     },
     nl: {
       subject: `🔔 Je e-mail is bijgewerkt - "${gameName}"`,
       greeting: `Hallo ${participantName},`,
-      emailChanged: 'We laten je weten dat je e-mailadres is bijgewerkt in het Secret Santa spel.',
+      emailChanged: 'We laten je weten dat je e-mailadres is bijgewerkt in het Zava Cadeauwisseling spel.',
       forSecurity: 'Om veiligheidsredenen sturen we deze melding naar je nieuwe e-mailadres.',
       previousEmail: 'Vorige e-mail',
       newEmailLabel: 'Nieuwe e-mail',
       notYou: 'Was jij dit niet?',
       contact: 'Als je deze wijziging niet hebt aangebracht, neem dan onmiddellijk contact op met de organisator.',
       headerTitle: 'E-mail Bijgewerkt',
-      footer: 'Bedankt voor het gebruik van Secret Santa.'
+      footer: 'Bedankt voor het gebruik van Échange de Cadeaux Zava.'
     }
   }
 

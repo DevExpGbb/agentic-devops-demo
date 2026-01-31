@@ -90,7 +90,7 @@ export async function initializeStorage(): Promise<void> {
       
       cosmosClient = new CosmosClient(clientOptions)
       
-      const databaseId = process.env.COSMOS_DATABASE_NAME || 'secretsanta'
+      const databaseId = process.env.COSMOS_DATABASE_NAME || 'zavaexchangegift'
       const containerId = process.env.COSMOS_CONTAINER_NAME || 'games'
       
       // Create database and container if they don't exist

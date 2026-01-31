@@ -67,7 +67,7 @@ describe('types', () => {
       const game: Game = {
         id: 'game-1',
         code: '123456',
-        name: 'Christmas Exchange',
+        name: 'Gift Exchange',
         amount: '20',
         currency: 'USD',
         date: '2025-12-25',
@@ -84,7 +84,7 @@ describe('types', () => {
 
       expect(game.id).toBe('game-1')
       expect(game.code).toBe('123456')
-      expect(game.name).toBe('Christmas Exchange')
+      expect(game.name).toBe('Gift Exchange')
       expect(game.currency).toBe('USD')
       expect(game.allowReassignment).toBe(true)
       expect(game.reassignmentRequests).toHaveLength(0)

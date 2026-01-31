@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest a new feature or enhancement for Secret Santa
+about: Suggest a new feature or enhancement for Zava Gift Exchange
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''

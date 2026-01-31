@@ -20,7 +20,7 @@ services:
       # Data persistence for Codespaces reliability
       - cosmos-db-data:/data/db
     networks:
-      - secretsanta-network
+      - zavaexchangegift-network
     healthcheck:
       test: ["CMD", "curl", "-f", "-k", "https://localhost:8081/_explorer/emulator.pem"]
       interval: 5s
@@ -46,7 +46,7 @@ services:
     volumes:
       - azurite-data:/data
     networks:
-      - secretsanta-network
+      - zavaexchangegift-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:10000/devstoreaccount1?comp=properties"]
       interval: 5s
@@ -62,5 +62,5 @@ volumes:
     driver: local
 
 networks:
-  secretsanta-network:
+  zavaexchangegift-network:
     driver: bridge

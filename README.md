@@ -1,9 +1,9 @@
-# 🎁 Secret Santa
+# 🎁 Zava Gift Exchange
 
-Secret Santa gift exchange web application built with React + Vite, Azure Functions, and Azure Cosmos DB.
+Zava Gift Exchange gift exchange web application built with React + Vite, Azure Functions, and Azure Cosmos DB.
 
-[![CI/CD](https://github.com/dsanchezcr/secretsanta/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/dsanchezcr/secretsanta/actions/workflows/ci-cd.yml)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dsanchezcr/secretsanta?quickstart=1)
+[![CI/CD](https://github.com/dsanchezcr/zavaexchangegift/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/dsanchezcr/zavaexchangegift/actions/workflows/ci-cd.yml)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dsanchezcr/zavaexchangegift?quickstart=1)
 
 ## ✨ Features
 
@@ -24,9 +24,9 @@ Secret Santa gift exchange web application built with React + Vite, Azure Functi
 
 | Environment | Resource Group | Static Web App | Cosmos DB | Lifecycle |
 |-------------|----------------|----------------|-----------|------------|
-| **PR Preview** | `secretsanta-pr-{number}` | Free | Serverless | Created on PR open, deleted on close |
-| **QA** | `secretsanta-qa` | Free | Free Tier | Persistent (isolated from prod) |
-| **Production** | `secretsanta` | Standard | Serverless | Persistent (unlimited scaling) |
+| **PR Preview** | `zavaexchangegift-pr-{number}` | Free | Serverless | Created on PR open, deleted on close |
+| **QA** | `zavaexchangegift-qa` | Free | Free Tier | Persistent (isolated from prod) |
+| **Production** | `zavaexchangegift` | Standard | Serverless | Persistent (unlimited scaling) |
 
 Each environment has its **own Static Web App** and **own Cosmos DB** (QA is completely isolated).
 All environments are **automatically configured** with:
@@ -80,7 +80,7 @@ All prerequisites work the same way on **Windows, macOS, and Linux**.
 
 **GitHub Codespaces** - No installation required, develop entirely in the browser:
 
-1. Click: [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dsanchezcr/secretsanta?quickstart=1)
+1. Click: [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dsanchezcr/zavaexchangegift?quickstart=1)
 2. Wait ~60 seconds for container to build
 3. Press **F5** in VS Code (browser-based)
 4. Click notification to open frontend in browser
@@ -95,8 +95,8 @@ Run everything on your machine:
 
 ```bash
 # Clone repository
-git clone https://github.com/dsanchezcr/secretsanta.git
-cd secretsanta
+git clone https://github.com/dsanchezcr/zavaexchangegift.git
+cd zavaexchangegift
 
 # Start full-stack (Docker + API + Frontend)
 npm install
@@ -119,7 +119,7 @@ Open: http://localhost:5173
 2. **Configure GitHub OIDC Authentication**:
    ```bash
    # Create service principal
-   az ad sp create-for-rbac --name "secretsanta-github" \
+   az ad sp create-for-rbac --name "zavaexchangegift-github" \
      --role contributor \
      --scopes /subscriptions/{subscription-id} --json-auth
    ```
@@ -129,7 +129,7 @@ Open: http://localhost:5173
 
 4. **Create Production Resource Group**:
    ```bash
-   az group create --name secretsanta --location centralus
+   az group create --name zavaexchangegift --location centralus
    ```
 
 5. **Open a PR** - Full infrastructure is created automatically!
@@ -142,8 +142,8 @@ The fastest way to get running is with VS Code's integrated debugger:
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/dsanchezcr/secretsanta.git
-cd secretsanta
+git clone https://github.com/dsanchezcr/zavaexchangegift.git
+cd zavaexchangegift
 
 # 2. Start Docker containers (all platforms)
 docker-compose up -d

@@ -44,7 +44,7 @@ export function ErrorView({ errorType, gameCode, onGoHome, onSubmitToken, emailC
     'unexpected': 'An unexpected error occurred. Please try again or contact the organizer.',
   }
 
-  console.error(`[SecretSanta Error] ${errorMessages[errorType]}`)
+  console.error(`[ZavaExchangeGift Error] ${errorMessages[errorType]}`)
 
   const titleAndDescKeys: Record<ErrorType, { title: TranslationKey; desc: TranslationKey }> = {
     'invalid-token': { title: 'errorInvalidToken', desc: 'errorInvalidTokenDesc' },

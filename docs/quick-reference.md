@@ -86,7 +86,7 @@ az login
 
 # Create service principal
 az ad sp create-for-rbac \
-  --name "secretsanta-github-cicd" \
+  --name "zavaexchangegift-github-cicd" \
   --role contributor \
   --scopes /subscriptions/$(az account show --query id -o tsv)
 
@@ -132,24 +132,24 @@ az account set --subscription "subscription-id"
 
 # Create resource group
 az group create \
-  --name secretsanta \
+  --name zavaexchangegift \
   --location centralus
 
 # Create QA resource group (isolated from production)
 az group create \
-  --name secretsanta-qa \
+  --name zavaexchangegift-qa \
   --location centralus
 
 # List resources
 az group list --output table
-az resource list --resource-group secretsanta --output table
+az resource list --resource-group zavaexchangegift --output table
 
 # Delete resource group
-az group delete --name secretsanta --yes --no-wait
+az group delete --name zavaexchangegift --yes --no-wait
 
 # View deployment history
 az deployment group list \
-  --resource-group secretsanta \
+  --resource-group zavaexchangegift \
   --output table
 ```
 
@@ -161,19 +161,19 @@ az bicep build --file ./infra/main.bicep
 
 # Validate deployment
 az deployment group validate \
-  --resource-group secretsanta \
+  --resource-group zavaexchangegift \
   --template-file ./infra/main.bicep \
   --parameters ./infra/parameters.prod.json
 
 # Deploy QA infrastructure (isolated resource group)
 az deployment group create \
-  --resource-group secretsanta-qa \
+  --resource-group zavaexchangegift-qa \
   --template-file ./infra/main.bicep \
   --parameters ./infra/parameters.qa.json
 
 # Deploy Production infrastructure
 az deployment group create \
-  --resource-group secretsanta \
+  --resource-group zavaexchangegift \
   --template-file ./infra/main.bicep \
   --parameters ./infra/parameters.prod.json
 ```
@@ -195,7 +195,7 @@ docker-compose logs -f azurite              # Just Azurite
 
 # Azure resources logs
 az monitor activity-log list \
-  --resource-group secretsanta \
+  --resource-group zavaexchangegift \
   --output table
 
 # Application Insights logs
@@ -242,7 +242,7 @@ az cost management query create \
 ```bash
 # Create service principal and get JSON output
 az ad sp create-for-rbac \
-  --name "secretsanta-github-cicd" \
+  --name "zavaexchangegift-github-cicd" \
   --role contributor \
   --scopes /subscriptions/{subscription-id}
 
@@ -257,7 +257,7 @@ az ad sp create-for-rbac \
 ```bash
 # Create new service principal
 az ad sp create-for-rbac \
-  --name "secretsanta-github-cicd-new" \
+  --name "zavaexchangegift-github-cicd-new" \
   --role contributor \
   --scopes /subscriptions/{subscription-id}
 
@@ -275,13 +275,13 @@ az ad sp delete --id {old-app-id}
 
 # QA environment (isolated resource group)
 az staticwebapp secrets list \
-  --name secretsanta-qa \
-  --resource-group secretsanta-qa
+  --name zavaexchangegift-qa \
+  --resource-group zavaexchangegift-qa
 
 # Production environment
 az staticwebapp secrets list \
-  --name secretsanta-prod \
-  --resource-group secretsanta
+  --name zavaexchangegift-prod \
+  --resource-group zavaexchangegift
 ```
 
 ---
@@ -422,13 +422,13 @@ gh workflow run ci-cd.yml -f environment=prod
 ```bash
 # Check recent deployments
 az deployment group list \
-  --resource-group secretsanta \
+  --resource-group zavaexchangegift \
   --query "[].{name:name, time:properties.timestamp, state:properties.provisioningState}" \
   --output table
 
 # Detailed deployment info
 az deployment group show \
-  --resource-group secretsanta \
+  --resource-group zavaexchangegift \
   --name <deployment-name>
 ```
 
